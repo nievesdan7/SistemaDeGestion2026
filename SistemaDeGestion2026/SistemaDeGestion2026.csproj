@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE74AC87-ACBF-411B-98A1-42C6BF92B530}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SistemaDeGestion2026</RootNamespace>
+    <AssemblyName>SistemaDeGestion2026</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Design, Version=12.5.0.2, Culture=neutral, PublicKeyToken=90f470f34c89ccaf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DONETBAR\DotNetBar Full\Parche\Manual (Archivos .dll)\DevComponents.DotNetBar.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=12.5.0.2, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DPFPCtlXTypeLibNET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="DPFPCtlXWrapperNET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7" />
+    <Reference Include="DPFPGuiNET, Version=1.3.0.0, Culture=neutral, PublicKeyToken=d4f4a0bd9c559145" />
+    <Reference Include="DPFPShrNET, Version=1.3.0.0, Culture=neutral, PublicKeyToken=d902fe275a8d6cf2" />
+    <Reference Include="DPFPShrXTypeLibNET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="DPFPVerNET, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\DigitalPersona\One Touch SDK\.NET\Bin\DPFPVerNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.11, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.10.0.11\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.EntityFrameworkCore.3.1.18\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.18\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.EntityFrameworkCore.Relational.3.1.18\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Caching.Abstractions.3.1.18\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Caching.Memory.3.1.18\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.3.1.18\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.3.1.18\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Binder.3.1.18\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.3.1.18\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.3.1.18\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.3.1.18\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.18.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.3.1.18\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=8.0.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>packages\Npgsql.8.0.3\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql.EntityFrameworkCore.PostgreSQL, Version=3.1.18.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>packages\Npgsql.EntityFrameworkCore.PostgreSQL.3.1.18\lib\netstandard2.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.8.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=10.0.0.11, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Pipelines.10.0.11\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=10.0.0.11, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.10.0.11\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.19, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.9.0.19\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Channels.8.0.0\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FRM_Categoria_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Categoria_Lista.Designer.cs">
+      <DependentUpon>FRM_Categoria_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Categoria_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Categoria_Registrar.Designer.cs">
+      <DependentUpon>FRM_Categoria_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Cliente_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Cliente_Lista.Designer.cs">
+      <DependentUpon>FRM_Cliente_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Cliente_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Cliente_Registrar.Designer.cs">
+      <DependentUpon>FRM_Cliente_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Fondo1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Fondo1.Designer.cs">
+      <DependentUpon>FRM_Fondo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Fondo2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Fondo2.Designer.cs">
+      <DependentUpon>FRM_Fondo2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Iniciar_Sesion_Huella.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Iniciar_Sesion_Huella.Designer.cs">
+      <DependentUpon>FRM_Iniciar_Sesion_Huella.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Modificar_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Modificar_Password.Designer.cs">
+      <DependentUpon>FRM_Modificar_Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Persona_Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Persona_Buscar.Designer.cs">
+      <DependentUpon>FRM_Persona_Buscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Persona_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Persona_Lista.Designer.cs">
+      <DependentUpon>FRM_Persona_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Persona_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Persona_Registrar.Designer.cs">
+      <DependentUpon>FRM_Persona_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Usuario_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Usuario_Lista.Designer.cs">
+      <DependentUpon>FRM_Usuario_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Usuario_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Usuario_Registrar.Designer.cs">
+      <DependentUpon>FRM_Usuario_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_IniciarSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_IniciarSesion.Designer.cs">
+      <DependentUpon>FRM_IniciarSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Principal.Designer.cs">
+      <DependentUpon>FRM_Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Producto_Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Producto_Buscar.Designer.cs">
+      <DependentUpon>FRM_Producto_Buscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Producto_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Producto_Lista.Designer.cs">
+      <DependentUpon>FRM_Producto_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Producto_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Producto_Registrar.Designer.cs">
+      <DependentUpon>FRM_Producto_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Splash.Designer.cs">
+      <DependentUpon>FRM_Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MetodosGenerales.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FRM_Categoria_Lista.resx">
+      <DependentUpon>FRM_Categoria_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Categoria_Registrar.resx">
+      <DependentUpon>FRM_Categoria_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Cliente_Lista.resx">
+      <DependentUpon>FRM_Cliente_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Cliente_Registrar.resx">
+      <DependentUpon>FRM_Cliente_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Fondo1.resx">
+      <DependentUpon>FRM_Fondo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Fondo2.resx">
+      <DependentUpon>FRM_Fondo2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Iniciar_Sesion_Huella.resx">
+      <DependentUpon>FRM_Iniciar_Sesion_Huella.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Modificar_Password.resx">
+      <DependentUpon>FRM_Modificar_Password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Persona_Buscar.resx">
+      <DependentUpon>FRM_Persona_Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Persona_Lista.resx">
+      <DependentUpon>FRM_Persona_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Persona_Registrar.resx">
+      <DependentUpon>FRM_Persona_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Usuario_Lista.resx">
+      <DependentUpon>FRM_Usuario_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Usuario_Registrar.resx">
+      <DependentUpon>FRM_Usuario_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_IniciarSesion.resx">
+      <DependentUpon>FRM_IniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Principal.resx">
+      <DependentUpon>FRM_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Producto_Buscar.resx">
+      <DependentUpon>FRM_Producto_Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Producto_Lista.resx">
+      <DependentUpon>FRM_Producto_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Producto_Registrar.resx">
+      <DependentUpon>FRM_Producto_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Splash.resx">
+      <DependentUpon>FRM_Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-registrar-persona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-editar-persona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-reporte-persona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-Grabar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-Limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-Salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-camara-capturar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-camara-limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-camara-buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxDPFPCtlXLib">
+      <Guid>{B49E66FF-6927-4378-9685-937F14679ADD}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="DPFPCtlXLib">
+      <Guid>{B49E66FF-6927-4378-9685-937F14679ADD}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ingresar-67.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_salir_app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-visible-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_guardar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_salir_app1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-huella-dactilar-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-huella-dactilar-1001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-huella-dactilar-100 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-huella-dactilar-100 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-búsqueda-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_okey2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-producto-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-producto-48 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-producto-48 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-producto-48 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-categorias-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gif_no_camara.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gif_categorias.gif" />
+    <None Include="Resources\gif_no_imagen.gif" />
+    <None Include="Resources\gif_no_camara2.gif" />
+    <None Include="Resources\ic_categoria.png" />
+    <None Include="Resources\ic_categoria_guardar.png" />
+    <None Include="Resources\ic_categoria_modificar.png" />
+    <None Include="Resources\ic_categoria_eliminar.png" />
+    <None Include="Resources\gif_carga.gif" />
+    <Content Include="Resources\NoImagen.png" />
+    <Content Include="Resources\NoImagen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaRN\CapaRN.csproj">
+      <Project>{cad2831a-8a27-4fca-8c92-066f19977687}</Project>
+      <Name>CapaRN</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

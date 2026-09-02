@@ -1,6 +1,6 @@
 ﻿namespace SistemaDeGestion2026
 {
-    partial class FRM_Cliente_Registrar
+    partial class FRM_Proveedor_Registrar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Cliente_Registrar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Proveedor_Registrar));
             this.GP_Panel_Usuario = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.TXT_CodigoPersona = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXT_Nombre = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -64,7 +64,7 @@
             this.GP_Panel_Usuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GP_Panel_Usuario.Location = new System.Drawing.Point(0, 0);
             this.GP_Panel_Usuario.Name = "GP_Panel_Usuario";
-            this.GP_Panel_Usuario.Size = new System.Drawing.Size(339, 249);
+            this.GP_Panel_Usuario.Size = new System.Drawing.Size(338, 245);
             // 
             // 
             // 
@@ -228,6 +228,7 @@
             this.BTN_Limpiar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTN_Limpiar.TabIndex = 8;
             this.BTN_Limpiar.Text = "&Limpiar";
+            this.BTN_Limpiar.Click += new System.EventHandler(this.BTN_Limpiar_Click);
             // 
             // BTN_Grabar
             // 
@@ -281,19 +282,19 @@
             this.SWB_Estado.Value = true;
             this.SWB_Estado.ValueObject = "Y";
             // 
-            // FRM_Cliente_Registrar
+            // FRM_Proveedor_Registrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 249);
+            this.ClientSize = new System.Drawing.Size(338, 245);
             this.Controls.Add(this.GP_Panel_Usuario);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FRM_Cliente_Registrar";
+            this.Name = "FRM_Proveedor_Registrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRM_Cliente_Registrar";
-            this.Load += new System.EventHandler(this.FRM_Cliente_Registrar_Load);
+            this.Text = "FRM_Proveedor_Registrar";
+            this.Load += new System.EventHandler(this.FRM_Proveedor_Registrar_Load);
             this.GP_Panel_Usuario.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -302,6 +303,10 @@
         #endregion
 
         private DevComponents.DotNetBar.Controls.GroupPanel GP_Panel_Usuario;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXT_CodigoPersona;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXT_Nombre;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXT_Telefono;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXT_Direccion;
         private DevComponents.DotNetBar.Controls.TextBoxX TXT_NIT;
         private DevComponents.DotNetBar.ButtonX BTN_BuscarUsuario;
         private DevComponents.DotNetBar.ButtonX BTN_Salir;
@@ -309,9 +314,5 @@
         private DevComponents.DotNetBar.ButtonX BTN_Grabar;
         private DevComponents.DotNetBar.Controls.TextBoxX TXT_RazonSocial;
         private DevComponents.DotNetBar.Controls.SwitchButton SWB_Estado;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXT_Nombre;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXT_Telefono;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXT_Direccion;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXT_CodigoPersona;
     }
 }

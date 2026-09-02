@@ -239,6 +239,18 @@
     <Compile Include="FRM_Persona_Registrar.Designer.cs">
       <DependentUpon>FRM_Persona_Registrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRM_Proveedor_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Proveedor_Lista.Designer.cs">
+      <DependentUpon>FRM_Proveedor_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_Proveedor_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Proveedor_Registrar.Designer.cs">
+      <DependentUpon>FRM_Proveedor_Registrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Usuario_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +334,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Persona_Registrar.resx">
       <DependentUpon>FRM_Persona_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Proveedor_Lista.resx">
+      <DependentUpon>FRM_Proveedor_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_Proveedor_Registrar.resx">
+      <DependentUpon>FRM_Proveedor_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Usuario_Lista.resx">
       <DependentUpon>FRM_Usuario_Lista.cs</DependentUpon>
@@ -486,6 +504,11 @@
     <None Include="Resources\ic_categoria_modificar.png" />
     <None Include="Resources\ic_categoria_eliminar.png" />
     <None Include="Resources\gif_carga.gif" />
+    <None Include="Resources\ic_cliente.png" />
+    <None Include="Resources\ic_proveedor.png" />
+    <None Include="Resources\ic_anadir.png" />
+    <None Include="Resources\ic_editar.png" />
+    <None Include="Resources\ic_reportes.png" />
     <Content Include="Resources\NoImagen.png" />
     <Content Include="Resources\NoImagen1.png" />
   </ItemGroup>

@@ -78,12 +78,13 @@ namespace CapaRN
                                      "capvdirprv," +
                                      "capvtelprv " + 
                              "from aprovee " +
-                             "";
+                             "where " +
+                                    "fapvcodper = @fapvcodper";
 
-                this.Conexion.PrepararComando(sql);
+            this.Conexion.PrepararComando(sql);
 
-
-                DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+            this.Conexion.AsignarParametroCadena("@fapvcodper", this._fapvcodper);
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
                 if (ResultadoConsulta.Read())
                 {
@@ -114,12 +115,13 @@ namespace CapaRN
                                      "capvdirprv," +
                                      "capvtelprv " + 
                              "from aprovee " +
-                             "";
- 
-                this.Conexion.PrepararComando(sql); 
+                             "where " +
+                                    "fapvcodper = @fapvcodper";
 
+            this.Conexion.PrepararComando(sql);
 
-                DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+            this.Conexion.AsignarParametroCadena("@fapvcodper", this._fapvcodper);
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
                 if (ResultadoConsulta.HasRows)
                 {
@@ -174,80 +176,160 @@ namespace CapaRN
 
                     return true;
                 } 
-            } 
-            public bool Modificar()
-            { 
-                if (!this.VerificarExistencia())
+            }
+            public bool Grabar2()
+            {
+                try
                 {
-                    return false;
-                }
-                else 
-                { 
                     this.Conexion.Conectar();
-			        string sql = "update aprovee set " +
-                                                     "capvestprv = @capvestprv, " +
-                                                     "fapvcodper = @fapvcodper, " +
-                                                     "capvrazprv = @capvrazprv, " +
-                                                     "capvnirprv = @capvnirprv, " +
-                                                     "capvdirprv = @capvdirprv, " +
-                                                     "capvtelprv = @capvtelprv" +
-                                 " ";
- 
-                this.Conexion.PrepararComando(sql); 
+                    string sql = "insert into aprovee (" +
+                                                       "capvestprv," +
+                                                       "fapvcodper," +
+                                                       "capvrazprv," +
+                                                       "capvnirprv," +
+                                                       "capvdirprv," +
+                                                       "capvtelprv" +
+                                                       ") " +
+                                 "values (" +
+                                          "@capvestprv," +
+                                          "@fapvcodper," +
+                                          "@capvrazprv," +
+                                          "@capvnirprv," +
+                                          "@capvdirprv," +
+                                          "@capvtelprv" +
+                                                       ")";
 
-                    this.Conexion.AsignarParametroLogico("@capvestprv",this._capvestprv);
-                    this.Conexion.AsignarParametroCadena("@fapvcodper",this._fapvcodper);
-                    this.Conexion.AsignarParametroCadena("@capvrazprv",this._capvrazprv);
-                    this.Conexion.AsignarParametroCadena("@capvnirprv",this._capvnirprv);
-                    this.Conexion.AsignarParametroCadena("@capvdirprv",this._capvdirprv);
-                    this.Conexion.AsignarParametroCadena("@capvtelprv",this._capvtelprv);
+                    this.Conexion.PrepararComando(sql);
+
+                    this.Conexion.AsignarParametroLogico("@capvestprv", this._capvestprv);
+                    this.Conexion.AsignarParametroCadena("@fapvcodper", this._fapvcodper);
+                    this.Conexion.AsignarParametroCadena("@capvrazprv", this._capvrazprv);
+                    this.Conexion.AsignarParametroCadena("@capvnirprv", this._capvnirprv);
+                    this.Conexion.AsignarParametroCadena("@capvdirprv", this._capvdirprv);
+                    this.Conexion.AsignarParametroCadena("@capvtelprv", this._capvtelprv);
 
                     this.Conexion.EjecutarTransaccion();
                     this.Conexion.Desconectar();
 
                     return true;
                 }
+                catch (Exception ex)
+                {
+                    this.Conexion.Desconectar();
+                    System.Windows.Forms.MessageBox.Show("Error SQL en acatego: " + ex.Message, "Error BD");
+                    return false;
+                }
+            }
+            public bool Modificar()
+            {
+                if (!this.VerificarExistencia())
+                {
+                    return false;
+                }
+                else
+                {
+                    this.Conexion.Conectar();
+                    string sql = "update aprovee set " +
+                                                        "capvestprv = @capvestprv, " +
+                                                        "fapvcodper = @fapvcodper, " +
+                                                        "capvrazprv = @capvrazprv, " +
+                                                        "capvnirprv = @capvnirprv, " +
+                                                        "capvdirprv = @capvdirprv, " +
+                                                        "capvtelprv = @capvtelprv" +
+                                    " ";
+
+                    this.Conexion.PrepararComando(sql);
+
+                    this.Conexion.AsignarParametroLogico("@capvestprv", this._capvestprv);
+                    this.Conexion.AsignarParametroCadena("@fapvcodper", this._fapvcodper);
+                    this.Conexion.AsignarParametroCadena("@capvrazprv", this._capvrazprv);
+                    this.Conexion.AsignarParametroCadena("@capvnirprv", this._capvnirprv);
+                    this.Conexion.AsignarParametroCadena("@capvdirprv", this._capvdirprv);
+                    this.Conexion.AsignarParametroCadena("@capvtelprv", this._capvtelprv);
+
+                    this.Conexion.EjecutarTransaccion();
+                    this.Conexion.Desconectar();
+
+                    return true;
+                }
+
+            }
+            public bool Modificar2(String a)
+            {
+                try
+                {
+                    this.Conexion.Conectar();
+                        string sql = "update aprovee set " +
+                                                            "capvestprv = @capvestprv, " +
+                                                            "fapvcodper = '"+a+"', " +
+                                                            "capvrazprv = @capvrazprv, " +
+                                                            "capvnirprv = @capvnirprv, " +
+                                                            "capvdirprv = @capvdirprv, " +
+                                                            "capvtelprv = @capvtelprv " +
+                                        " where " +
+                                    "fapvcodper = @fapvcodper";
+
+                this.Conexion.PrepararComando(sql);
+
+                        this.Conexion.AsignarParametroLogico("@capvestprv", this._capvestprv);
+                        this.Conexion.AsignarParametroCadena("@fapvcodper", this._fapvcodper);
+                        this.Conexion.AsignarParametroCadena("@capvrazprv", this._capvrazprv);
+                        this.Conexion.AsignarParametroCadena("@capvnirprv", this._capvnirprv);
+                        this.Conexion.AsignarParametroCadena("@capvdirprv", this._capvdirprv);
+                        this.Conexion.AsignarParametroCadena("@capvtelprv", this._capvtelprv);
+
+                        this.Conexion.EjecutarTransaccion();
+                        this.Conexion.Desconectar();
+
+                        return true;
+                }
+                catch (Exception ex)
+                {
+                    this.Conexion.Desconectar();
+                    System.Windows.Forms.MessageBox.Show("Error SQL en aclient: " + ex.Message, "Error BD");
+                    return false;
+                }
             }
             public List<aprovee> Lista(string where)
-            { 
-                List<aprovee> ListaResultado = new List<aprovee>();
-                this.Conexion.Conectar(); 
-			    string sql = "select " + 
-                                     "capvestprv," +
-                                     "fapvcodper," +
-                                     "capvrazprv," +
-                                     "capvnirprv," +
-                                     "capvdirprv," +
-                                     "capvtelprv " + 
-                             "from aprovee " ;
+                { 
+                    List<aprovee> ListaResultado = new List<aprovee>();
+                    this.Conexion.Conectar(); 
+			        string sql = "select " + 
+                                         "capvestprv," +
+                                         "fapvcodper," +
+                                         "capvrazprv," +
+                                         "capvnirprv," +
+                                         "capvdirprv," +
+                                         "capvtelprv " + 
+                                 "from aprovee " ;
  
-                if (where.Replace(" ", "") != "")
-                {
-                    sql+= "where " + where;
-                }
-
- 
-                this.Conexion.PrepararComando(sql); 
-                DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
-
-                if (ResultadoConsulta!=null)
-                {
-                    while (ResultadoConsulta.Read())
+                    if (where.Replace(" ", "") != "")
                     {
-                          aprovee Auxiliar = new aprovee();
-                          Auxiliar.capvestprv = ResultadoConsulta.GetBoolean(0);
-                          Auxiliar.fapvcodper = ResultadoConsulta.GetString(1);
-                          Auxiliar.capvrazprv = ResultadoConsulta.GetString(2);
-                          Auxiliar.capvnirprv = ResultadoConsulta.GetString(3);
-                          Auxiliar.capvdirprv = ResultadoConsulta.GetString(4);
-                          Auxiliar.capvtelprv = ResultadoConsulta.GetString(5);
-                          ListaResultado.Add(Auxiliar);
+                        sql+= "where " + where;
                     }
 
-                }
-                this.Conexion.Desconectar();
-                return ListaResultado;
-            } 
+ 
+                    this.Conexion.PrepararComando(sql); 
+                    DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+                    if (ResultadoConsulta!=null)
+                    {
+                        while (ResultadoConsulta.Read())
+                        {
+                              aprovee Auxiliar = new aprovee();
+                              Auxiliar.capvestprv = ResultadoConsulta.GetBoolean(0);
+                              Auxiliar.fapvcodper = ResultadoConsulta.GetString(1);
+                              Auxiliar.capvrazprv = ResultadoConsulta.GetString(2);
+                              Auxiliar.capvnirprv = ResultadoConsulta.GetString(3);
+                              Auxiliar.capvdirprv = ResultadoConsulta.GetString(4);
+                              Auxiliar.capvtelprv = ResultadoConsulta.GetString(5);
+                              ListaResultado.Add(Auxiliar);
+                        }
+
+                    }
+                    this.Conexion.Desconectar();
+                    return ListaResultado;
+                } 
         #endregion 
 
 	}

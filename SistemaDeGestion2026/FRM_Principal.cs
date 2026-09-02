@@ -190,5 +190,17 @@ namespace SistemaDeGestion2026
             a.Dock = DockStyle.Fill;
             a.Show();
         }
+
+        private void BTN_Proveedores_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRM_Proveedor_Lista a = new FRM_Proveedor_Lista();
+            a.MdiParent = this;
+            a.Dock = DockStyle.Fill;
+            a.Show();
+        }
     }
 }

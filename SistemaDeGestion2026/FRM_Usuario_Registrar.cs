@@ -98,6 +98,8 @@ namespace SistemaDeGestion2026
 
         }
         #endregion
+
+        #region Eventos
         private void TXT_Nombres_TextChanged(object sender, EventArgs e)
         {
 
@@ -329,5 +331,8 @@ namespace SistemaDeGestion2026
         {
 
         }
+
+        #endregion
+
     }
 }

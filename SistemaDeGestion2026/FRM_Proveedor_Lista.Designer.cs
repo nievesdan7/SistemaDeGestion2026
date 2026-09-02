@@ -1,6 +1,6 @@
 ﻿namespace SistemaDeGestion2026
 {
-    partial class FRM_Cliente_Lista
+    partial class FRM_Proveedor_Lista
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
             this.groupPanelBusqueda = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.BTN_Buscar = new DevComponents.DotNetBar.ButtonX();
             this.TXT_Filtrar = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.IIN_Filas = new DevComponents.Editors.IntegerInput();
             this.DTG_Lista = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -44,7 +45,6 @@
             this.dir = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EPN_Opciones = new DevComponents.DotNetBar.ExpandablePanel();
-            this.BTN_Buscar = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Reporte = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Modificar = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Registrar = new DevComponents.DotNetBar.ButtonX();
@@ -65,13 +65,13 @@
             this.expandablePanel1.HideControlsWhenCollapsed = true;
             this.expandablePanel1.Location = new System.Drawing.Point(65, 0);
             this.expandablePanel1.Name = "expandablePanel1";
-            this.expandablePanel1.Size = new System.Drawing.Size(908, 106);
+            this.expandablePanel1.Size = new System.Drawing.Size(891, 106);
             this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expandablePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandablePanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
             this.expandablePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
             this.expandablePanel1.Style.GradientAngle = 90;
-            this.expandablePanel1.TabIndex = 55;
+            this.expandablePanel1.TabIndex = 64;
             this.expandablePanel1.TitleStyle.Alignment = System.Drawing.StringAlignment.Center;
             this.expandablePanel1.TitleStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandablePanel1.TitleStyle.Border = DevComponents.DotNetBar.eBorderType.RaisedInner;
@@ -123,6 +123,19 @@
             this.groupPanelBusqueda.TabIndex = 14;
             this.groupPanelBusqueda.Text = "Búsqueda";
             // 
+            // BTN_Buscar
+            // 
+            this.BTN_Buscar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTN_Buscar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTN_Buscar.Image = global::SistemaDeGestion2026.Properties.Resources.icons8_búsqueda_96;
+            this.BTN_Buscar.ImageFixedSize = new System.Drawing.Size(20, 20);
+            this.BTN_Buscar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.BTN_Buscar.Location = new System.Drawing.Point(272, 12);
+            this.BTN_Buscar.Name = "BTN_Buscar";
+            this.BTN_Buscar.Size = new System.Drawing.Size(25, 23);
+            this.BTN_Buscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTN_Buscar.TabIndex = 14;
+            // 
             // TXT_Filtrar
             // 
             this.TXT_Filtrar.BackColor = System.Drawing.Color.White;
@@ -172,15 +185,15 @@
             this.DTG_Lista.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DTG_Lista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DTG_Lista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DTG_Lista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DTG_Lista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DTG_Lista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DTG_Lista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -190,35 +203,35 @@
             this.dir,
             this.Column4});
             this.DTG_Lista.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DTG_Lista.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DTG_Lista.DefaultCellStyle = dataGridViewCellStyle11;
             this.DTG_Lista.EnableHeadersVisualStyles = false;
             this.DTG_Lista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.DTG_Lista.Location = new System.Drawing.Point(65, 106);
             this.DTG_Lista.MultiSelect = false;
             this.DTG_Lista.Name = "DTG_Lista";
             this.DTG_Lista.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DTG_Lista.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DTG_Lista.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.DTG_Lista.RowHeadersVisible = false;
             this.DTG_Lista.RowTemplate.Height = 30;
             this.DTG_Lista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DTG_Lista.Size = new System.Drawing.Size(908, 369);
-            this.DTG_Lista.TabIndex = 54;
+            this.DTG_Lista.Size = new System.Drawing.Size(891, 374);
+            this.DTG_Lista.TabIndex = 63;
             // 
             // Column1
             // 
@@ -233,8 +246,8 @@
             this.Column2.Checked = true;
             this.Column2.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.Column2.CheckValue = null;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column2.HeaderText = "Estado";
             this.Column2.MinimumWidth = 60;
             this.Column2.Name = "Column2";
@@ -286,13 +299,13 @@
             this.EPN_Opciones.HideControlsWhenCollapsed = true;
             this.EPN_Opciones.Location = new System.Drawing.Point(0, 0);
             this.EPN_Opciones.Name = "EPN_Opciones";
-            this.EPN_Opciones.Size = new System.Drawing.Size(65, 475);
+            this.EPN_Opciones.Size = new System.Drawing.Size(65, 480);
             this.EPN_Opciones.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.EPN_Opciones.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.EPN_Opciones.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
             this.EPN_Opciones.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
             this.EPN_Opciones.Style.GradientAngle = 90;
-            this.EPN_Opciones.TabIndex = 53;
+            this.EPN_Opciones.TabIndex = 62;
             this.EPN_Opciones.TitleStyle.Alignment = System.Drawing.StringAlignment.Center;
             this.EPN_Opciones.TitleStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.EPN_Opciones.TitleStyle.Border = DevComponents.DotNetBar.eBorderType.RaisedInner;
@@ -301,19 +314,6 @@
             this.EPN_Opciones.TitleStyle.GradientAngle = 90;
             this.EPN_Opciones.TitleStyleMouseDown.BackColor1.Color = System.Drawing.Color.Transparent;
             this.EPN_Opciones.TitleText = "Opciones";
-            // 
-            // BTN_Buscar
-            // 
-            this.BTN_Buscar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTN_Buscar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTN_Buscar.Image = global::SistemaDeGestion2026.Properties.Resources.icons8_búsqueda_96;
-            this.BTN_Buscar.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.BTN_Buscar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTN_Buscar.Location = new System.Drawing.Point(272, 12);
-            this.BTN_Buscar.Name = "BTN_Buscar";
-            this.BTN_Buscar.Size = new System.Drawing.Size(25, 23);
-            this.BTN_Buscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTN_Buscar.TabIndex = 14;
             // 
             // BTN_Reporte
             // 
@@ -362,11 +362,11 @@
             this.BTN_Registrar.Text = "Registrar ";
             this.BTN_Registrar.Click += new System.EventHandler(this.BTN_Registrar_Click);
             // 
-            // FRM_Cliente_Lista
+            // FRM_Proveedor_Lista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 475);
+            this.ClientSize = new System.Drawing.Size(956, 480);
             this.ControlBox = false;
             this.Controls.Add(this.expandablePanel1);
             this.Controls.Add(this.DTG_Lista);
@@ -375,9 +375,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FRM_Cliente_Lista";
-            this.Text = "FRM_Cliente_Lista";
-            this.Load += new System.EventHandler(this.FRM_Cliente_Lista_Load);
+            this.Name = "FRM_Proveedor_Lista";
+            this.Text = "FRM_Proveedor_Lista";
+            this.Load += new System.EventHandler(this.FRM_Proveedor_Lista_Load);
             this.expandablePanel1.ResumeLayout(false);
             this.groupPanelBusqueda.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.IIN_Filas)).EndInit();
@@ -395,15 +395,15 @@
         private DevComponents.DotNetBar.Controls.TextBoxX TXT_Filtrar;
         private DevComponents.Editors.IntegerInput IIN_Filas;
         private DevComponents.DotNetBar.Controls.DataGridViewX DTG_Lista;
-        private DevComponents.DotNetBar.ExpandablePanel EPN_Opciones;
-        private DevComponents.DotNetBar.ButtonX BTN_Reporte;
-        private DevComponents.DotNetBar.ButtonX BTN_Modificar;
-        private DevComponents.DotNetBar.ButtonX BTN_Registrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn nit;
         private System.Windows.Forms.DataGridViewTextBoxColumn dir;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private DevComponents.DotNetBar.ExpandablePanel EPN_Opciones;
+        private DevComponents.DotNetBar.ButtonX BTN_Reporte;
+        private DevComponents.DotNetBar.ButtonX BTN_Modificar;
+        private DevComponents.DotNetBar.ButtonX BTN_Registrar;
     }
 }

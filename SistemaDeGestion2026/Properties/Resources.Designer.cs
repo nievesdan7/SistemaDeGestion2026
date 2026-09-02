@@ -123,6 +123,16 @@ namespace SistemaDeGestion2026.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_anadir {
+            get {
+                object obj = ResourceManager.GetObject("ic_anadir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_categoria {
             get {
                 object obj = ResourceManager.GetObject("ic_categoria", resourceCulture);
@@ -163,6 +173,26 @@ namespace SistemaDeGestion2026.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_cliente {
+            get {
+                object obj = ResourceManager.GetObject("ic_cliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_editar {
+            get {
+                object obj = ResourceManager.GetObject("ic_editar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_guardar {
             get {
                 object obj = ResourceManager.GetObject("ic_guardar", resourceCulture);
@@ -176,6 +206,26 @@ namespace SistemaDeGestion2026.Properties {
         internal static System.Drawing.Bitmap ic_guardar1 {
             get {
                 object obj = ResourceManager.GetObject("ic_guardar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_proveedor {
+            get {
+                object obj = ResourceManager.GetObject("ic_proveedor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_reportes {
+            get {
+                object obj = ResourceManager.GetObject("ic_reportes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

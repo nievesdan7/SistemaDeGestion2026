@@ -78,11 +78,12 @@ namespace CapaRN
                                      "cacldircli," +
                                      "cacltelcli " + 
                              "from aclient " +
-                             "";
+                             "where " +
+                                    "faclcodper = @faclcodper";
 
                 this.Conexion.PrepararComando(sql);
 
-
+                this.Conexion.AsignarParametroCadena("@faclcodper", this._faclcodper);
                 DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
                 if (ResultadoConsulta.Read())
@@ -114,10 +115,11 @@ namespace CapaRN
                                      "cacldircli," +
                                      "cacltelcli " + 
                              "from aclient " +
-                             "";
- 
-                this.Conexion.PrepararComando(sql); 
+                             "where " +
+                                    "faclcodper = @faclcodper";
 
+                this.Conexion.PrepararComando(sql);
+                this.Conexion.AsignarParametroCadena("@faclcodper", this._faclcodper);
 
                 DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
@@ -135,32 +137,115 @@ namespace CapaRN
                 } 
             } 
             public bool Grabar()
-            { 
-                if (this.VerificarExistencia())
+            {
+                try
                 {
+                    if (this.VerificarExistencia())
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        this.Conexion.Conectar();
+                        string sql = "insert into aclient (" +
+                                                           "caclestcli," +
+                                                           "faclcodper," +
+                                                           "caclrazcli," +
+                                                           "caclnitcli," +
+                                                           "cacldircli," +
+                                                           "cacltelcli" +
+                                                           ") " +
+                                     "values (" +
+                                              "@caclestcli," +
+                                              "@faclcodper," +
+                                              "@caclrazcli," +
+                                              "@caclnitcli," +
+                                              "@cacldircli," +
+                                              "@cacltelcli" +
+                                                           ")";
+
+                        this.Conexion.PrepararComando(sql);
+
+                        this.Conexion.AsignarParametroLogico("@caclestcli", this._caclestcli);
+                        this.Conexion.AsignarParametroCadena("@faclcodper", this._faclcodper);
+                        this.Conexion.AsignarParametroCadena("@caclrazcli", this._caclrazcli);
+                        this.Conexion.AsignarParametroCadena("@caclnitcli", this._caclnitcli);
+                        this.Conexion.AsignarParametroCadena("@cacldircli", this._cacldircli);
+                        this.Conexion.AsignarParametroCadena("@cacltelcli", this._cacltelcli);
+
+                        this.Conexion.EjecutarTransaccion();
+                        this.Conexion.Desconectar();
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    this.Conexion.Desconectar();
+                    System.Windows.Forms.MessageBox.Show("Error SQL en acatego: " + ex.Message, "Error BD");
                     return false;
                 }
-                else 
-                { 
-                    this.Conexion.Conectar();
-			        string sql = "insert into aclient (" +
-                                                       "caclestcli," +
-                                                       "faclcodper," +
-                                                       "caclrazcli," +
-                                                       "caclnitcli," +
-                                                       "cacldircli," +
-                                                       "cacltelcli" +
-                                                       ") " +
-	                             "values (" + 
-                                          "@caclestcli," +
-                                          "@faclcodper," +
-                                          "@caclrazcli," +
-                                          "@caclnitcli," +
-                                          "@cacldircli," +
-                                          "@cacltelcli" +
-                                                       ")";
+            }
+            public bool Grabar2()
+            {
+                try
+                {
+                    
+                        this.Conexion.Conectar();
+                        string sql = "insert into aclient (" +
+                                                           "caclestcli," +
+                                                           "faclcodper," +
+                                                           "caclrazcli," +
+                                                           "caclnitcli," +
+                                                           "cacldircli," +
+                                                           "cacltelcli" +
+                                                           ") " +
+                                     "values (" +
+                                              "@caclestcli," +
+                                              "@faclcodper," +
+                                              "@caclrazcli," +
+                                              "@caclnitcli," +
+                                              "@cacldircli," +
+                                              "@cacltelcli" +
+                                                           ")";
 
-                    this.Conexion.PrepararComando(sql);
+                        this.Conexion.PrepararComando(sql);
+
+                        this.Conexion.AsignarParametroLogico("@caclestcli", this._caclestcli);
+                        this.Conexion.AsignarParametroCadena("@faclcodper", this._faclcodper);
+                        this.Conexion.AsignarParametroCadena("@caclrazcli", this._caclrazcli);
+                        this.Conexion.AsignarParametroCadena("@caclnitcli", this._caclnitcli);
+                        this.Conexion.AsignarParametroCadena("@cacldircli", this._cacldircli);
+                        this.Conexion.AsignarParametroCadena("@cacltelcli", this._cacltelcli);
+
+                        this.Conexion.EjecutarTransaccion();
+                        this.Conexion.Desconectar();
+
+                        return true;
+                    
+                }
+                catch (Exception ex)
+                {
+                    this.Conexion.Desconectar();
+                    System.Windows.Forms.MessageBox.Show("Error SQL en acatego: " + ex.Message, "Error BD");
+                    return false;
+                }
+            }
+            public bool Modificar()
+            {
+                try
+                {
+                    this.Conexion.Conectar();
+			            string sql = "update aclient set " +
+                                                         "caclestcli = @caclestcli, " +
+                                                         "faclcodper = @faclcodper, " +
+                                                         "caclrazcli = @caclrazcli, " +
+                                                         "caclnitcli = @caclnitcli, " +
+                                                         "cacldircli = @cacldircli, " +
+                                                         "cacltelcli = @cacltelcli " +
+                                     " ";
+
+                    this.Conexion.PrepararComando(sql); 
 
                     this.Conexion.AsignarParametroLogico("@caclestcli",this._caclestcli);
                     this.Conexion.AsignarParametroCadena("@faclcodper",this._faclcodper);
@@ -173,81 +258,91 @@ namespace CapaRN
                     this.Conexion.Desconectar();
 
                     return true;
-                } 
-            } 
-            public bool Modificar()
-            { 
-                if (!this.VerificarExistencia())
+                }
+                catch (Exception ex)
                 {
+                    this.Conexion.Desconectar();
+                    System.Windows.Forms.MessageBox.Show("Error SQL en aclient: " + ex.Message, "Error BD");
                     return false;
                 }
-                else 
-                { 
+}
+
+            public bool Modificar2(String a)
+            {
+                try
+                {
                     this.Conexion.Conectar();
-			        string sql = "update aclient set " +
+                    string sql = "update aclient set " +
                                                      "caclestcli = @caclestcli, " +
-                                                     "faclcodper = @faclcodper, " +
+                                                     "faclcodper = '" + a + "', " +
                                                      "caclrazcli = @caclrazcli, " +
                                                      "caclnitcli = @caclnitcli, " +
                                                      "cacldircli = @cacldircli, " +
-                                                     "cacltelcli = @cacltelcli" +
-                                 " ";
- 
-                this.Conexion.PrepararComando(sql); 
+                                                     "cacltelcli = @cacltelcli " +
+                                 " where " +
+                                    "faclcodper = @faclcodper";
 
-                    this.Conexion.AsignarParametroLogico("@caclestcli",this._caclestcli);
-                    this.Conexion.AsignarParametroCadena("@faclcodper",this._faclcodper);
-                    this.Conexion.AsignarParametroCadena("@caclrazcli",this._caclrazcli);
-                    this.Conexion.AsignarParametroCadena("@caclnitcli",this._caclnitcli);
-                    this.Conexion.AsignarParametroCadena("@cacldircli",this._cacldircli);
-                    this.Conexion.AsignarParametroCadena("@cacltelcli",this._cacltelcli);
+                    this.Conexion.PrepararComando(sql);
+
+                    this.Conexion.AsignarParametroLogico("@caclestcli", this._caclestcli);
+                    this.Conexion.AsignarParametroCadena("@faclcodper", this._faclcodper);
+                    this.Conexion.AsignarParametroCadena("@caclrazcli", this._caclrazcli);
+                    this.Conexion.AsignarParametroCadena("@caclnitcli", this._caclnitcli);
+                    this.Conexion.AsignarParametroCadena("@cacldircli", this._cacldircli);
+                    this.Conexion.AsignarParametroCadena("@cacltelcli", this._cacltelcli);
 
                     this.Conexion.EjecutarTransaccion();
                     this.Conexion.Desconectar();
 
                     return true;
                 }
+                catch (Exception ex)
+                {
+                    this.Conexion.Desconectar();
+                    System.Windows.Forms.MessageBox.Show("Error SQL en aclient: " + ex.Message, "Error BD");
+                    return false;
+                }
             }
             public List<aclient> Lista(string where)
-            { 
-                List<aclient> ListaResultado = new List<aclient>();
-                this.Conexion.Conectar(); 
-			    string sql = "select " + 
-                                     "caclestcli," +
-                                     "faclcodper," +
-                                     "caclrazcli," +
-                                     "caclnitcli," +
-                                     "cacldircli," +
-                                     "cacltelcli " + 
-                             "from aclient " ;
+                { 
+                    List<aclient> ListaResultado = new List<aclient>();
+                    this.Conexion.Conectar(); 
+			        string sql = "select " + 
+                                         "caclestcli," +
+                                         "faclcodper," +
+                                         "caclrazcli," +
+                                         "caclnitcli," +
+                                         "cacldircli," +
+                                         "cacltelcli " + 
+                                 "from aclient " ;
  
-                if (where.Replace(" ", "") != "")
-                {
-                    sql+= "where " + where;
-                }
-
- 
-                this.Conexion.PrepararComando(sql); 
-                DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
-
-                if (ResultadoConsulta!=null)
-                {
-                    while (ResultadoConsulta.Read())
+                    if (where.Replace(" ", "") != "")
                     {
-                          aclient Auxiliar = new aclient();
-                          Auxiliar.caclestcli = ResultadoConsulta.GetBoolean(0);
-                          Auxiliar.faclcodper = ResultadoConsulta.GetString(1);
-                          Auxiliar.caclrazcli = ResultadoConsulta.GetString(2);
-                          Auxiliar.caclnitcli = ResultadoConsulta.GetString(3);
-                          Auxiliar.cacldircli = ResultadoConsulta.GetString(4);
-                          Auxiliar.cacltelcli = ResultadoConsulta.GetString(5);
-                          ListaResultado.Add(Auxiliar);
+                        sql+= "where " + where;
                     }
 
-                }
-                this.Conexion.Desconectar();
-                return ListaResultado;
-            } 
+ 
+                    this.Conexion.PrepararComando(sql); 
+                    DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+                    if (ResultadoConsulta!=null)
+                    {
+                        while (ResultadoConsulta.Read())
+                        {
+                              aclient Auxiliar = new aclient();
+                              Auxiliar.caclestcli = ResultadoConsulta.GetBoolean(0);
+                              Auxiliar.faclcodper = ResultadoConsulta.GetString(1);
+                              Auxiliar.caclrazcli = ResultadoConsulta.GetString(2);
+                              Auxiliar.caclnitcli = ResultadoConsulta.GetString(3);
+                              Auxiliar.cacldircli = ResultadoConsulta.GetString(4);
+                              Auxiliar.cacltelcli = ResultadoConsulta.GetString(5);
+                              ListaResultado.Add(Auxiliar);
+                        }
+
+                    }
+                    this.Conexion.Desconectar();
+                    return ListaResultado;
+                } 
         #endregion 
 
 	}

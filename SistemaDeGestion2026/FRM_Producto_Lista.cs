@@ -81,14 +81,22 @@ namespace SistemaDeGestion2026
         }
         private void BTN_Modificar_Click(object sender, EventArgs e)
         {
-            FRM_Producto_Registrar a = new FRM_Producto_Registrar();
-            a.modificar = true;
-            a.codProMod = DTG_Lista[0, DTG_Lista.SelectedRows[0].Index].Value.ToString();
-            a.ShowDialog();
-            if (a.actualizar)
+            if (DTG_Lista.SelectedRows.Count>0)
             {
-                ActualizarGrid();
+                FRM_Producto_Registrar a = new FRM_Producto_Registrar();
+                a.modificar = true;
+                a.codProMod = DTG_Lista[0, DTG_Lista.SelectedRows[0].Index].Value.ToString();
+                a.ShowDialog();
+                if (a.actualizar)
+                {
+                    ActualizarGrid();
+                }
             }
+            else {
+                MessageBox.Show("No hay elementos en la tabla", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+                        
+            
         }
         private void BTN_Registrar_Click(object sender, EventArgs e)
         {

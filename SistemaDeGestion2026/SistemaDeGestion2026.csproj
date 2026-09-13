@@ -509,6 +509,8 @@
     <None Include="Resources\ic_anadir.png" />
     <None Include="Resources\ic_editar.png" />
     <None Include="Resources\ic_reportes.png" />
+    <None Include="Resources\ic_codigoBarras.png" />
+    <None Include="Resources\ic_codigoBarras2.png" />
     <Content Include="Resources\NoImagen.png" />
     <Content Include="Resources\NoImagen1.png" />
   </ItemGroup>

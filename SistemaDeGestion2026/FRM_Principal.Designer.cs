@@ -31,17 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Principal));
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
-            this.RBPAdministracion = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
-            this.BTN_Clientes = new DevComponents.DotNetBar.ButtonItem();
-            this.BTN_Proveedores = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
-            this.BTN_Personas = new DevComponents.DotNetBar.ButtonItem();
-            this.BTN_Usuarios = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
+            this.BTN_Proveedores = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.BTN_Productos = new DevComponents.DotNetBar.ButtonItem();
             this.BTN_Categorias = new DevComponents.DotNetBar.ButtonItem();
+            this.RBPAdministracion = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.BTN_Personas = new DevComponents.DotNetBar.ButtonItem();
+            this.BTN_Usuarios = new DevComponents.DotNetBar.ButtonItem();
             this.applicationButton1 = new DevComponents.DotNetBar.ApplicationButton();
             this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
             this.itemContainer2 = new DevComponents.DotNetBar.ItemContainer();
@@ -63,8 +64,8 @@
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
-            this.RBPAdministracion.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
+            this.RBPAdministracion.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,8 +77,8 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.RBPAdministracion);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
+            this.ribbonControl1.Controls.Add(this.RBPAdministracion);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.ForeColor = System.Drawing.Color.Black;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -88,7 +89,7 @@
             this.ribbonControl1.Location = new System.Drawing.Point(3, 3);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Size = new System.Drawing.Size(920, 136);
+            this.ribbonControl1.Size = new System.Drawing.Size(920, 153);
             this.ribbonControl1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonControl1.SystemText.MaximizeRibbonText = "&Maximize the Ribbon";
             this.ribbonControl1.SystemText.MinimizeRibbonText = "Mi&nimize the Ribbon";
@@ -109,30 +110,71 @@
             this.ribbonControl1.TabIndex = 0;
             this.ribbonControl1.Text = "ribbonControl1";
             // 
-            // RBPAdministracion
+            // ribbonPanel2
             // 
-            this.RBPAdministracion.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.RBPAdministracion.Controls.Add(this.ribbonBar3);
-            this.RBPAdministracion.Controls.Add(this.ribbonBar1);
-            this.RBPAdministracion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RBPAdministracion.Location = new System.Drawing.Point(0, 54);
-            this.RBPAdministracion.Margin = new System.Windows.Forms.Padding(4);
-            this.RBPAdministracion.Name = "RBPAdministracion";
-            this.RBPAdministracion.Padding = new System.Windows.Forms.Padding(4, 0, 4, 2);
-            this.RBPAdministracion.Size = new System.Drawing.Size(920, 82);
-            // 
-            // 
-            // 
-            this.RBPAdministracion.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel2.Controls.Add(this.ribbonBar4);
+            this.ribbonPanel2.Controls.Add(this.ribbonBar3);
+            this.ribbonPanel2.Controls.Add(this.ribbonBar2);
+            this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel2.Location = new System.Drawing.Point(0, 54);
+            this.ribbonPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 2);
+            this.ribbonPanel2.Size = new System.Drawing.Size(920, 99);
             // 
             // 
             // 
-            this.RBPAdministracion.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // 
             // 
-            this.RBPAdministracion.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.RBPAdministracion.TabIndex = 1;
+            this.ribbonPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel2.TabIndex = 2;
+            // 
+            // ribbonBar4
+            // 
+            this.ribbonBar4.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar4.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar4.ContainerControlProcessDialogKey = true;
+            this.ribbonBar4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar4.DragDropSupport = true;
+            this.ribbonBar4.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem3});
+            this.ribbonBar4.Location = new System.Drawing.Point(424, 0);
+            this.ribbonBar4.Name = "ribbonBar4";
+            this.ribbonBar4.Size = new System.Drawing.Size(185, 97);
+            this.ribbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar4.TabIndex = 3;
+            this.ribbonBar4.Text = "Egresos";
+            // 
+            // 
+            // 
+            this.ribbonBar4.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar4.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem3
+            // 
+            this.buttonItem3.Image = global::SistemaDeGestion2026.Properties.Resources.ic_cliente;
+            this.buttonItem3.ImageFixedSize = new System.Drawing.Size(40, 40);
+            this.buttonItem3.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem3.Name = "buttonItem3";
+            this.buttonItem3.SubItemsExpandWidth = 14;
+            this.buttonItem3.Text = "&Clientes";
             // 
             // ribbonBar3
             // 
@@ -149,13 +191,13 @@
             this.ribbonBar3.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonBar3.DragDropSupport = true;
             this.ribbonBar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.BTN_Clientes,
             this.BTN_Proveedores});
-            this.ribbonBar3.Location = new System.Drawing.Point(140, 0);
+            this.ribbonBar3.Location = new System.Drawing.Point(161, 0);
             this.ribbonBar3.Name = "ribbonBar3";
-            this.ribbonBar3.Size = new System.Drawing.Size(147, 80);
+            this.ribbonBar3.Size = new System.Drawing.Size(263, 97);
             this.ribbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar3.TabIndex = 1;
+            this.ribbonBar3.TabIndex = 2;
+            this.ribbonBar3.Text = "Ingresos";
             // 
             // 
             // 
@@ -165,16 +207,6 @@
             // 
             this.ribbonBar3.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // BTN_Clientes
-            // 
-            this.BTN_Clientes.Image = global::SistemaDeGestion2026.Properties.Resources.ic_cliente;
-            this.BTN_Clientes.ImageFixedSize = new System.Drawing.Size(40, 40);
-            this.BTN_Clientes.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTN_Clientes.Name = "BTN_Clientes";
-            this.BTN_Clientes.SubItemsExpandWidth = 14;
-            this.BTN_Clientes.Text = "Clientes";
-            this.BTN_Clientes.Click += new System.EventHandler(this.BTN_Clientes_Click);
-            // 
             // BTN_Proveedores
             // 
             this.BTN_Proveedores.Image = global::SistemaDeGestion2026.Properties.Resources.ic_proveedor;
@@ -182,8 +214,85 @@
             this.BTN_Proveedores.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.BTN_Proveedores.Name = "BTN_Proveedores";
             this.BTN_Proveedores.SubItemsExpandWidth = 14;
-            this.BTN_Proveedores.Text = "Proveedores";
-            this.BTN_Proveedores.Click += new System.EventHandler(this.BTN_Proveedores_Click);
+            this.BTN_Proveedores.Text = "Pro&veedores";
+            // 
+            // ribbonBar2
+            // 
+            this.ribbonBar2.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar2.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.ContainerControlProcessDialogKey = true;
+            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar2.DragDropSupport = true;
+            this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.BTN_Productos,
+            this.BTN_Categorias});
+            this.ribbonBar2.Location = new System.Drawing.Point(4, 0);
+            this.ribbonBar2.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbonBar2.Name = "ribbonBar2";
+            this.ribbonBar2.Size = new System.Drawing.Size(157, 97);
+            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar2.TabIndex = 1;
+            this.ribbonBar2.Text = "Almacén";
+            // 
+            // 
+            // 
+            this.ribbonBar2.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // BTN_Productos
+            // 
+            this.BTN_Productos.Image = global::SistemaDeGestion2026.Properties.Resources.icons8_producto_48;
+            this.BTN_Productos.ImageFixedSize = new System.Drawing.Size(40, 40);
+            this.BTN_Productos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.BTN_Productos.Name = "BTN_Productos";
+            this.BTN_Productos.SubItemsExpandWidth = 14;
+            this.BTN_Productos.Text = "&Productos";
+            this.BTN_Productos.Click += new System.EventHandler(this.BTN_Productos_Click);
+            // 
+            // BTN_Categorias
+            // 
+            this.BTN_Categorias.Image = global::SistemaDeGestion2026.Properties.Resources.ic_categoria;
+            this.BTN_Categorias.ImageFixedSize = new System.Drawing.Size(40, 40);
+            this.BTN_Categorias.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.BTN_Categorias.Name = "BTN_Categorias";
+            this.BTN_Categorias.SubItemsExpandWidth = 14;
+            this.BTN_Categorias.Text = "Ca&tegorías";
+            this.BTN_Categorias.Click += new System.EventHandler(this.BTN_Categorias_Click);
+            // 
+            // RBPAdministracion
+            // 
+            this.RBPAdministracion.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.RBPAdministracion.Controls.Add(this.ribbonBar1);
+            this.RBPAdministracion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RBPAdministracion.Location = new System.Drawing.Point(0, 54);
+            this.RBPAdministracion.Margin = new System.Windows.Forms.Padding(4);
+            this.RBPAdministracion.Name = "RBPAdministracion";
+            this.RBPAdministracion.Padding = new System.Windows.Forms.Padding(4, 0, 4, 2);
+            this.RBPAdministracion.Size = new System.Drawing.Size(920, 99);
+            // 
+            // 
+            // 
+            this.RBPAdministracion.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.RBPAdministracion.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.RBPAdministracion.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.RBPAdministracion.TabIndex = 1;
+            this.RBPAdministracion.Visible = false;
             // 
             // ribbonBar1
             // 
@@ -205,9 +314,10 @@
             this.ribbonBar1.Location = new System.Drawing.Point(4, 0);
             this.ribbonBar1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(136, 80);
+            this.ribbonBar1.Size = new System.Drawing.Size(136, 97);
             this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar1.TabIndex = 0;
+            this.ribbonBar1.Text = "Accesos";
             // 
             // 
             // 
@@ -236,83 +346,6 @@
             this.BTN_Usuarios.SubItemsExpandWidth = 14;
             this.BTN_Usuarios.Text = "Usuarios";
             this.BTN_Usuarios.Click += new System.EventHandler(this.BTN_Usuarios_Click);
-            // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel2.Controls.Add(this.ribbonBar2);
-            this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel2.Location = new System.Drawing.Point(0, 54);
-            this.ribbonPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 2);
-            this.ribbonPanel2.Size = new System.Drawing.Size(920, 82);
-            // 
-            // 
-            // 
-            this.ribbonPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
-            // 
-            // ribbonBar2
-            // 
-            this.ribbonBar2.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar2.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar2.ContainerControlProcessDialogKey = true;
-            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar2.DragDropSupport = true;
-            this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.BTN_Productos,
-            this.BTN_Categorias});
-            this.ribbonBar2.Location = new System.Drawing.Point(4, 0);
-            this.ribbonBar2.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(157, 80);
-            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar2.TabIndex = 1;
-            // 
-            // 
-            // 
-            this.ribbonBar2.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // BTN_Productos
-            // 
-            this.BTN_Productos.Image = global::SistemaDeGestion2026.Properties.Resources.icons8_producto_48;
-            this.BTN_Productos.ImageFixedSize = new System.Drawing.Size(40, 40);
-            this.BTN_Productos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTN_Productos.Name = "BTN_Productos";
-            this.BTN_Productos.SubItemsExpandWidth = 14;
-            this.BTN_Productos.Text = "Productos";
-            this.BTN_Productos.Click += new System.EventHandler(this.BTN_Productos_Click);
-            // 
-            // BTN_Categorias
-            // 
-            this.BTN_Categorias.Image = global::SistemaDeGestion2026.Properties.Resources.ic_categoria;
-            this.BTN_Categorias.ImageFixedSize = new System.Drawing.Size(40, 40);
-            this.BTN_Categorias.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTN_Categorias.Name = "BTN_Categorias";
-            this.BTN_Categorias.SubItemsExpandWidth = 14;
-            this.BTN_Categorias.Text = "Categorías";
-            this.BTN_Categorias.Click += new System.EventHandler(this.BTN_Categorias_Click);
             // 
             // applicationButton1
             // 
@@ -459,13 +492,13 @@
             // 
             // RTB_Administracion
             // 
-            this.RTB_Administracion.Checked = true;
             this.RTB_Administracion.Name = "RTB_Administracion";
             this.RTB_Administracion.Panel = this.RBPAdministracion;
             this.RTB_Administracion.Text = "&Administración";
             // 
             // RTB_Inventario
             // 
+            this.RTB_Inventario.Checked = true;
             this.RTB_Inventario.Name = "RTB_Inventario";
             this.RTB_Inventario.Panel = this.ribbonPanel2;
             this.RTB_Inventario.Text = "Inventario";
@@ -548,8 +581,8 @@
             this.Load += new System.EventHandler(this.FRM_Principal_Load);
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
-            this.RBPAdministracion.ResumeLayout(false);
             this.ribbonPanel2.ResumeLayout(false);
+            this.RBPAdministracion.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -589,8 +622,9 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem2;
         private DevComponents.DotNetBar.ButtonItem BTN_Categorias;
         private DevComponents.DotNetBar.RibbonBar ribbonBar3;
-        private DevComponents.DotNetBar.ButtonItem BTN_Clientes;
         private DevComponents.DotNetBar.ButtonItem BTN_Proveedores;
+        private DevComponents.DotNetBar.RibbonBar ribbonBar4;
+        private DevComponents.DotNetBar.ButtonItem buttonItem3;
     }
 }
 

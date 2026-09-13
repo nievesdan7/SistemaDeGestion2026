@@ -183,6 +183,26 @@ namespace SistemaDeGestion2026.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_codigoBarras {
+            get {
+                object obj = ResourceManager.GetObject("ic_codigoBarras", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_codigoBarras2 {
+            get {
+                object obj = ResourceManager.GetObject("ic_codigoBarras2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_editar {
             get {
                 object obj = ResourceManager.GetObject("ic_editar", resourceCulture);

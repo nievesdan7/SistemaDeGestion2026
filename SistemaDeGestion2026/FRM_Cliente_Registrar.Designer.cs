@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Cliente_Registrar));
             this.GP_Panel_Usuario = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.TXT_CodigoPersona = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXT_Nombre = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXT_Telefono = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXT_Direccion = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -49,7 +48,6 @@
             this.GP_Panel_Usuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GP_Panel_Usuario.CanvasColor = System.Drawing.SystemColors.Control;
             this.GP_Panel_Usuario.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.GP_Panel_Usuario.Controls.Add(this.TXT_CodigoPersona);
             this.GP_Panel_Usuario.Controls.Add(this.TXT_Nombre);
             this.GP_Panel_Usuario.Controls.Add(this.TXT_Telefono);
             this.GP_Panel_Usuario.Controls.Add(this.TXT_Direccion);
@@ -95,24 +93,6 @@
             this.GP_Panel_Usuario.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.GP_Panel_Usuario.TabIndex = 0;
             this.GP_Panel_Usuario.Text = "Usuario";
-            // 
-            // TXT_CodigoPersona
-            // 
-            this.TXT_CodigoPersona.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.TXT_CodigoPersona.Border.Class = "TextBoxBorder";
-            this.TXT_CodigoPersona.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXT_CodigoPersona.DisabledBackColor = System.Drawing.Color.White;
-            this.TXT_CodigoPersona.ForeColor = System.Drawing.Color.Black;
-            this.TXT_CodigoPersona.Location = new System.Drawing.Point(78, 147);
-            this.TXT_CodigoPersona.Name = "TXT_CodigoPersona";
-            this.TXT_CodigoPersona.PreventEnterBeep = true;
-            this.TXT_CodigoPersona.ReadOnly = true;
-            this.TXT_CodigoPersona.Size = new System.Drawing.Size(161, 22);
-            this.TXT_CodigoPersona.TabIndex = 10;
-            this.TXT_CodigoPersona.Visible = false;
             // 
             // TXT_Nombre
             // 
@@ -312,6 +292,5 @@
         private DevComponents.DotNetBar.Controls.TextBoxX TXT_Nombre;
         private DevComponents.DotNetBar.Controls.TextBoxX TXT_Telefono;
         private DevComponents.DotNetBar.Controls.TextBoxX TXT_Direccion;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXT_CodigoPersona;
     }
 }

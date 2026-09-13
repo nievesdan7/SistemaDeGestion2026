@@ -29,7 +29,7 @@ namespace SistemaDeGestion2026
         public bool actualizar = false;
         private bool TieneFoto = false;
 
-        private String descripcion = "";
+        public Boolean lectorHabilitado = false;
         #endregion
 
         #region Constructor
@@ -45,95 +45,125 @@ namespace SistemaDeGestion2026
 
         private bool VerificarIntegridad()
         {
-            bool respuesta = true;
 
-            if (TXT_Nompro.Text.Replace(" ", "") == "")
-            {
-                MessageBox.Show("Introduzca el nombre del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXT_Nompro.Focus();
-                respuesta = false;
-            }
-            else if (TXT_Marca.Text.Replace(" ", "") == "")
-            {
-                MessageBox.Show("Introduzca la marca del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXT_Marca.Focus();
-                respuesta = false;
-            }
+        
+            bool respuesta = true;
             
-            else if (TXT_Talla.Text.Replace(" ", "") == "")
+            if (LBLCodigoBarras.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Introduzca la talla del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXT_Talla.Focus();
-                respuesta = false;
-            }
-            else if (COMBOCategoria.Text.Replace(" ", "") == "")
-            {
-                MessageBox.Show("Elija una categoría para el producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                COMBOCategoria.Focus();
+                MessageBox.Show("Registre un código de barras", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LBLCodigoBarras.Focus();
                 respuesta = false;
             }
             else if (TXT_Modelo.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Introduzca el modelo del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Introduzca el modelo", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXT_Modelo.Focus();
                 respuesta = false;
             }
-            else if (TXT_Material.Text.Replace(" ", "") == "")
+            
+            else if (CMBGenero.SelectedIndex==-1)
             {
-                MessageBox.Show("Introduzca el material del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXT_Material.Focus();
+                MessageBox.Show("Seleccione un género", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CMBGenero.Focus();
                 respuesta = false;
             }
-            else if (TXT_Genero.Text.Replace(" ", "") == "")
+            else if (CMBCategoria.SelectedIndex==-1)
             {
-                MessageBox.Show("Introduzca el género del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXT_Genero.Focus();
+                MessageBox.Show("Elija una categoría", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CMBCategoria.Focus();
                 respuesta = false;
             }
-            else if (TXTCodigoBarras.Text.Replace(" ", "") == "")
+            else if (CMBNombreProducto.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Introduzca el codigo de barras del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTCodigoBarras.Focus();
+                MessageBox.Show("Introduzca el nombre del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CMBNombreProducto.Focus();
+                respuesta = false;
+            }
+            else if (CMBMarca.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca la marca", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CMBMarca.Focus();
+                respuesta = false;
+            }
+            else if (CMBMaterial.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca el material", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CMBMaterial.Focus();
+                respuesta = false;
+            }
+            else if (CMBColor.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca el color", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CMBColor.Focus();
+                respuesta = false;
+            }
+            else if (CMBTalla.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca la talla", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CMBTalla.Focus();
                 respuesta = false;
             }
             else if (TXT_Descripcion.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Introduzca la descripción del producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Introduzca la descripción", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXT_Descripcion.Focus();
                 respuesta = false;
             }
+
             return respuesta;
         }
         private void LimpiarCasillas()
         {
             SWB_Estado.Value = true;
-            TXT_Nompro.Text = "";
-            COMBOCategoria.Text = "";
+            LBLCodigoBarras.Text = "";
+            TXT_Modelo.Text= "";
+            CMBGenero.SelectedIndex = -1;
+            CMBCategoria.SelectedIndex = -1;
+
+            CMBNombreProducto.Text = "";
+            CMBMarca.Text = "";
+            CMBMaterial.Text = "";
+            CMBColor.Text = "";
+            CMBTalla.Text = "";
+            INTStock.Value = 0;
+            DINPrecioVenta.Value = 0.00;
+            DINPrecioMinimo.Value = 0.00;
+            TXT_Descripcion.Text = "";
         }
-        private void JalarDatosCOMBOCategoria()
+        private void CargarCombo(String campo, ComboBox combo)
         {
-            producto.papdcodpro = this.codProMod;
-            producto.ObtenerDatos();
+            
+            try
+            {
+                List<String> listaNombreProducto = producto.Combo(campo);
+                combo.Items.Clear();
+                combo.DisplayMember = campo;
+
+                combo.DataSource = listaNombreProducto;
+                combo.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los combos",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
             
 
-               try
-                {
-                    List<acatpro> listaCategorias = categoria.Lista("");
-                    COMBOCategoria.DataSource = listaCategorias;
-                    COMBOCategoria.DisplayMember = "cacpnomcat";
-                    COMBOCategoria.ValueMember = "pacpcodcat";
-                    COMBOCategoria.Text = producto.fapdcodcat;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar las categorías: " + ex.Message,
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
+
+
+        }
+        private void CargarComboCategorias()
+        {
+            List<acatpro> listaCategorias = categoria.Lista("cacpestcat = true order by cacpnomcat");            
+            CMBCategoria.Items.Clear();
+            CMBCategoria.DisplayMember = "cacpnomcat";
+            CMBCategoria.ValueMember = "pacpcodcat";
+            CMBCategoria.DataSource = listaCategorias;
+            CMBCategoria.SelectedIndex = -1;
             
-            
-           
 
         }
         private void JalarDatos()
@@ -142,41 +172,20 @@ namespace SistemaDeGestion2026
             producto.ObtenerDatos();
 
             SWB_Estado.Value = producto.capdestpro;
-            TXT_Nompro.Text = producto.capdnompro;
-            
-
-                try
-                {
-                    List<acatpro> listaCategorias = categoria.Lista("");
-                   
-                    COMBOCategoria.DisplayMember = "cacpnomcat";
-                    COMBOCategoria.ValueMember = "pacpcodcat";
-                    COMBOCategoria.DataSource = listaCategorias;
-
-                    COMBOCategoria.SelectedValue = producto.fapdcodcat;
-            }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar las categorías: " + ex.Message,
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-
-            
-            TXT_Marca.Text = producto.capdmarpro;
-            TXT_Talla.Text = producto.capdtalpro;
-            TXT_Modelo.Text = producto.capdmodpro;
-            TXT_Material.Text = producto.capdmatpro;
-            TXT_Genero.Text = producto.capdgenpro;
-            DOUBLE_PrecioVenta.Value = (double)producto.capdpreven;
-            DOUBLE_PrecioMinimo.Value = (double)producto.capdpremin;
-            TXT_Color.Text = producto.capdcolpro;
-            TXTCodigoBarras.Text = producto.capdcodbar;
+            LBLCodigoBarras.Text = producto.capdcodbar;
+            TXT_Modelo.Text = producto.capdmodpro;            
+            CMBGenero.Text = producto.capdgenpro;
+            CMBCategoria.SelectedValue = producto.fapdcodcat;
+            CMBNombreProducto.Text = producto.capdnompro;
+            CMBMarca.Text = producto.capdmarpro;
+            CMBMaterial.Text = producto.capdmatpro;
+            CMBColor.Text = producto.capdcolpro;
+            CMBTalla.Text = producto.capdtalpro;
+            INTStock.Value = producto.capdstopro;
+            DINPrecioVenta.Value = (double)producto.capdpreven;
+            DINPrecioMinimo.Value = (double)producto.capdpremin;                       
             TXT_Descripcion.Text = producto.capddespro;
-
-
-
+            
 
             if (producto.capdfotpro == " ")
             {
@@ -193,10 +202,17 @@ namespace SistemaDeGestion2026
 
         #endregion
 
+
         #region Eventos
 
         private void FRM_Producto_Registrar_Load(object sender, EventArgs e)
-        {
+        {           
+            CargarComboCategorias();
+            CargarCombo("capdnompro", CMBNombreProducto);
+            CargarCombo("capdmarpro", CMBMarca);
+            CargarCombo("capdmatpro", CMBMaterial);
+            CargarCombo("capdcolpro", CMBColor);
+            CargarCombo("capdtalpro", CMBTalla);
             IniciarCamara();
             if (this.modificar)
             {
@@ -204,38 +220,26 @@ namespace SistemaDeGestion2026
                 BTN_Grabar.Text = "&Modificar";
                 this.Text = "Modificar Producto";
                 GP_Panel_Producto.Text = "Modificar Producto";
-                TXT_Nompro.Focus();
+                SWB_Estado.Focus();
             }
             else
             {
                 LimpiarCasillas();
-                JalarDatosCOMBOCategoria();
                 BTN_Grabar.Text = "&Guardar";
                 this.Text = "Registrar Producto";
                 GP_Panel_Producto.Text = "Registrar Producto";
-                TXT_Nompro.Focus();
+                SWB_Estado.Focus();
                 
             }
-        }       
+        }
+        private void BTN_Limpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCasillas();
+        }
         private void BTN_Salir_Click(object sender, EventArgs e)
         {
             Close();
-        }
-        private void FRM_Producto_Registrar_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("¿Está seguro que desea cerrar el formulario?",
-                                "Pregunta",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Question,
-                                MessageBoxDefaultButton.Button2) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                ApagarCamara();
-            }
-        }
+        }        
         private void BTN_Grabar_Click(object sender, EventArgs e)
         {
             if (VerificarIntegridad())
@@ -250,6 +254,7 @@ namespace SistemaDeGestion2026
                     {
                         producto.papdcodpro = correlativo.pxnctipcor + "-" + correlativo.cxncnumcor.ToString("D5");
 
+                        producto.capdpreven = 0.00m;
                         producto.capdpremin = 0.00m;
                         producto.capdfeccre = DateTime.Now; 
                         producto.capdfotpro = " ";
@@ -266,20 +271,20 @@ namespace SistemaDeGestion2026
                 else
                 {
                     producto.papdcodpro = this.codProMod;
+                    
                 }
 
                 producto.capdestpro = SWB_Estado.Value;
-                producto.capdnompro = TXT_Nompro.Text;
-                producto.fapdcodcat = COMBOCategoria.SelectedValue.ToString();
-                producto.capdmarpro = TXT_Marca.Text;
+                producto.capdnompro = CMBNombreProducto.Text;
+                producto.fapdcodcat = CMBCategoria.SelectedValue.ToString();
+                producto.capdmarpro = CMBMarca.Text;
                 producto.capdmodpro = TXT_Modelo.Text;
-                producto.capdtalpro = TXT_Talla.Text;
-                producto.capdmatpro = TXT_Material.Text;
-                producto.capdgenpro = TXT_Genero.Text;
-                producto.capdcolpro = TXT_Color.Text;
-                producto.capdpreven = (decimal)DOUBLE_PrecioVenta.Value;
-               
-                producto.capdcodbar = TXTCodigoBarras.Text;
+                producto.capdtalpro = CMBTalla.Text;
+                producto.capdmatpro = CMBMaterial.Text;
+                producto.capdgenpro = CMBGenero.Text;
+                producto.capdcolpro = CMBColor.Text;
+                               
+                producto.capdcodbar = LBLCodigoBarras.Text;
                 producto.capddespro = TXT_Descripcion.Text;
                 producto.capdfecmod = DateTime.Now;
 
@@ -348,10 +353,92 @@ namespace SistemaDeGestion2026
         {
             FRM_Categoria_Registrar a = new FRM_Categoria_Registrar();   
             a.ShowDialog();
-            JalarDatosCOMBOCategoria();
+            CargarComboCategorias();
 
 
         }
+        private void TXT_Nompro_TextChanged(object sender, EventArgs e)
+        {
+            String descripcion = "";
+            if (CMBNombreProducto.Text.Replace(" ", "") != "") 
+            {
+                descripcion += CMBNombreProducto.Text;
+
+                if (CMBGenero.Text.Replace(" ", "") != "")
+                {
+                    descripcion += " - GÉNERO: " + CMBGenero.Text;
+
+                    if (CMBMarca.Text.Replace(" ", "") != "")
+                    {
+                        descripcion += " - MARCA: " + CMBMarca.Text;
+
+                        if (CMBColor.Text.Replace(" ", "") != "")
+                        {
+                            descripcion += " - COLOR: " + CMBColor.Text;
+
+                            if (CMBTalla.Text.Replace(" ", "") != "")
+                            {
+                                descripcion += " - TALLA: " + CMBTalla.Text;
+
+                            }
+                        }
+                    }
+                }                
+            }
+            
+            TXT_Descripcion.Text = descripcion;
+        }
+        private void BTNCodigoBarras_Click(object sender, EventArgs e)
+        {
+            if (!lectorHabilitado)
+            {
+                lectorHabilitado = true;
+                LBLCodigoBarras.Text = "LECTOR ACTIVO";
+                LBLCodigoBarras.BackColor = Color.PaleGreen;
+            }
+            else
+            {
+                if (LBLCodigoBarras.Text == "LECTOR ACTIVO")
+                {
+                    LBLCodigoBarras.Text = "SIN CODIGO";
+                    LBLCodigoBarras.BackColor = Color.Salmon;
+                }
+                else
+                {
+                    LBLCodigoBarras.BackColor = Color.LightBlue;
+                }
+                lectorHabilitado = false;
+                TXT_Modelo.Focus();
+            }
+        }
+        private void BTNCodigoBarras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (LBLCodigoBarras.Text == "LECTOR ACTIVO")
+            {
+                LBLCodigoBarras.Text = "" + e.KeyChar;
+            }
+            else
+            {
+                LBLCodigoBarras.Text += e.KeyChar;
+            }
+
+        }
+        private void FRM_Producto_Registrar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cerrar el formulario?",
+                                "Pregunta",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question,
+                                MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                ApagarCamara();
+            }
+        }
+
         #endregion
 
         #region Metodos de la cámara
@@ -414,7 +501,6 @@ namespace SistemaDeGestion2026
                 PCB_Fotografía.Image = Resources.gif_no_imagen;
             }
         }
-        
         private void BTN_CapturarFoto_Click(object sender, EventArgs e)
         {
             PCB_Fotografía.Image = PCB_Camara.Image;
@@ -422,44 +508,8 @@ namespace SistemaDeGestion2026
         }
 
 
-
-
-
         #endregion
 
-        private void TXT_Nompro_TextChanged(object sender, EventArgs e)
-        {
-            descripcion = "";
-            if (TXT_Nompro.Text.Replace(" ", "") != "") {
-                descripcion += TXT_Nompro.Text;
-                if (TXT_Marca.Text.Replace(" ", "") != "")
-                {
-                    descripcion += ", Marca  " + TXT_Marca.Text;
-                    if (TXT_Talla.Text.Replace(" ", "") != "")
-                    {
-                        descripcion += ", Talla " + TXT_Talla.Text;
-                        if (TXT_Modelo.Text.Replace(" ", "") != "")
-                        {
-                            descripcion += ", Modelo " + TXT_Modelo.Text;
-                            if (TXT_Material.Text.Replace(" ", "") != "")
-                            {
-                                descripcion += ", Material " + TXT_Material.Text;
-                                if (TXT_Color.Text.Replace(" ", "") != "")
-                                {
-                                    descripcion += ", Color " + TXT_Color.Text;
-                                    if (TXT_Genero.Text.Replace(" ", "") != "")
-                                    {
-                                        descripcion += ", Género " + TXT_Genero.Text;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                
-            }
-            
-            TXT_Descripcion.Text = descripcion;
-        }
+       
     }
 }

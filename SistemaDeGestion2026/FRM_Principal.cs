@@ -38,6 +38,7 @@ namespace SistemaDeGestion2026
             BTNActualizarPassword.Enabled = false;
             BTNCerrarSesion.Enabled = false;
             RTB_Administracion.Enabled = false;
+            RTB_Inventario.Enabled = false;
             RBPAdministracion.Enabled = false;
             BTNLogin.Enabled = true;
             BTN_LoginHuella.Enabled = true;
@@ -60,6 +61,7 @@ namespace SistemaDeGestion2026
             BTNActualizarPassword.Enabled = true;
             BTNCerrarSesion.Enabled = true;
             RTB_Administracion.Enabled = true;
+            RTB_Inventario.Enabled = true;
             RBPAdministracion.Enabled = true;
             BTNLogin.Enabled = false;
             BTN_LoginHuella.Enabled = false;

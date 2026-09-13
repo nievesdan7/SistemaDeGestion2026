@@ -79,7 +79,7 @@ namespace SistemaDeGestion2026
             TXT_Direccion.Text = "";
             TXT_Telefono.Text = "";
 
-            TXT_CodigoPersona.Text = "";
+            
             TXT_Nombre.Text = "";
         }
 
@@ -99,7 +99,7 @@ namespace SistemaDeGestion2026
             TXT_Telefono.Text = cliente.cacltelcli;
 
 
-            TXT_CodigoPersona.Text = persona.papscodper;
+            
             TXT_Nombre.Text = persona.capsapepat + " " + persona.capsapemat + " " + persona.capsnomper;
           
 
@@ -118,7 +118,7 @@ namespace SistemaDeGestion2026
                 this.personaOK = true;
                 
                 TXT_Nombre.Text = persona.capsapepat + " " + persona.capsapemat + " " + persona.capsnomper;
-                TXT_CodigoPersona.Text = persona.papscodper;
+                
             }
             else
             {
@@ -146,7 +146,7 @@ namespace SistemaDeGestion2026
 
                 if (!this.modificar)
                 {
-                    cliente.faclcodper = TXT_CodigoPersona.Text;
+                    cliente.faclcodper = persona.papscodper;
                     if (cliente.Grabar2())
                     {
                         MessageBox.Show("Cliente guardado correctamente!!",
@@ -168,7 +168,7 @@ namespace SistemaDeGestion2026
                 }
                 else
                 {
-                    if (cliente.Modificar2(TXT_CodigoPersona.Text))
+                    if (cliente.Modificar2(persona.papscodper))
                     {
                         MessageBox.Show("Cliente modificado correctamente!!",
                                         "Mensaje",

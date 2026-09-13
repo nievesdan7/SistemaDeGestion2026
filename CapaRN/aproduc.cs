@@ -514,9 +514,38 @@ namespace CapaRN
                 }
                 this.Conexion.Desconectar();
                 return ListaResultado;
-            } 
-        #endregion 
+            }
+            public List<String> Combo(string campo)
+            {
+                List<String> ListaResultado = new List<String>();
+                this.Conexion.Conectar();
+                string sql = "SELECT " +                            
+                                "DISTINCT "+campo+" "+
+                                "FROM aproduc " +
+                                "WHERE capdestpro = true " +
+                                "ORDER BY "+campo;
 
-	}
+                
+
+
+                this.Conexion.PrepararComando(sql);
+                DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+                if (ResultadoConsulta != null)
+                {
+                    while (ResultadoConsulta.Read())
+                    {
+                        String Auxiliar = "";                        
+                        Auxiliar= ResultadoConsulta.GetString(0);                      
+                        ListaResultado.Add(Auxiliar);
+                    }
+
+                }
+                this.Conexion.Desconectar();
+                return ListaResultado;
+            }
+        #endregion
+       
+    }
 }
 

@@ -137,7 +137,7 @@
             // 
             // LBLCodigoBarras
             // 
-            this.LBLCodigoBarras.BackColor = System.Drawing.Color.Chartreuse;
+            this.LBLCodigoBarras.BackColor = System.Drawing.Color.LightCoral;
             // 
             // 
             // 
@@ -156,9 +156,8 @@
             this.DINPrecioMinimo.BackgroundStyle.Class = "DateTimeInputBackground";
             this.DINPrecioMinimo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.DINPrecioMinimo.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.DINPrecioMinimo.Increment = 0D;
+            this.DINPrecioMinimo.Increment = 1D;
             this.DINPrecioMinimo.InputMouseWheelEnabled = false;
-            this.DINPrecioMinimo.IsInputReadOnly = true;
             this.DINPrecioMinimo.Location = new System.Drawing.Point(163, 266);
             this.DINPrecioMinimo.Name = "DINPrecioMinimo";
             this.DINPrecioMinimo.ShowUpDown = true;
@@ -185,9 +184,8 @@
             this.DINPrecioVenta.BackgroundStyle.Class = "DateTimeInputBackground";
             this.DINPrecioVenta.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.DINPrecioVenta.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.DINPrecioVenta.Increment = 0D;
+            this.DINPrecioVenta.Increment = 1D;
             this.DINPrecioVenta.InputMouseWheelEnabled = false;
-            this.DINPrecioVenta.IsInputReadOnly = true;
             this.DINPrecioVenta.Location = new System.Drawing.Point(163, 237);
             this.DINPrecioVenta.Name = "DINPrecioVenta";
             this.DINPrecioVenta.ShowUpDown = true;
@@ -248,6 +246,9 @@
             this.CMBTalla.TabIndex = 24;
             this.CMBTalla.WatermarkText = "Talla";
             this.CMBTalla.TextChanged += new System.EventHandler(this.TXT_Nompro_TextChanged);
+            this.CMBTalla.Enter += new System.EventHandler(this.CMBCategoria_Enter);
+            this.CMBTalla.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CMBTalla_KeyDown);
+            this.CMBTalla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CMBNombreProducto_KeyPress);
             // 
             // CMBGenero
             // 
@@ -268,6 +269,7 @@
             this.CMBGenero.TabIndex = 23;
             this.CMBGenero.WatermarkText = "Género";
             this.CMBGenero.TextChanged += new System.EventHandler(this.TXT_Nompro_TextChanged);
+            this.CMBGenero.Enter += new System.EventHandler(this.CMBCategoria_Enter);
             // 
             // HOMBRE
             // 
@@ -295,6 +297,9 @@
             this.CMBColor.TabIndex = 22;
             this.CMBColor.WatermarkText = "Color";
             this.CMBColor.TextChanged += new System.EventHandler(this.TXT_Nompro_TextChanged);
+            this.CMBColor.Enter += new System.EventHandler(this.CMBCategoria_Enter);
+            this.CMBColor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CMBMaterial_KeyDown);
+            this.CMBColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CMBNombreProducto_KeyPress);
             // 
             // CMBMaterial
             // 
@@ -310,6 +315,9 @@
             this.CMBMaterial.TabIndex = 21;
             this.CMBMaterial.WatermarkText = "Material";
             this.CMBMaterial.TextChanged += new System.EventHandler(this.TXT_Nompro_TextChanged);
+            this.CMBMaterial.Enter += new System.EventHandler(this.CMBCategoria_Enter);
+            this.CMBMaterial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CMBMaterial_KeyDown);
+            this.CMBMaterial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CMBNombreProducto_KeyPress);
             // 
             // CMBMarca
             // 
@@ -325,6 +333,9 @@
             this.CMBMarca.TabIndex = 20;
             this.CMBMarca.WatermarkText = "Marca";
             this.CMBMarca.TextChanged += new System.EventHandler(this.TXT_Nompro_TextChanged);
+            this.CMBMarca.Enter += new System.EventHandler(this.CMBCategoria_Enter);
+            this.CMBMarca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CMBMarca_KeyDown);
+            this.CMBMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CMBNombreProducto_KeyPress);
             // 
             // CMBNombreProducto
             // 
@@ -340,6 +351,9 @@
             this.CMBNombreProducto.TabIndex = 19;
             this.CMBNombreProducto.WatermarkText = "Nombre del Producto";
             this.CMBNombreProducto.TextChanged += new System.EventHandler(this.TXT_Nompro_TextChanged);
+            this.CMBNombreProducto.Enter += new System.EventHandler(this.CMBCategoria_Enter);
+            this.CMBNombreProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CMBMaterial_KeyDown);
+            this.CMBNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CMBNombreProducto_KeyPress);
             // 
             // BTNCodigoBarras
             // 
@@ -371,6 +385,7 @@
             this.CMBCategoria.TabIndex = 2;
             this.CMBCategoria.WatermarkText = "Categoría";
             this.CMBCategoria.TextChanged += new System.EventHandler(this.TXT_Nompro_TextChanged);
+            this.CMBCategoria.Enter += new System.EventHandler(this.CMBCategoria_Enter);
             // 
             // BTN_AgregarCategoria
             // 
@@ -404,6 +419,7 @@
             this.TXT_Descripcion.Size = new System.Drawing.Size(305, 63);
             this.TXT_Descripcion.TabIndex = 12;
             this.TXT_Descripcion.WatermarkText = "Descripción";
+            this.TXT_Descripcion.Enter += new System.EventHandler(this.TXT_Modelo_Enter);
             // 
             // GP_Fotografia
             // 
@@ -573,6 +589,7 @@
             this.TXT_Modelo.TabIndex = 5;
             this.TXT_Modelo.WatermarkText = "Modelo";
             this.TXT_Modelo.TextChanged += new System.EventHandler(this.TXT_Nompro_TextChanged);
+            this.TXT_Modelo.Enter += new System.EventHandler(this.TXT_Modelo_Enter);
             // 
             // SWB_Estado
             // 

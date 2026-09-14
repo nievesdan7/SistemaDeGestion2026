@@ -48,27 +48,32 @@ namespace SistemaDeGestion2026
 
         
             bool respuesta = true;
-            
-            if (LBLCodigoBarras.Text.Replace(" ", "") == "")
+
+
+            aproduc producto2 = new aproduc();
+            producto2.capdcodbar = LBLCodigoBarras.Text;
+
+            if (producto2.ObtenerDatosCodigo(modificar, producto.capdcodbar))
             {
-                MessageBox.Show("Registre un código de barras", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El código de barras ya existe", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 LBLCodigoBarras.Focus();
                 respuesta = false;
             }
+
             else if (TXT_Modelo.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el modelo", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXT_Modelo.Focus();
                 respuesta = false;
             }
-            
-            else if (CMBGenero.SelectedIndex==-1)
+
+            else if (CMBGenero.SelectedIndex == -1)
             {
                 MessageBox.Show("Seleccione un género", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 CMBGenero.Focus();
                 respuesta = false;
             }
-            else if (CMBCategoria.SelectedIndex==-1)
+            else if (CMBCategoria.SelectedIndex == -1)
             {
                 MessageBox.Show("Elija una categoría", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 CMBCategoria.Focus();
@@ -110,13 +115,33 @@ namespace SistemaDeGestion2026
                 TXT_Descripcion.Focus();
                 respuesta = false;
             }
+            else if (DINPrecioVenta.Value <= 0)
+            {
+                MessageBox.Show("Introduzca un precio mayor a cero", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DINPrecioVenta.Focus();
+                respuesta = false;
+            }
+            else if (DINPrecioMinimo.Value <= 0)
+            {
+                MessageBox.Show("Introduzca un precio mayor a cero", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DINPrecioVenta.Focus();
+                respuesta = false;
+            }
+            else if (DINPrecioMinimo.Value <= DINPrecioMinimo.Value)
+            {
+                MessageBox.Show("El precio de venta debe ser mayor al precio mínimo", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DINPrecioVenta.Focus();
+                respuesta = false;
+            }
+
 
             return respuesta;
         }
         private void LimpiarCasillas()
         {
             SWB_Estado.Value = true;
-            LBLCodigoBarras.Text = "";
+            LBLCodigoBarras.Text = "SIN CODIGO";
+            LBLCodigoBarras.BackColor = Color.Salmon;
             TXT_Modelo.Text= "";
             CMBGenero.SelectedIndex = -1;
             CMBCategoria.SelectedIndex = -1;
@@ -130,6 +155,11 @@ namespace SistemaDeGestion2026
             DINPrecioVenta.Value = 0.00;
             DINPrecioMinimo.Value = 0.00;
             TXT_Descripcion.Text = "";
+
+            TieneFoto = false;
+            PCB_Fotografía.Image = Resources.gif_no_imagen;
+            PCB_Camara.Image = Resources.gif_no_camara;
+            TXT_Modelo.Focus();
         }
         private void CargarCombo(String campo, ComboBox combo)
         {
@@ -173,8 +203,17 @@ namespace SistemaDeGestion2026
 
             SWB_Estado.Value = producto.capdestpro;
             LBLCodigoBarras.Text = producto.capdcodbar;
+            if(producto.capdcodbar != " ")
+            {
+                LBLCodigoBarras.Text = "SIN CODIGO";
+                LBLCodigoBarras.BackColor = Color.Salmon;
+            }
+            else
+            {
+                LBLCodigoBarras.BackColor = Color.Chartreuse;
+            }
             TXT_Modelo.Text = producto.capdmodpro;            
-            CMBGenero.Text = producto.capdgenpro;
+            CMBGenero.SelectedText = producto.capdgenpro;
             CMBCategoria.SelectedValue = producto.fapdcodcat;
             CMBNombreProducto.Text = producto.capdnompro;
             CMBMarca.Text = producto.capdmarpro;
@@ -202,7 +241,6 @@ namespace SistemaDeGestion2026
 
         #endregion
 
-
         #region Eventos
 
         private void FRM_Producto_Registrar_Load(object sender, EventArgs e)
@@ -220,7 +258,7 @@ namespace SistemaDeGestion2026
                 BTN_Grabar.Text = "&Modificar";
                 this.Text = "Modificar Producto";
                 GP_Panel_Producto.Text = "Modificar Producto";
-                SWB_Estado.Focus();
+                TXT_Modelo.Focus();
             }
             else
             {
@@ -228,7 +266,7 @@ namespace SistemaDeGestion2026
                 BTN_Grabar.Text = "&Guardar";
                 this.Text = "Registrar Producto";
                 GP_Panel_Producto.Text = "Registrar Producto";
-                SWB_Estado.Focus();
+                TXT_Modelo.Focus();
                 
             }
         }
@@ -438,7 +476,81 @@ namespace SistemaDeGestion2026
                 ApagarCamara();
             }
         }
-
+        private void CMBCategoria_Enter(object sender, EventArgs e)
+        {
+            ComboBoxEx a = (ComboBoxEx)sender;
+            a.SelectAll();
+        }
+        private void TXT_Modelo_Enter(object sender, EventArgs e)
+        {
+            TextBox a = (TextBox)sender;
+            a.SelectAll();
+        }
+        private void CMBNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+        private void CMBMaterial_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool tecla_valida = false;
+            //letras espacios
+            if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+                tecla_valida = true;
+            else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
+                tecla_valida = true;
+            else if ((e.KeyCode == Keys.Subtract) ||
+                (e.KeyCode == Keys.Back) ||
+                (e.KeyCode == Keys.Delete) ||
+                (e.KeyCode == Keys.Left) ||
+                (e.KeyCode == Keys.Right) ||
+                ((e.KeyCode == Keys.OemMinus) && !e.Shift))
+                tecla_valida = true;
+            if (!tecla_valida)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+        private void CMBMarca_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool tecla_valida = false;
+            //Numeros letras espacios
+            if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+                tecla_valida = true;
+            else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
+                tecla_valida = true;
+            else if ((e.KeyCode == Keys.Subtract) ||
+                (e.KeyCode == Keys.Space) ||
+                (e.KeyCode == Keys.Back) ||
+                (e.KeyCode == Keys.Delete) ||
+                (e.KeyCode == Keys.Left) ||
+                (e.KeyCode == Keys.Right) ||
+                ((e.KeyCode == Keys.OemMinus) && !e.Shift))
+                tecla_valida = true;
+            if (!tecla_valida)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+        private void CMBTalla_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool tecla_valida = false;
+            //Numeros letras
+            if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+                tecla_valida = true;
+            else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
+                tecla_valida = true;
+            else if ((e.KeyCode == Keys.Subtract) ||
+                (e.KeyCode == Keys.Back) ||
+                (e.KeyCode == Keys.Delete) ||
+                (e.KeyCode == Keys.Left) ||
+                (e.KeyCode == Keys.Right) ||
+                ((e.KeyCode == Keys.OemMinus) && !e.Shift))
+                tecla_valida = true;
+            if (!tecla_valida)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
         #endregion
 
         #region Metodos de la cámara
@@ -507,9 +619,8 @@ namespace SistemaDeGestion2026
             TieneFoto = true;
         }
 
-
         #endregion
 
-       
+        
     }
 }

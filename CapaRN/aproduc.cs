@@ -213,10 +213,10 @@ namespace CapaRN
                     return false;
                 }
             }
-            public bool VerificarExistencia()
-            { 
-                this.Conexion.Conectar(); 
-			    string sql = "select " + 
+            public bool ObtenerDatosCodigo(bool modificar,string cb)
+            {
+                this.Conexion.Conectar();
+                string sql = "select " +
                                      "capdpreven," +
                                      "capdpremin," +
                                      "capdestpro," +
@@ -234,30 +234,96 @@ namespace CapaRN
                                      "capdmodpro," +
                                      "capdnompro," +
                                      "capdmarpro," +
-                                     "capdmatpro " + 
+                                     "capdmatpro " +
                              "from aproduc " +
                              "where " +
-                                    "papdcodpro = @papdcodpro";
- 
-                this.Conexion.PrepararComando(sql); 
+                                    "capdcodbar = @capdcodbar";
 
-                this.Conexion.AsignarParametroCadena("@papdcodpro",this._papdcodpro);
+                if (modificar)
+                {
+                    sql += " and capdcodbar!='" + cb + "'";
+                }
+                this.Conexion.PrepararComando(sql);
+
+                this.Conexion.AsignarParametroCadena("@papdcodpro", this._papdcodpro);
 
                 DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
-                if (ResultadoConsulta.HasRows)
+                if (ResultadoConsulta.Read())
                 {
-                this.Conexion.Desconectar();
+                    this._capdpreven = ResultadoConsulta.GetDecimal(0);
+                    this._capdpremin = ResultadoConsulta.GetDecimal(1);
+                    this._capdestpro = ResultadoConsulta.GetBoolean(2);
+                    this._capdfeccre = ResultadoConsulta.GetDateTime(3);
+                    this._capdfecmod = ResultadoConsulta.GetDateTime(4);
+                    this._capdstopro = ResultadoConsulta.GetInt32(5);
+                    this._capdcolpro = ResultadoConsulta.GetString(6);
+                    this._capdgenpro = ResultadoConsulta.GetString(7);
+                    this._capdtalpro = ResultadoConsulta.GetString(8);
+                    this._capddespro = ResultadoConsulta.GetString(9);
+                    this._capdfotpro = ResultadoConsulta.GetString(10);
+                    this._papdcodpro = ResultadoConsulta.GetString(11);
+                    this._fapdcodcat = ResultadoConsulta.GetString(12);
+                    this._capdcodbar = ResultadoConsulta.GetString(13);
+                    this._capdmodpro = ResultadoConsulta.GetString(14);
+                    this._capdnompro = ResultadoConsulta.GetString(15);
+                    this._capdmarpro = ResultadoConsulta.GetString(16);
+                    this._capdmatpro = ResultadoConsulta.GetString(17);
+                    this.Conexion.Desconectar();
 
                     return true;
                 }
-                else 
-                { 
-
-                this.Conexion.Desconectar();
+                else
+                {
+                    this.Conexion.Desconectar();
                     return false;
+                }
+            }
+            public bool VerificarExistencia()
+                { 
+                    this.Conexion.Conectar(); 
+			        string sql = "select " + 
+                                         "capdpreven," +
+                                         "capdpremin," +
+                                         "capdestpro," +
+                                         "capdfeccre," +
+                                         "capdfecmod," +
+                                         "capdstopro," +
+                                         "capdcolpro," +
+                                         "capdgenpro," +
+                                         "capdtalpro," +
+                                         "capddespro," +
+                                         "capdfotpro," +
+                                         "papdcodpro," +
+                                         "fapdcodcat," +
+                                         "capdcodbar," +
+                                         "capdmodpro," +
+                                         "capdnompro," +
+                                         "capdmarpro," +
+                                         "capdmatpro " + 
+                                 "from aproduc " +
+                                 "where " +
+                                        "papdcodpro = @papdcodpro";
+ 
+                    this.Conexion.PrepararComando(sql); 
+
+                    this.Conexion.AsignarParametroCadena("@papdcodpro",this._papdcodpro);
+
+                    DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+                    if (ResultadoConsulta.HasRows)
+                    {
+                    this.Conexion.Desconectar();
+
+                        return true;
+                    }
+                    else 
+                    { 
+
+                    this.Conexion.Desconectar();
+                        return false;
+                    } 
                 } 
-            } 
             public bool Grabar()
             { 
                 if (this.VerificarExistencia())

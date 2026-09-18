@@ -285,12 +285,11 @@ namespace SistemaDeGestion2026
                 producto = new aproduc();
 
                 if (!this.modificar)
-                {
-                    //Generar el correlativo
+                {                    
                     correlativo.pxnctipcor = "aproduc";
                     if (correlativo.ObtenerSiguiente())
                     {
-                        producto.papdcodpro = correlativo.pxnctipcor + "-" + correlativo.cxncnumcor.ToString("D5");
+                        producto.papdcodpro = correlativo.pxnctipcor + "-" + correlativo.cxncnumcor.ToString("D12");
 
                         producto.capdpreven = 0.00m;
                         producto.capdpremin = 0.00m;
@@ -312,6 +311,16 @@ namespace SistemaDeGestion2026
                     
                 }
 
+                if (LBLCodigoBarras.Text == "SIN CODIGO")
+                {
+                    producto.capdcodbar = "SIN CODIGO";
+                }
+                else
+                {
+                    producto.capdcodbar = LBLCodigoBarras.Text;
+                }
+            
+
                 producto.capdestpro = SWB_Estado.Value;
                 producto.capdnompro = CMBNombreProducto.Text;
                 producto.fapdcodcat = CMBCategoria.SelectedValue.ToString();
@@ -321,14 +330,13 @@ namespace SistemaDeGestion2026
                 producto.capdmatpro = CMBMaterial.Text;
                 producto.capdgenpro = CMBGenero.Text;
                 producto.capdcolpro = CMBColor.Text;
-                               
-                producto.capdcodbar = LBLCodigoBarras.Text;
+                producto.capdpreven = (decimal)DINPrecioVenta.Value;
+                producto.capdpremin = (decimal)DINPrecioMinimo.Value;
+
                 producto.capddespro = TXT_Descripcion.Text;
                 producto.capdfecmod = DateTime.Now;
 
 
-
-                //Fotografia del producto
                 if (TieneFoto)
                 {
                     producto.capdfotpro = MetodosGenerales.ConvertImageToBase64String(PCB_Fotografía.Image);
@@ -337,8 +345,6 @@ namespace SistemaDeGestion2026
                 {
                     producto.capdfotpro = " ";
                 }
-
-
 
 
                 if (!this.modificar)

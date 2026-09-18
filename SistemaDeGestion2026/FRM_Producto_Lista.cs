@@ -15,9 +15,11 @@ namespace SistemaDeGestion2026
     {
 
         #region Variables
-        public aproduc producto = new aproduc();
-        private List<aproduc> lista_productos = new List<aproduc>();
+        private lproduc producto = new lproduc();
+        private aproduc producto2 = new aproduc();
+        private List<lproduc> lista_productos = new List<lproduc>();
         public bool seleccionadoOK = false;
+        
         #endregion
 
         #region Constructor
@@ -30,41 +32,49 @@ namespace SistemaDeGestion2026
         #region Metodos
         private void ActualizarGrid()
         {
-            DTG_Lista.Rows.Clear();
+            DTGLista.Rows.Clear();
             lista_productos.Clear();
 
-            lista_productos = producto.Lista("papdcodpro like '%" + TXT_Filtrar.Text + "%' or " +
-                                           "capdnompro like '%" + TXT_Filtrar.Text + "%' limit " +
+            lista_productos = producto.Lista("(capdmodpro like '%" + TXTFiltrar.Text + "%' or " +
+                                             "capdcodbar like '%" + TXTFiltrar.Text + "%' or " +
+                                             "capdnompro like '%" + TXTFiltrar.Text + "%' or " +
+                                             "capdgenpro like '%" + TXTFiltrar.Text + "%' or " +
+                                             "capdmarpro like '%" + TXTFiltrar.Text + "%' or " +
+                                             "capdcolpro like '%" + TXTFiltrar.Text + "%' or " +
+                                             "capdtalpro like '%" + TXTFiltrar.Text + "%' or " +
+                                             "capddespro like '%" + TXTFiltrar.Text + "%' or " +
+                                             "cacpnomcat like '%" + TXTFiltrar.Text + "%') limit " +
                                            IIN_Filas.Value.ToString()
                                            );
-            foreach (aproduc a in lista_productos)
+            foreach (lproduc a in lista_productos)
             {
-                DTG_Lista.Rows.Add();
+                DTGLista.Rows.Add();
 
                 if (a.capdestpro)
                 {
-                    if (DTG_Lista.Rows.Count % 2 == 0)
+                    if (DTGLista.Rows.Count % 2 == 0)
                     {
-                        DTG_Lista.Rows[DTG_Lista.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                        DTGLista.Rows[DTGLista.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                     }
                 }
                 else
                 {
-                    DTG_Lista.Rows[DTG_Lista.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Salmon;
+                    DTGLista.Rows[DTGLista.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Salmon;
                 }
 
-                DTG_Lista[0, DTG_Lista.Rows.Count - 1].Value = a.papdcodpro;
-                DTG_Lista[1, DTG_Lista.Rows.Count - 1].Value = a.capdestpro;
-                DTG_Lista[2, DTG_Lista.Rows.Count - 1].Value = a.capdnompro;
-                DTG_Lista[3, DTG_Lista.Rows.Count - 1].Value = a.fapdcodcat;
-                DTG_Lista[4, DTG_Lista.Rows.Count - 1].Value = a.capdgenpro;
-                DTG_Lista[5, DTG_Lista.Rows.Count - 1].Value = a.capdmodpro;
-                DTG_Lista[6, DTG_Lista.Rows.Count - 1].Value = a.capdmarpro;
-                DTG_Lista[7, DTG_Lista.Rows.Count - 1].Value = a.capdmatpro;
-                DTG_Lista[8, DTG_Lista.Rows.Count - 1].Value = a.capdcolpro;
-                DTG_Lista[9, DTG_Lista.Rows.Count - 1].Value = a.capdstopro;
-                DTG_Lista[10, DTG_Lista.Rows.Count - 1].Value = a.capdpreven;
-                DTG_Lista[11, DTG_Lista.Rows.Count - 1].Value = a.capdpremin;
+                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.papdcodpro;
+                DTGLista[1, DTGLista.Rows.Count - 1].Value = a.capdestpro;
+                DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capdmodpro;
+                DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capdcodbar;
+                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.capdnompro;
+                DTGLista[5, DTGLista.Rows.Count - 1].Value = a.cacpnomcat;
+                DTGLista[6, DTGLista.Rows.Count - 1].Value = a.capdgenpro;
+                DTGLista[7, DTGLista.Rows.Count - 1].Value = a.capdmarpro;
+                DTGLista[8, DTGLista.Rows.Count - 1].Value = a.capdcolpro;
+                DTGLista[9, DTGLista.Rows.Count - 1].Value = a.capdtalpro;
+                DTGLista[10, DTGLista.Rows.Count - 1].Value = a.capdstopro;
+                DTGLista[11, DTGLista.Rows.Count - 1].Value = a.capdpreven;
+                DTGLista[12, DTGLista.Rows.Count - 1].Value = a.capddespro;
 
 
             }
@@ -74,18 +84,16 @@ namespace SistemaDeGestion2026
 
         #region Eventos
         private void FRM_Producto_Lista_Load(object sender, EventArgs e)
-        {
-            
-            ActualizarGrid();
-            
+        {            
+            ActualizarGrid();            
         }
         private void BTN_Modificar_Click(object sender, EventArgs e)
         {
-            if (DTG_Lista.SelectedRows.Count>0)
+            if (DTGLista.SelectedRows.Count>0)
             {
                 FRM_Producto_Registrar a = new FRM_Producto_Registrar();
                 a.modificar = true;
-                a.codProMod = DTG_Lista[0, DTG_Lista.SelectedRows[0].Index].Value.ToString();
+                a.codProMod = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
                 a.ShowDialog();
                 if (a.actualizar)
                 {
@@ -108,16 +116,13 @@ namespace SistemaDeGestion2026
                 ActualizarGrid();
             }
         }
-
-        #endregion
-
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (DTG_Lista.SelectedRows.Count > 0)
+            if (DTGLista.SelectedRows.Count > 0)
             {
                 FRM_Producto_Registrar F1 = new FRM_Producto_Registrar();
                 F1.modificar = true;
-                F1.codProMod = DTG_Lista[0, DTG_Lista.SelectedRows[0].Index].Value.ToString();
+                F1.codProMod = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
                 F1.ShowDialog();
                 if (F1.actualizar)
                 {
@@ -125,16 +130,15 @@ namespace SistemaDeGestion2026
                 }
             }
         }
-
         private void inhabilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (DTG_Lista.SelectedRows.Count > 0)
+            if (DTGLista.SelectedRows.Count > 0)
             {
-                producto.papdcodpro = DTG_Lista.SelectedRows[0].Cells[0].Value.ToString();
-                if (producto.ObtenerDatos())
+                producto2.papdcodpro = DTGLista.SelectedRows[0].Cells[0].Value.ToString();
+                if (producto2.ObtenerDatos())
                 {
-                    producto.capdestpro = false;
-                    if (producto.Modificar())
+                    producto2.capdestpro = false;
+                    if (producto2.Modificar())
                     {
                         MessageBox.Show("Producto inhabilitado");
                         ActualizarGrid();
@@ -142,16 +146,15 @@ namespace SistemaDeGestion2026
                 }
             }
         }
-
         private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (DTG_Lista.SelectedRows.Count > 0)
+            if (DTGLista.SelectedRows.Count > 0)
             {
-                producto.papdcodpro = DTG_Lista.SelectedRows[0].Cells[0].Value.ToString();
-                if (producto.ObtenerDatos())
+                producto2.papdcodpro = DTGLista.SelectedRows[0].Cells[0].Value.ToString();
+                if (producto2.ObtenerDatos())
                 {
-                    producto.capdestpro = true;
-                    if (producto.Modificar())
+                    producto2.capdestpro = true;
+                    if (producto2.Modificar())
                     {
                         MessageBox.Show("Producto habilitado");
                         ActualizarGrid();
@@ -159,15 +162,14 @@ namespace SistemaDeGestion2026
                 }
             }
         }
-
         private void CMSMenu_Opening(object sender, CancelEventArgs e)
         {
-            if (DTG_Lista.SelectedRows.Count > 0)
+            if (DTGLista.SelectedRows.Count > 0)
             {
-                producto.papdcodpro = DTG_Lista.SelectedRows[0].Cells[0].Value.ToString();
-                if (producto.ObtenerDatos())
+                producto2.papdcodpro = DTGLista.SelectedRows[0].Cells[0].Value.ToString();
+                if (producto2.ObtenerDatos())
                 {
-                    if (producto.capdestpro)
+                    if (producto2.capdestpro)
                     {
                         CMSMenu.Items[1].Visible = true;
                         CMSMenu.Items[2].Visible = false;
@@ -184,10 +186,28 @@ namespace SistemaDeGestion2026
                 e.Cancel = true;
             }
         }
-
-        private void FRM_Producto_Lista_Shown(object sender, EventArgs e)
+        private void TXTFiltrar_Enter(object sender, EventArgs e)
         {
-            
+            TXTFiltrar.SelectAll();
+        }
+        #endregion
+
+        private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (DTGLista.SelectedRows.Count > 0)
+                {
+                    FRM_Producto_Registrar F1 = new FRM_Producto_Registrar();
+                    F1.modificar = true;
+                    F1.codProMod = DTGLista[0, e.RowIndex].Value.ToString();
+                    F1.ShowDialog();
+                    if (F1.actualizar)
+                    {
+                        ActualizarGrid();
+                    }
+                }
+            }
         }
     }
 }

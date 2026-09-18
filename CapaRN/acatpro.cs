@@ -42,7 +42,8 @@ namespace CapaRN
 		        this._cacpestcat = true;
 		        this._pacpcodcat = "";
 		        this._cacpnomcat = "";
-                this.Conexion = new CLConexionPGSQL();            }
+                this.Conexion = new CLConexionPGSQL();            
+            }
         #endregion
 
         #region Metodos

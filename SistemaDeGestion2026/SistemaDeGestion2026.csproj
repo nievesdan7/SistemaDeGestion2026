@@ -49,6 +49,23 @@
       <HintPath>..\..\DONETBAR\DotNetBar Full\Parche\Manual (Archivos .dll)\DevComponents.DotNetBar.Design.dll</HintPath>
     </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=12.5.0.2, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Drawing.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v26.1.Core, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v26.1.Core, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v26.1.Core, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DPFPCtlXTypeLibNET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -131,6 +148,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -147,6 +166,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Text.Encodings.Web, Version=10.0.0.11, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Encodings.Web.10.0.11\lib\net462\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -159,6 +180,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -173,29 +195,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FRM_Categoria_Lista.cs">
+    <Compile Include="FRMCliente_Buscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Categoria_Lista.Designer.cs">
-      <DependentUpon>FRM_Categoria_Lista.cs</DependentUpon>
+    <Compile Include="FRMCliente_Buscar.Designer.cs">
+      <DependentUpon>FRMCliente_Buscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Categoria_Registrar.cs">
+    <Compile Include="FRMVenta_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Categoria_Registrar.Designer.cs">
-      <DependentUpon>FRM_Categoria_Registrar.cs</DependentUpon>
+    <Compile Include="FRMVenta_Lista.Designer.cs">
+      <DependentUpon>FRMVenta_Lista.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Cliente_Lista.cs">
+    <Compile Include="FRMVenta_Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Cliente_Lista.Designer.cs">
-      <DependentUpon>FRM_Cliente_Lista.cs</DependentUpon>
+    <Compile Include="FRMVenta_Registrar.Designer.cs">
+      <DependentUpon>FRMVenta_Registrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Cliente_Registrar.cs">
+    <Compile Include="FRMCategoria_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Cliente_Registrar.Designer.cs">
-      <DependentUpon>FRM_Cliente_Registrar.cs</DependentUpon>
+    <Compile Include="FRMCategoria_Lista.Designer.cs">
+      <DependentUpon>FRMCategoria_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCategoria_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCategoria_Registrar.Designer.cs">
+      <DependentUpon>FRMCategoria_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCliente_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Lista.Designer.cs">
+      <DependentUpon>FRMCliente_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCliente_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Registrar.Designer.cs">
+      <DependentUpon>FRMCliente_Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FRM_Fondo1.cs">
       <SubType>Form</SubType>
@@ -209,65 +249,65 @@
     <Compile Include="FRM_Fondo2.Designer.cs">
       <DependentUpon>FRM_Fondo2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Iniciar_Sesion_Huella.cs">
+    <Compile Include="FRMIniciar_Sesion_Huella.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Iniciar_Sesion_Huella.Designer.cs">
-      <DependentUpon>FRM_Iniciar_Sesion_Huella.cs</DependentUpon>
+    <Compile Include="FRMIniciar_Sesion_Huella.Designer.cs">
+      <DependentUpon>FRMIniciar_Sesion_Huella.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Modificar_Password.cs">
+    <Compile Include="FRMModificar_Password.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Modificar_Password.Designer.cs">
-      <DependentUpon>FRM_Modificar_Password.cs</DependentUpon>
+    <Compile Include="FRMModificar_Password.Designer.cs">
+      <DependentUpon>FRMModificar_Password.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Persona_Buscar.cs">
+    <Compile Include="FRMPersona_Buscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Persona_Buscar.Designer.cs">
-      <DependentUpon>FRM_Persona_Buscar.cs</DependentUpon>
+    <Compile Include="FRMPersona_Buscar.Designer.cs">
+      <DependentUpon>FRMPersona_Buscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Persona_Lista.cs">
+    <Compile Include="FRMPersona_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Persona_Lista.Designer.cs">
-      <DependentUpon>FRM_Persona_Lista.cs</DependentUpon>
+    <Compile Include="FRMPersona_Lista.Designer.cs">
+      <DependentUpon>FRMPersona_Lista.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Persona_Registrar.cs">
+    <Compile Include="FRMPersona_Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Persona_Registrar.Designer.cs">
-      <DependentUpon>FRM_Persona_Registrar.cs</DependentUpon>
+    <Compile Include="FRMPersona_Registrar.Designer.cs">
+      <DependentUpon>FRMPersona_Registrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Proveedor_Lista.cs">
+    <Compile Include="FRMProveedor_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Proveedor_Lista.Designer.cs">
-      <DependentUpon>FRM_Proveedor_Lista.cs</DependentUpon>
+    <Compile Include="FRMProveedor_Lista.Designer.cs">
+      <DependentUpon>FRMProveedor_Lista.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Proveedor_Registrar.cs">
+    <Compile Include="FRMProveedor_Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Proveedor_Registrar.Designer.cs">
-      <DependentUpon>FRM_Proveedor_Registrar.cs</DependentUpon>
+    <Compile Include="FRMProveedor_Registrar.Designer.cs">
+      <DependentUpon>FRMProveedor_Registrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Usuario_Lista.cs">
+    <Compile Include="FRMUsuario_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Usuario_Lista.Designer.cs">
-      <DependentUpon>FRM_Usuario_Lista.cs</DependentUpon>
+    <Compile Include="FRMUsuario_Lista.Designer.cs">
+      <DependentUpon>FRMUsuario_Lista.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Usuario_Registrar.cs">
+    <Compile Include="FRMUsuario_Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Usuario_Registrar.Designer.cs">
-      <DependentUpon>FRM_Usuario_Registrar.cs</DependentUpon>
+    <Compile Include="FRMUsuario_Registrar.Designer.cs">
+      <DependentUpon>FRMUsuario_Registrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_IniciarSesion.cs">
+    <Compile Include="FRMIniciar_Sesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_IniciarSesion.Designer.cs">
-      <DependentUpon>FRM_IniciarSesion.cs</DependentUpon>
+    <Compile Include="FRMIniciar_Sesion.Designer.cs">
+      <DependentUpon>FRMIniciar_Sesion.cs</DependentUpon>
     </Compile>
     <Compile Include="FRM_Principal.cs">
       <SubType>Form</SubType>
@@ -275,23 +315,23 @@
     <Compile Include="FRM_Principal.Designer.cs">
       <DependentUpon>FRM_Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Producto_Buscar.cs">
+    <Compile Include="FRMProducto_Buscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Producto_Buscar.Designer.cs">
-      <DependentUpon>FRM_Producto_Buscar.cs</DependentUpon>
+    <Compile Include="FRMProducto_Buscar.Designer.cs">
+      <DependentUpon>FRMProducto_Buscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Producto_Lista.cs">
+    <Compile Include="FRMProducto_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Producto_Lista.Designer.cs">
-      <DependentUpon>FRM_Producto_Lista.cs</DependentUpon>
+    <Compile Include="FRMProducto_Lista.Designer.cs">
+      <DependentUpon>FRMProducto_Lista.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Producto_Registrar.cs">
+    <Compile Include="FRMProducto_Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Producto_Registrar.Designer.cs">
-      <DependentUpon>FRM_Producto_Registrar.cs</DependentUpon>
+    <Compile Include="FRMProducto_Registrar.Designer.cs">
+      <DependentUpon>FRMProducto_Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FRM_Splash.cs">
       <SubType>Form</SubType>
@@ -302,17 +342,26 @@
     <Compile Include="MetodosGenerales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FRM_Categoria_Lista.resx">
-      <DependentUpon>FRM_Categoria_Lista.cs</DependentUpon>
+    <EmbeddedResource Include="FRMCliente_Buscar.resx">
+      <DependentUpon>FRMCliente_Buscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Categoria_Registrar.resx">
-      <DependentUpon>FRM_Categoria_Registrar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMVenta_Lista.resx">
+      <DependentUpon>FRMVenta_Lista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Cliente_Lista.resx">
-      <DependentUpon>FRM_Cliente_Lista.cs</DependentUpon>
+    <EmbeddedResource Include="FRMVenta_Registrar.resx">
+      <DependentUpon>FRMVenta_Registrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Cliente_Registrar.resx">
-      <DependentUpon>FRM_Cliente_Registrar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMCategoria_Lista.resx">
+      <DependentUpon>FRMCategoria_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCategoria_Registrar.resx">
+      <DependentUpon>FRMCategoria_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Lista.resx">
+      <DependentUpon>FRMCliente_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Registrar.resx">
+      <DependentUpon>FRMCliente_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Fondo1.resx">
       <DependentUpon>FRM_Fondo1.cs</DependentUpon>
@@ -320,47 +369,47 @@
     <EmbeddedResource Include="FRM_Fondo2.resx">
       <DependentUpon>FRM_Fondo2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Iniciar_Sesion_Huella.resx">
-      <DependentUpon>FRM_Iniciar_Sesion_Huella.cs</DependentUpon>
+    <EmbeddedResource Include="FRMIniciar_Sesion_Huella.resx">
+      <DependentUpon>FRMIniciar_Sesion_Huella.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Modificar_Password.resx">
-      <DependentUpon>FRM_Modificar_Password.cs</DependentUpon>
+    <EmbeddedResource Include="FRMModificar_Password.resx">
+      <DependentUpon>FRMModificar_Password.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Persona_Buscar.resx">
-      <DependentUpon>FRM_Persona_Buscar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMPersona_Buscar.resx">
+      <DependentUpon>FRMPersona_Buscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Persona_Lista.resx">
-      <DependentUpon>FRM_Persona_Lista.cs</DependentUpon>
+    <EmbeddedResource Include="FRMPersona_Lista.resx">
+      <DependentUpon>FRMPersona_Lista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Persona_Registrar.resx">
-      <DependentUpon>FRM_Persona_Registrar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMPersona_Registrar.resx">
+      <DependentUpon>FRMPersona_Registrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Proveedor_Lista.resx">
-      <DependentUpon>FRM_Proveedor_Lista.cs</DependentUpon>
+    <EmbeddedResource Include="FRMProveedor_Lista.resx">
+      <DependentUpon>FRMProveedor_Lista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Proveedor_Registrar.resx">
-      <DependentUpon>FRM_Proveedor_Registrar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMProveedor_Registrar.resx">
+      <DependentUpon>FRMProveedor_Registrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Usuario_Lista.resx">
-      <DependentUpon>FRM_Usuario_Lista.cs</DependentUpon>
+    <EmbeddedResource Include="FRMUsuario_Lista.resx">
+      <DependentUpon>FRMUsuario_Lista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Usuario_Registrar.resx">
-      <DependentUpon>FRM_Usuario_Registrar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMUsuario_Registrar.resx">
+      <DependentUpon>FRMUsuario_Registrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_IniciarSesion.resx">
-      <DependentUpon>FRM_IniciarSesion.cs</DependentUpon>
+    <EmbeddedResource Include="FRMIniciar_Sesion.resx">
+      <DependentUpon>FRMIniciar_Sesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Principal.resx">
       <DependentUpon>FRM_Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Producto_Buscar.resx">
-      <DependentUpon>FRM_Producto_Buscar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMProducto_Buscar.resx">
+      <DependentUpon>FRMProducto_Buscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Producto_Lista.resx">
-      <DependentUpon>FRM_Producto_Lista.cs</DependentUpon>
+    <EmbeddedResource Include="FRMProducto_Lista.resx">
+      <DependentUpon>FRMProducto_Lista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Producto_Registrar.resx">
-      <DependentUpon>FRM_Producto_Registrar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMProducto_Registrar.resx">
+      <DependentUpon>FRMProducto_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Splash.resx">
       <DependentUpon>FRM_Splash.cs</DependentUpon>
@@ -511,6 +560,9 @@
     <None Include="Resources\ic_reportes.png" />
     <None Include="Resources\ic_codigoBarras.png" />
     <None Include="Resources\ic_codigoBarras2.png" />
+    <None Include="Resources\icVenta.png" />
+    <None Include="Resources\icShoppingCart.svg" />
+    <None Include="Resources\icSearch.svg" />
     <Content Include="Resources\NoImagen.png" />
     <Content Include="Resources\NoImagen1.png" />
   </ItemGroup>

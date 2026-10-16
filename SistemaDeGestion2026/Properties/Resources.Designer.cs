@@ -393,6 +393,26 @@ namespace SistemaDeGestion2026.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_búsqueda_961 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-búsqueda-961", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_búsqueda_962 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-búsqueda-962", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_categorias_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-categorias-96", resourceCulture);
@@ -506,6 +526,36 @@ namespace SistemaDeGestion2026.Properties {
         internal static System.Drawing.Bitmap icons8_visible_80 {
             get {
                 object obj = ResourceManager.GetObject("icons8-visible-80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage icSearch {
+            get {
+                object obj = ResourceManager.GetObject("icSearch", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage icShoppingCart {
+            get {
+                object obj = ResourceManager.GetObject("icShoppingCart", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icVenta {
+            get {
+                object obj = ResourceManager.GetObject("icVenta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

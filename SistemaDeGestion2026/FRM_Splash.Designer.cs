@@ -46,6 +46,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 300);
             this.Name = "FRM_Splash";
             this.Opacity = 0D;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FRM_Splash_Load);
             this.ResumeLayout(false);

@@ -245,7 +245,7 @@ namespace CapaRN
                 }
                 this.Conexion.PrepararComando(sql);
 
-                this.Conexion.AsignarParametroCadena("@papdcodpro", this._papdcodpro);
+                this.Conexion.AsignarParametroCadena("@capdcodbar", this._capdcodbar);
 
                 DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
@@ -413,7 +413,7 @@ namespace CapaRN
                     string sql = "update aproduc set " +
 
                                                      "capdpreven = @capdpreven, " +
-
+                                                     "capdpremin = @capdpremin, " +
                                                      "capdestpro = @capdestpro, " +
 
                                                      "capdfecmod = @capdfecmod, " +
@@ -435,7 +435,7 @@ namespace CapaRN
 
 
                     this.Conexion.AsignarParametroDecimal("@capdpreven", this._capdpreven);
-
+                    this.Conexion.AsignarParametroDecimal("@capdpremin", this._capdpremin);
                     this.Conexion.AsignarParametroLogico("@capdestpro", this._capdestpro);
 
                     this.Conexion.AsignarParametroFechaHora("@capdfecmod", this._capdfecmod);

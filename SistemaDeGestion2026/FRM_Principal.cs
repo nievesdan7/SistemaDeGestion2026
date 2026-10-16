@@ -14,9 +14,11 @@ namespace SistemaDeGestion2026
 {
     public partial class FRM_Principal : Form
     {
-
+        #region Variables
         public aususis usuario = new aususis();
         public aperson persona = new aperson();
+        #endregion
+
         #region Constructor
         public FRM_Principal()
         {
@@ -83,37 +85,34 @@ namespace SistemaDeGestion2026
             this.Opacity = 1;
             Estado_1();
         }
-
         private void BTN_Personas_Click(object sender, EventArgs e)
         {
             foreach ( Form s in this.MdiChildren )
             {
                 s.Close();
             }
-            FRM_Persona_Lista a = new FRM_Persona_Lista();
+            FRMPersona_Lista a = new FRMPersona_Lista();
             a.MdiParent = this;
             a.Dock = DockStyle.Fill;
             a.Show();
         }
-
         private void BTN_Usuarios_Click(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {
                 s.Close();
             }
-            FRM_Usuario_Lista a = new FRM_Usuario_Lista();
+            FRMUsuario_Lista a = new FRMUsuario_Lista();
             a.MdiParent = this;
             a.Dock = DockStyle.Fill;
             a.Show();
         }
-
         private void BTNLogin_Click(object sender, EventArgs e)
         {
-            FRM_IniciarSesion a = new FRM_IniciarSesion();
+            FRMIniciar_Sesion a = new FRMIniciar_Sesion();
             a.ShowDialog();
             if (a.actualizar_password) {
-                FRM_Modificar_Password b = new FRM_Modificar_Password();
+                FRMModificar_Password b = new FRMModificar_Password();
                 b.usuario = a.usuario;
                 b.persona = a.persona;
                 b.ShowDialog();
@@ -126,10 +125,9 @@ namespace SistemaDeGestion2026
                 Estado_2();
             }
         }
-
         private void BTN_LoginHuella_Click(object sender, EventArgs e)
         {
-            FRM_Iniciar_Sesion_Huella a = new FRM_Iniciar_Sesion_Huella();
+            FRMIniciar_Sesion_Huella a = new FRMIniciar_Sesion_Huella();
             a.ShowDialog();
             if(a.login_exitoso) {
                 /*MessageBox.Show("Bienvenido al sistema " + a.persona.capsnomper, "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
@@ -138,7 +136,6 @@ namespace SistemaDeGestion2026
                 Estado_2();
             }
         }
-
         private void BTNCerrarSesion_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro que desea cerrar sesión?",
@@ -149,60 +146,66 @@ namespace SistemaDeGestion2026
                 Estado_1();
             }
         }
-
         private void BTN_Productos_Click(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {
                 s.Close();
             }
-            FRM_Producto_Lista a = new FRM_Producto_Lista();
+            FRMProducto_Lista a = new FRMProducto_Lista();
             a.MdiParent = this;
             a.Dock = DockStyle.Fill;
             a.Show();
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblFechaHora.Text = "Fecha y Hora: "+DateTime.Now.ToString("F");
         }
-
         private void BTN_Categorias_Click(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {
                 s.Close();
             }
-            FRM_Categoria_Lista a = new FRM_Categoria_Lista();
+            FRMCategoria_Lista a = new FRMCategoria_Lista();
             a.MdiParent = this;
             a.Dock = DockStyle.Fill;
             a.Show();
         }
-
-        #endregion
-
         private void BTN_Clientes_Click(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {
                 s.Close();
             }
-            FRM_Cliente_Lista a = new FRM_Cliente_Lista();
+            FRMCliente_Lista a = new FRMCliente_Lista();
             a.MdiParent = this;
             a.Dock = DockStyle.Fill;
             a.Show();
         }
-
         private void BTN_Proveedores_Click(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {
                 s.Close();
             }
-            FRM_Proveedor_Lista a = new FRM_Proveedor_Lista();
+            FRMProveedor_Lista a = new FRMProveedor_Lista();
             a.MdiParent = this;
             a.Dock = DockStyle.Fill;
             a.Show();
         }
+        private void BTNVentas_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMVenta_Lista a = new FRMVenta_Lista();
+            a.MdiParent = this;
+            a.Dock = DockStyle.Fill;
+            a.Show();
+        }
+        #endregion
+
     }
 }

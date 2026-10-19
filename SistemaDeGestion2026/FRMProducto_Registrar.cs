@@ -498,18 +498,17 @@ namespace SistemaDeGestion2026
         private void CMBMaterial_KeyDown(object sender, KeyEventArgs e)
         {
             bool tecla_valida = false;
-            //letras espacios
-            if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+
+            // Letras y espacios
+            if ((e.KeyCode >= Keys.A) && (e.KeyCode <= Keys.Z))
                 tecla_valida = true;
-            else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
+            else if ((e.KeyCode == Keys.Space) ||
+                     (e.KeyCode == Keys.Back) ||
+                     (e.KeyCode == Keys.Delete) ||
+                     (e.KeyCode == Keys.Left) ||
+                     (e.KeyCode == Keys.Right))
                 tecla_valida = true;
-            else if ((e.KeyCode == Keys.Subtract) ||
-                (e.KeyCode == Keys.Back) ||
-                (e.KeyCode == Keys.Delete) ||
-                (e.KeyCode == Keys.Left) ||
-                (e.KeyCode == Keys.Right) ||
-                ((e.KeyCode == Keys.OemMinus) && !e.Shift))
-                tecla_valida = true;
+
             if (!tecla_valida)
             {
                 e.SuppressKeyPress = true;
@@ -518,19 +517,23 @@ namespace SistemaDeGestion2026
         private void CMBMarca_KeyDown(object sender, KeyEventArgs e)
         {
             bool tecla_valida = false;
-            //Numeros letras espacios
+
+            // Numeros, letras y espacios
             if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
                 tecla_valida = true;
             else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
                 tecla_valida = true;
-            else if ((e.KeyCode == Keys.Subtract) ||
-                (e.KeyCode == Keys.Space) ||
-                (e.KeyCode == Keys.Back) ||
-                (e.KeyCode == Keys.Delete) ||
-                (e.KeyCode == Keys.Left) ||
-                (e.KeyCode == Keys.Right) ||
-                ((e.KeyCode == Keys.OemMinus) && !e.Shift))
+            else if ((e.KeyCode >= Keys.A) && (e.KeyCode <= Keys.Z))
                 tecla_valida = true;
+            else if ((e.KeyCode == Keys.Space) ||
+                     (e.KeyCode == Keys.Back) ||
+                     (e.KeyCode == Keys.Delete) ||
+                     (e.KeyCode == Keys.Left) ||
+                     (e.KeyCode == Keys.Right) ||
+                     (e.KeyCode == Keys.Subtract) ||
+                     ((e.KeyCode == Keys.OemMinus) && !e.Shift)) // Dejé los guiones por si los necesitas en marcas
+                tecla_valida = true;
+
             if (!tecla_valida)
             {
                 e.SuppressKeyPress = true;
@@ -539,18 +542,22 @@ namespace SistemaDeGestion2026
         private void CMBTalla_KeyDown(object sender, KeyEventArgs e)
         {
             bool tecla_valida = false;
-            //Numeros letras
+
+            // Numeros y letras (sin espacio)
             if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
                 tecla_valida = true;
             else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
                 tecla_valida = true;
-            else if ((e.KeyCode == Keys.Subtract) ||
-                (e.KeyCode == Keys.Back) ||
-                (e.KeyCode == Keys.Delete) ||
-                (e.KeyCode == Keys.Left) ||
-                (e.KeyCode == Keys.Right) ||
-                ((e.KeyCode == Keys.OemMinus) && !e.Shift))
+            else if ((e.KeyCode >= Keys.A) && (e.KeyCode <= Keys.Z))
                 tecla_valida = true;
+            else if ((e.KeyCode == Keys.Back) ||
+                     (e.KeyCode == Keys.Delete) ||
+                     (e.KeyCode == Keys.Left) ||
+                     (e.KeyCode == Keys.Right) ||
+                     (e.KeyCode == Keys.Subtract) ||
+                     ((e.KeyCode == Keys.OemMinus) && !e.Shift)) // Guiones permitidos para tallas como "X-L"
+                tecla_valida = true;
+
             if (!tecla_valida)
             {
                 e.SuppressKeyPress = true;

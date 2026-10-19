@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMProducto_Registrar));
             this.GP_Panel_Producto = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.DINPrecioMinimo = new DevComponents.Editors.DoubleInput();
             this.LBLCodigoBarras = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.DINPrecioVenta = new DevComponents.Editors.DoubleInput();
@@ -61,14 +62,13 @@
             this.TXT_Modelo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.SWB_Estado = new DevComponents.DotNetBar.Controls.SwitchButton();
             this.OFDElegirImagen = new System.Windows.Forms.OpenFileDialog();
-            this.DINPrecioMinimo = new DevComponents.Editors.DoubleInput();
             this.GP_Panel_Producto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DINPrecioMinimo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DINPrecioVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.INTStock)).BeginInit();
             this.GP_Fotografia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCB_Fotografía)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PCB_Camara)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DINPrecioMinimo)).BeginInit();
             this.SuspendLayout();
             // 
             // GP_Panel_Producto
@@ -134,6 +134,22 @@
             this.GP_Panel_Producto.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.GP_Panel_Producto.TabIndex = 0;
             this.GP_Panel_Producto.Text = "Producto";
+            // 
+            // DINPrecioMinimo
+            // 
+            // 
+            // 
+            // 
+            this.DINPrecioMinimo.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.DINPrecioMinimo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.DINPrecioMinimo.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.DINPrecioMinimo.Increment = 1D;
+            this.DINPrecioMinimo.InputMouseWheelEnabled = false;
+            this.DINPrecioMinimo.Location = new System.Drawing.Point(163, 266);
+            this.DINPrecioMinimo.Name = "DINPrecioMinimo";
+            this.DINPrecioMinimo.ShowUpDown = true;
+            this.DINPrecioMinimo.Size = new System.Drawing.Size(151, 23);
+            this.DINPrecioMinimo.TabIndex = 33;
             // 
             // LBLCodigoBarras
             // 
@@ -605,22 +621,6 @@
             this.OFDElegirImagen.Filter = "Archivos de Imagen|*.jpg;*.jpeg;*.png";
             this.OFDElegirImagen.Title = "Elegir Fotografía";
             // 
-            // DINPrecioMinimo
-            // 
-            // 
-            // 
-            // 
-            this.DINPrecioMinimo.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.DINPrecioMinimo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.DINPrecioMinimo.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.DINPrecioMinimo.Increment = 1D;
-            this.DINPrecioMinimo.InputMouseWheelEnabled = false;
-            this.DINPrecioMinimo.Location = new System.Drawing.Point(163, 266);
-            this.DINPrecioMinimo.Name = "DINPrecioMinimo";
-            this.DINPrecioMinimo.ShowUpDown = true;
-            this.DINPrecioMinimo.Size = new System.Drawing.Size(151, 23);
-            this.DINPrecioMinimo.TabIndex = 33;
-            // 
             // FRMProducto_Registrar
             // 
             this.AcceptButton = this.BTN_Grabar;
@@ -640,12 +640,12 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Producto_Registrar_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Producto_Registrar_Load);
             this.GP_Panel_Producto.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DINPrecioMinimo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DINPrecioVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.INTStock)).EndInit();
             this.GP_Fotografia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PCB_Fotografía)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PCB_Camara)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DINPrecioMinimo)).EndInit();
             this.ResumeLayout(false);
 
         }

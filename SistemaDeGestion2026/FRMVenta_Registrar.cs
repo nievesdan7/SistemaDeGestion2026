@@ -25,12 +25,13 @@ namespace SistemaDeGestion2026
         public avenpro venta = new avenpro();
         private List<liteven> listaItems = new List<liteven>();
 
-        public string CodProMod= "";
+        public string CodProMod = "";
+        private double total = 0;
         #endregion
 
         #region Constructor
         public FRMVenta_Registrar()
-        {           
+        {
             InitializeComponent();
         }
         #endregion
@@ -39,11 +40,11 @@ namespace SistemaDeGestion2026
         private void ActualizarGridItems()
         {
             DTGLista.Rows.Clear();
-            
+
 
             foreach (liteven a in listaItems)
             {
-                DTGLista.Rows.Add();                
+                DTGLista.Rows.Add();
 
                 DTGLista[0, DTGLista.Rows.Count - 1].Value = a.paivcodite;
                 DTGLista[1, DTGLista.Rows.Count - 1].Value = a.capdmodpro;
@@ -59,12 +60,12 @@ namespace SistemaDeGestion2026
         }
         private void AgregarItem(aproduc pro)
         {
-           
+
             liteven item = new liteven();
 
             item = listaItems.Find(x => x.faivcodpro == pro.papdcodpro);
 
-            if(item!=null)
+            if (item != null)
             {
                 item.caivcanite += 1;
                 item.caivsubtot = item.caivpreuni * item.caivcanite;
@@ -83,22 +84,36 @@ namespace SistemaDeGestion2026
                 item.caivsubtot = item.caivpreuni * item.caivcanite;
                 item.caivestite = true;
 
-                listaItems.Add(item);                
+                listaItems.Add(item);
             }
             ActualizarGridItems();
-        }            
+            ActualizarTotal();
+        }
+        private void ActualizarTotal()
+        {            
+            total = 0;
+            foreach (liteven item in listaItems)
+            {
+                total += (double)item.caivsubtot;
+            }
+            LBLTotalNumeral.Text = "Total: " + total.ToString("N2");
+            LBLTotalLiteral.Text = MetodosGenerales.ConvertirNumeroALetras(total).ToUpper();
+            
+
+        }
         #endregion
 
         #region Eventos
         private void TXTNIT_Leave(object sender, EventArgs e)
         {
-            cliente.caclnitcli=TXTNIT.Text;
+            cliente.caclnitcli = TXTNIT.Text;
             if (cliente.ObtenerDatosNIT())
             {
                 TXTNombreCliente.Text = cliente.caclrazcli;
                 clienteOK = true;
             }
-            else { 
+            else
+            {
                 TXTNombreCliente.Text = "";
                 clienteOK = false;
             }
@@ -106,14 +121,14 @@ namespace SistemaDeGestion2026
         private void BTNBuscar_Click(object sender, EventArgs e)
         {
             FRMCliente_Buscar a = new FRMCliente_Buscar();
-           
-           // a.condicion = "papscodper not in (select papscodper from aperson,aususis where papscodper=fauscodper order by papscodper)";
+
+            // a.condicion = "papscodper not in (select papscodper from aperson,aususis where papscodper=fauscodper order by papscodper)";
             a.ShowDialog();
             if (a.seleccionadoOK)
             {
                 this.cliente = a.cliente;
                 this.clienteOK = true;
-                TXTNIT.Text=cliente.caclnitcli;
+                TXTNIT.Text = cliente.caclnitcli;
                 TXTNombreCliente.Text = cliente.caclrazcli;
 
             }
@@ -133,13 +148,14 @@ namespace SistemaDeGestion2026
                 LBLCodigoBarras.BackColor = Color.ForestGreen;
             }
             else
-            {             
-                    
+            {
+
                 producto.capdcodbar = LBLCodigoBarras.Text;
 
-                if (producto.ObtenerDatosCodigo(false, producto.capdcodbar)) { 
+                if (producto.ObtenerDatosCodigo(false, producto.capdcodbar))
+                {
                     MessageBox.Show("Producto encontrado: " + producto.capddespro, "Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+
                     AgregarItem(producto);
                     lectorHabilitado = true;
                     LBLCodigoBarras.Text = "LECTOR ACTIVO";
@@ -153,7 +169,7 @@ namespace SistemaDeGestion2026
                     BTNCodigoBarras.Focus();
 
                 }
-                         
+
             }
         }
         private void BTNCodigoBarras_KeyPress(object sender, KeyPressEventArgs e)
@@ -198,6 +214,25 @@ namespace SistemaDeGestion2026
 
             }
 
+        }
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DTGLista.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("¿Desea eliminar el item seleccionado?", "Eliminar item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string codItem = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+                    liteven item = listaItems.Find(x => x.paivcodite == codItem);
+                    if (item != null)
+                    {                         
+                        total -= (double)item.caivsubtot;
+                        LBLTotalNumeral.Text = "Total: " + total.ToString("N2");
+                        LBLTotalLiteral.Text = MetodosGenerales.ConvertirNumeroALetras(total).ToUpper();
+                        listaItems.Remove(item);
+                        ActualizarGridItems();
+                    }
+                }
+            }
         }
         #endregion
 

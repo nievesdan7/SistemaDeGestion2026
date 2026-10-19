@@ -137,12 +137,11 @@
             // 
             this.LBLTotalNumeral.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.LBLTotalNumeral.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLTotalNumeral.Location = new System.Drawing.Point(703, 459);
+            this.LBLTotalNumeral.Location = new System.Drawing.Point(722, 459);
             this.LBLTotalNumeral.Name = "LBLTotalNumeral";
-            this.LBLTotalNumeral.Size = new System.Drawing.Size(83, 23);
+            this.LBLTotalNumeral.Size = new System.Drawing.Size(112, 23);
             this.LBLTotalNumeral.TabIndex = 35;
             this.LBLTotalNumeral.Text = "Total: 0";
-            this.LBLTotalNumeral.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
             // LBLTotalLiteral
             // 
@@ -204,7 +203,7 @@
             this.DTGLista.AllowUserToDeleteRows = false;
             this.DTGLista.AllowUserToResizeColumns = false;
             this.DTGLista.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.DTGLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DTGLista.BackgroundColor = System.Drawing.Color.White;
             this.DTGLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -235,7 +234,7 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DTGLista.DefaultCellStyle = dataGridViewCellStyle3;
@@ -253,6 +252,7 @@
             this.DTGLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DTGLista.Size = new System.Drawing.Size(838, 219);
             this.DTGLista.TabIndex = 118;
+            this.DTGLista.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DTGLista_KeyDown);
             // 
             // Column9
             // 

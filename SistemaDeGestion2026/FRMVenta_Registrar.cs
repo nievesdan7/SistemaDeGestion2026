@@ -1,5 +1,6 @@
 ﻿using AForge.Video.DirectShow;
 using CapaRN;
+using DevComponents.DotNetBar.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -154,7 +155,7 @@ namespace SistemaDeGestion2026
 
                 if (producto.ObtenerDatosCodigo(false, producto.capdcodbar))
                 {
-                    MessageBox.Show("Producto encontrado: " + producto.capddespro, "Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Producto encontrado: " + producto.capddespro, "Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     AgregarItem(producto);
                     lectorHabilitado = true;
@@ -236,5 +237,12 @@ namespace SistemaDeGestion2026
         }
         #endregion
 
+        private void DTGLista_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Delete)
+            {
+                eliminarToolStripMenuItem_Click(sender, e);
+            }
+        }
     }
 }

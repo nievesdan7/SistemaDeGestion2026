@@ -1,6 +1,7 @@
 ﻿using AForge.Video.DirectShow;
 using CapaRN;
 using DevComponents.DotNetBar.Controls;
+using SistemaDeGestion2026.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,9 @@ namespace SistemaDeGestion2026
 
         public string CodProMod = "";
         private double total = 0;
+
+        private liteven itemModificar = new liteven();
+        private bool modificarItem = false;
         #endregion
 
         #region Constructor
@@ -47,7 +51,7 @@ namespace SistemaDeGestion2026
             {
                 DTGLista.Rows.Add();
 
-                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.paivcodite;
+                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.faivcodpro;
                 DTGLista[1, DTGLista.Rows.Count - 1].Value = a.capdmodpro;
                 DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capdcodbar;
                 DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capdnompro;
@@ -61,10 +65,10 @@ namespace SistemaDeGestion2026
         }
         private void AgregarItem(aproduc pro)
         {
-            
+
             liteven item = new liteven();
             item = listaItems.Find(x => x.faivcodpro == pro.papdcodpro);
-            
+
             if (item != null)
             {
                 if ((pro.capdstopro - item.caivcanite) > 0)
@@ -79,7 +83,7 @@ namespace SistemaDeGestion2026
             }
             else
             {
-                if(pro.capdstopro > 0)
+                if (pro.capdstopro > 0)
                 {
                     item = new liteven();
                     item.faivcodpro = pro.papdcodpro;
@@ -104,7 +108,7 @@ namespace SistemaDeGestion2026
 
         }
         private void ActualizarTotal()
-        {            
+        {
             total = 0;
             foreach (liteven item in listaItems)
             {
@@ -112,7 +116,7 @@ namespace SistemaDeGestion2026
             }
             LBLTotalNumeral.Text = "Total: " + total.ToString("N2");
             LBLTotalLiteral.Text = MetodosGenerales.ConvertirNumeroALetras(total).ToUpper();
-            
+
 
         }
         #endregion
@@ -204,6 +208,7 @@ namespace SistemaDeGestion2026
             LBLCodigoBarras.BackColor = Color.Salmon;
             LBLCodigoBarras.ForeColor = Color.White;
             ActualizarGridItems();
+            
         }
         private void BTNCodigoBarras_Leave(object sender, EventArgs e)
         {
@@ -238,7 +243,7 @@ namespace SistemaDeGestion2026
                     string codItem = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
                     liteven item = listaItems.Find(x => x.paivcodite == codItem);
                     if (item != null)
-                    {                         
+                    {
                         total -= (double)item.caivsubtot;
                         LBLTotalNumeral.Text = "Total: " + total.ToString("N2");
                         LBLTotalLiteral.Text = MetodosGenerales.ConvertirNumeroALetras(total).ToUpper();
@@ -248,14 +253,90 @@ namespace SistemaDeGestion2026
                 }
             }
         }
-        #endregion
-
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DTGLista_CellDoubleClick(sender, new DataGridViewCellEventArgs(0, DTGLista.SelectedRows[0].Index));
+        }
         private void DTGLista_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Delete)
+            if (e.KeyCode == Keys.Delete)
             {
                 eliminarToolStripMenuItem_Click(sender, e);
             }
         }
+        private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < listaItems.Count)
+            {
+                itemModificar = listaItems[e.RowIndex];
+
+                if (itemModificar != null)
+                {
+                    modificarItem = true;
+
+                    TXTDescripcion.Text = itemModificar.capddespro;
+                    INTCantidad.Value = itemModificar.caivcanite;
+                    DINPrecio.Value = (Double)itemModificar.caivpreuni;
+
+
+                    producto.papdcodpro = itemModificar.faivcodpro;
+
+                    if (producto.ObtenerDatos())
+                    {
+                        if (string.IsNullOrWhiteSpace(producto.capdfotpro))
+                        {
+                            PCBFoto.Image = Resources.NoImagen;
+                        }
+                        else
+                        {
+                            PCBFoto.Image = MetodosGenerales.ConvertBase64StringToImage(producto.capdfotpro);
+                        }
+                        DINPrecio.Enabled = true;
+                        INTCantidad.Enabled = true;
+                        TXTDescripcion.Enabled = true;
+
+                    }
+                }
+            }
+        }
+        private void BTNModificarProducto_Click(object sender, EventArgs e)
+        {
+            if (INTCantidad.Value > producto.capdstopro)
+            {
+                MessageBox.Show(
+                    "Cantidad insuficiente en Stock: " + producto.capdstopro + " existencias disponibles",
+                    "STOCK",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (modificarItem)
+                {
+                    itemModificar.capddespro = TXTDescripcion.Text;
+                    itemModificar.caivcanite = (int)INTCantidad.Value;
+                    itemModificar.caivpreuni = (decimal)DINPrecio.Value;
+                    itemModificar.caivsubtot = itemModificar.caivcanite * itemModificar.caivpreuni;
+                    ActualizarGridItems();
+                    ActualizarTotal();
+                    BTNLimpiarProducto_Click(sender, e);
+
+                }
+            }
+        }
+        private void BTNLimpiarProducto_Click(object sender, EventArgs e)
+        {
+            TXTDescripcion.Text = "";
+            DINPrecio.Value = 0;
+            INTCantidad.Value = 0;
+            DINPrecio.Enabled = false;
+            INTCantidad.Enabled = false;
+            TXTDescripcion.Enabled = false;
+            modificarItem = false;
+            PCBFoto.Image = Resources.NoImagen;
+
+        }
+        #endregion
+
     }
 }

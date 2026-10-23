@@ -563,6 +563,10 @@
     <None Include="Resources\icVenta.png" />
     <None Include="Resources\icShoppingCart.svg" />
     <None Include="Resources\icSearch.svg" />
+    <None Include="Resources\icModificar.png" />
+    <None Include="Resources\icSalir.png" />
+    <None Include="Resources\icLimpiar.png" />
+    <None Include="Resources\icLimpiar1.png" />
     <Content Include="Resources\NoImagen.png" />
     <Content Include="Resources\NoImagen1.png" />
   </ItemGroup>

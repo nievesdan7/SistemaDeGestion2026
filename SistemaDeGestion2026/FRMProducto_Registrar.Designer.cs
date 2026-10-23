@@ -240,6 +240,7 @@
             this.CMBTalla.FormattingEnabled = true;
             this.CMBTalla.ItemHeight = 17;
             this.CMBTalla.Location = new System.Drawing.Point(163, 177);
+            this.CMBTalla.MaxLength = 20;
             this.CMBTalla.Name = "CMBTalla";
             this.CMBTalla.Size = new System.Drawing.Size(151, 23);
             this.CMBTalla.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;

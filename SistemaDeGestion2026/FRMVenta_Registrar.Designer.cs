@@ -54,16 +54,17 @@
             this.BTNBuscar = new DevComponents.DotNetBar.ButtonX();
             this.TXTNombreCliente = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.GP_Fotografia = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.BTNLimpiarProducto = new DevComponents.DotNetBar.ButtonX();
             this.BTNBuscarProducto = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.TXTObservaciones = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.DINPrecioVenta = new DevComponents.Editors.DoubleInput();
+            this.BTNModificarProducto = new DevComponents.DotNetBar.ButtonX();
+            this.TXTDescripcion = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.DINPrecio = new DevComponents.Editors.DoubleInput();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.INTStock = new DevComponents.Editors.IntegerInput();
+            this.INTCantidad = new DevComponents.Editors.IntegerInput();
             this.LBLCodigoBarras = new DevComponents.DotNetBar.LabelX();
             this.BTNCodigoBarras = new DevComponents.DotNetBar.ButtonX();
-            this.PCB_Camara = new System.Windows.Forms.PictureBox();
+            this.PCBFoto = new System.Windows.Forms.PictureBox();
             this.BTN_Salir = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Limpiar = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Grabar = new DevComponents.DotNetBar.ButtonX();
@@ -73,9 +74,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).BeginInit();
             this.CMSMenu.SuspendLayout();
             this.GP_Fotografia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DINPrecioVenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.INTStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCB_Camara)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DINPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INTCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCBFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // GP_Panel_Producto
@@ -132,6 +133,7 @@
             // 
             // LBLTotalNumeral
             // 
+            this.LBLTotalNumeral.BackColor = System.Drawing.Color.Transparent;
             // 
             // 
             // 
@@ -145,6 +147,7 @@
             // 
             // LBLTotalLiteral
             // 
+            this.LBLTotalLiteral.BackColor = System.Drawing.Color.Transparent;
             // 
             // 
             // 
@@ -252,6 +255,7 @@
             this.DTGLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DTGLista.Size = new System.Drawing.Size(838, 219);
             this.DTGLista.TabIndex = 118;
+            this.DTGLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGLista_CellDoubleClick);
             this.DTGLista.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DTGLista_KeyDown);
             // 
             // Column9
@@ -345,6 +349,7 @@
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
             this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.modificarToolStripMenuItem.Text = "&Modificar";
+            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // inhabilitarToolStripMenuItem
             // 
@@ -412,16 +417,17 @@
             this.GP_Fotografia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.GP_Fotografia.CanvasColor = System.Drawing.SystemColors.Control;
             this.GP_Fotografia.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.GP_Fotografia.Controls.Add(this.BTNLimpiarProducto);
             this.GP_Fotografia.Controls.Add(this.BTNBuscarProducto);
-            this.GP_Fotografia.Controls.Add(this.buttonX1);
-            this.GP_Fotografia.Controls.Add(this.TXTObservaciones);
-            this.GP_Fotografia.Controls.Add(this.DINPrecioVenta);
+            this.GP_Fotografia.Controls.Add(this.BTNModificarProducto);
+            this.GP_Fotografia.Controls.Add(this.TXTDescripcion);
+            this.GP_Fotografia.Controls.Add(this.DINPrecio);
             this.GP_Fotografia.Controls.Add(this.labelX2);
             this.GP_Fotografia.Controls.Add(this.labelX1);
-            this.GP_Fotografia.Controls.Add(this.INTStock);
+            this.GP_Fotografia.Controls.Add(this.INTCantidad);
             this.GP_Fotografia.Controls.Add(this.LBLCodigoBarras);
             this.GP_Fotografia.Controls.Add(this.BTNCodigoBarras);
-            this.GP_Fotografia.Controls.Add(this.PCB_Camara);
+            this.GP_Fotografia.Controls.Add(this.PCBFoto);
             this.GP_Fotografia.DisabledBackColor = System.Drawing.Color.Empty;
             this.GP_Fotografia.Location = new System.Drawing.Point(9, 31);
             this.GP_Fotografia.Name = "GP_Fotografia";
@@ -457,6 +463,20 @@
             this.GP_Fotografia.TabIndex = 14;
             this.GP_Fotografia.Text = "Producto";
             // 
+            // BTNLimpiarProducto
+            // 
+            this.BTNLimpiarProducto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNLimpiarProducto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNLimpiarProducto.Image = global::SistemaDeGestion2026.Properties.Resources.icLimpiar;
+            this.BTNLimpiarProducto.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.BTNLimpiarProducto.Location = new System.Drawing.Point(710, 63);
+            this.BTNLimpiarProducto.Name = "BTNLimpiarProducto";
+            this.BTNLimpiarProducto.Size = new System.Drawing.Size(112, 37);
+            this.BTNLimpiarProducto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNLimpiarProducto.TabIndex = 41;
+            this.BTNLimpiarProducto.Text = "&Limpiar";
+            this.BTNLimpiarProducto.Click += new System.EventHandler(this.BTNLimpiarProducto_Click);
+            // 
             // BTNBuscarProducto
             // 
             this.BTNBuscarProducto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -472,62 +492,67 @@
             this.BTNBuscarProducto.Text = "Buscar Producto";
             this.BTNBuscarProducto.Click += new System.EventHandler(this.BTNBuscarProducto_Click);
             // 
-            // buttonX1
+            // BTNModificarProducto
             // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonX1.Image = ((System.Drawing.Image)(resources.GetObject("buttonX1.Image")));
-            this.buttonX1.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.buttonX1.Location = new System.Drawing.Point(710, 106);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(112, 37);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 38;
-            this.buttonX1.Text = "&Salir";
+            this.BTNModificarProducto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNModificarProducto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNModificarProducto.Image = global::SistemaDeGestion2026.Properties.Resources.icModificar;
+            this.BTNModificarProducto.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.BTNModificarProducto.Location = new System.Drawing.Point(710, 106);
+            this.BTNModificarProducto.Name = "BTNModificarProducto";
+            this.BTNModificarProducto.Size = new System.Drawing.Size(112, 37);
+            this.BTNModificarProducto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNModificarProducto.TabIndex = 38;
+            this.BTNModificarProducto.Text = "&Modificar";
+            this.BTNModificarProducto.Click += new System.EventHandler(this.BTNModificarProducto_Click);
             // 
-            // TXTObservaciones
+            // TXTDescripcion
             // 
-            this.TXTObservaciones.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.TXTObservaciones.Border.Class = "TextBoxBorder";
-            this.TXTObservaciones.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXTObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TXTObservaciones.DisabledBackColor = System.Drawing.Color.White;
-            this.TXTObservaciones.ForeColor = System.Drawing.Color.Black;
-            this.TXTObservaciones.Location = new System.Drawing.Point(142, 37);
-            this.TXTObservaciones.Multiline = true;
-            this.TXTObservaciones.Name = "TXTObservaciones";
-            this.TXTObservaciones.PreventEnterBeep = true;
-            this.TXTObservaciones.Size = new System.Drawing.Size(562, 106);
-            this.TXTObservaciones.TabIndex = 37;
-            this.TXTObservaciones.WatermarkText = "Observaciones";
-            // 
-            // DINPrecioVenta
+            this.TXTDescripcion.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
+            this.TXTDescripcion.Border.Class = "TextBoxBorder";
+            this.TXTDescripcion.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TXTDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TXTDescripcion.DisabledBackColor = System.Drawing.Color.White;
+            this.TXTDescripcion.Enabled = false;
+            this.TXTDescripcion.ForeColor = System.Drawing.Color.Black;
+            this.TXTDescripcion.Location = new System.Drawing.Point(142, 37);
+            this.TXTDescripcion.Multiline = true;
+            this.TXTDescripcion.Name = "TXTDescripcion";
+            this.TXTDescripcion.PreventEnterBeep = true;
+            this.TXTDescripcion.Size = new System.Drawing.Size(562, 106);
+            this.TXTDescripcion.TabIndex = 37;
+            this.TXTDescripcion.WatermarkText = "Descripción de producto";
             // 
-            this.DINPrecioVenta.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.DINPrecioVenta.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.DINPrecioVenta.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.DINPrecioVenta.Increment = 1D;
-            this.DINPrecioVenta.InputMouseWheelEnabled = false;
-            this.DINPrecioVenta.Location = new System.Drawing.Point(593, 9);
-            this.DINPrecioVenta.Name = "DINPrecioVenta";
-            this.DINPrecioVenta.ShowUpDown = true;
-            this.DINPrecioVenta.Size = new System.Drawing.Size(111, 22);
-            this.DINPrecioVenta.TabIndex = 36;
+            // DINPrecio
+            // 
+            // 
+            // 
+            // 
+            this.DINPrecio.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.DINPrecio.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.DINPrecio.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.DINPrecio.Enabled = false;
+            this.DINPrecio.Increment = 1D;
+            this.DINPrecio.InputMouseWheelEnabled = false;
+            this.DINPrecio.Location = new System.Drawing.Point(593, 9);
+            this.DINPrecio.MinValue = 1D;
+            this.DINPrecio.Name = "DINPrecio";
+            this.DINPrecio.ShowUpDown = true;
+            this.DINPrecio.Size = new System.Drawing.Size(111, 22);
+            this.DINPrecio.TabIndex = 36;
+            this.DINPrecio.Value = 1D;
             // 
             // labelX2
             // 
+            this.labelX2.BackColor = System.Drawing.Color.Transparent;
             // 
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(538, 9);
+            this.labelX2.Location = new System.Drawing.Point(549, 9);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(49, 22);
             this.labelX2.TabIndex = 35;
@@ -535,31 +560,34 @@
             // 
             // labelX1
             // 
+            this.labelX1.BackColor = System.Drawing.Color.Transparent;
             // 
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(359, 8);
+            this.labelX1.Location = new System.Drawing.Point(368, 8);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(61, 23);
             this.labelX1.TabIndex = 34;
             this.labelX1.Text = "Cantidad:";
             // 
-            // INTStock
+            // INTCantidad
             // 
             // 
             // 
             // 
-            this.INTStock.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.INTStock.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.INTStock.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.INTStock.Increment = 0;
-            this.INTStock.IsInputReadOnly = true;
-            this.INTStock.Location = new System.Drawing.Point(426, 9);
-            this.INTStock.Name = "INTStock";
-            this.INTStock.ShowUpDown = true;
-            this.INTStock.Size = new System.Drawing.Size(106, 22);
-            this.INTStock.TabIndex = 33;
+            this.INTCantidad.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.INTCantidad.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.INTCantidad.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.INTCantidad.Enabled = false;
+            this.INTCantidad.Location = new System.Drawing.Point(426, 9);
+            this.INTCantidad.MaxValue = 50;
+            this.INTCantidad.MinValue = 1;
+            this.INTCantidad.Name = "INTCantidad";
+            this.INTCantidad.ShowUpDown = true;
+            this.INTCantidad.Size = new System.Drawing.Size(106, 22);
+            this.INTCantidad.TabIndex = 33;
+            this.INTCantidad.Value = 1;
             // 
             // LBLCodigoBarras
             // 
@@ -591,15 +619,15 @@
             this.BTNCodigoBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BTNCodigoBarras_KeyPress);
             this.BTNCodigoBarras.Leave += new System.EventHandler(this.BTNCodigoBarras_Leave);
             // 
-            // PCB_Camara
+            // PCBFoto
             // 
-            this.PCB_Camara.Image = global::SistemaDeGestion2026.Properties.Resources.gif_no_camara2;
-            this.PCB_Camara.Location = new System.Drawing.Point(11, 8);
-            this.PCB_Camara.Name = "PCB_Camara";
-            this.PCB_Camara.Size = new System.Drawing.Size(125, 135);
-            this.PCB_Camara.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PCB_Camara.TabIndex = 0;
-            this.PCB_Camara.TabStop = false;
+            this.PCBFoto.Image = global::SistemaDeGestion2026.Properties.Resources.NoImagen;
+            this.PCBFoto.Location = new System.Drawing.Point(11, 8);
+            this.PCBFoto.Name = "PCBFoto";
+            this.PCBFoto.Size = new System.Drawing.Size(125, 135);
+            this.PCBFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PCBFoto.TabIndex = 0;
+            this.PCBFoto.TabStop = false;
             // 
             // BTN_Salir
             // 
@@ -619,7 +647,7 @@
             // 
             this.BTN_Limpiar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTN_Limpiar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTN_Limpiar.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Limpiar.Image")));
+            this.BTN_Limpiar.Image = global::SistemaDeGestion2026.Properties.Resources.icLimpiar1;
             this.BTN_Limpiar.ImageFixedSize = new System.Drawing.Size(30, 30);
             this.BTN_Limpiar.Location = new System.Drawing.Point(361, 504);
             this.BTN_Limpiar.Name = "BTN_Limpiar";
@@ -679,9 +707,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).EndInit();
             this.CMSMenu.ResumeLayout(false);
             this.GP_Fotografia.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DINPrecioVenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.INTStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PCB_Camara)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DINPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INTCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCBFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -695,18 +723,18 @@
         private DevComponents.DotNetBar.Controls.GroupPanel GP_Fotografia;
         private DevComponents.DotNetBar.LabelX LBLCodigoBarras;
         private DevComponents.DotNetBar.ButtonX BTNCodigoBarras;
-        private System.Windows.Forms.PictureBox PCB_Camara;
+        private System.Windows.Forms.PictureBox PCBFoto;
         private DevComponents.DotNetBar.ButtonX BTN_Salir;
         private DevComponents.DotNetBar.ButtonX BTN_Limpiar;
         private DevComponents.DotNetBar.ButtonX BTN_Grabar;
         private DevComponents.DotNetBar.Controls.SwitchButton SWB_Estado;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXTObservaciones;
-        private DevComponents.Editors.DoubleInput DINPrecioVenta;
+        private DevComponents.DotNetBar.ButtonX BTNModificarProducto;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXTDescripcion;
+        private DevComponents.Editors.DoubleInput DINPrecio;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.Editors.IntegerInput INTStock;
+        private DevComponents.Editors.IntegerInput INTCantidad;
         private DevComponents.DotNetBar.ButtonX BTNBuscarProducto;
         private System.Windows.Forms.DataGridView DTGLista;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
@@ -723,5 +751,6 @@
         private System.Windows.Forms.ToolStripMenuItem inhabilitarToolStripMenuItem;
         private DevComponents.DotNetBar.LabelX LBLTotalNumeral;
         private DevComponents.DotNetBar.LabelX LBLTotalLiteral;
+        private DevComponents.DotNetBar.ButtonX BTNLimpiarProducto;
     }
 }

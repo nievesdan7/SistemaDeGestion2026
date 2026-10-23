@@ -273,6 +273,36 @@ namespace SistemaDeGestion2026.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icLimpiar {
+            get {
+                object obj = ResourceManager.GetObject("icLimpiar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icLimpiar1 {
+            get {
+                object obj = ResourceManager.GetObject("icLimpiar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icModificar {
+            get {
+                object obj = ResourceManager.GetObject("icModificar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ico_okey2 {
             get {
                 object obj = ResourceManager.GetObject("ico_okey2", resourceCulture);
@@ -526,6 +556,16 @@ namespace SistemaDeGestion2026.Properties {
         internal static System.Drawing.Bitmap icons8_visible_80 {
             get {
                 object obj = ResourceManager.GetObject("icons8-visible-80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icSalir {
+            get {
+                object obj = ResourceManager.GetObject("icSalir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

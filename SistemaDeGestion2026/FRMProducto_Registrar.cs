@@ -45,7 +45,6 @@ namespace SistemaDeGestion2026
 
         private bool VerificarIntegridad()
         {
-
         
             bool respuesta = true;
 
@@ -53,11 +52,14 @@ namespace SistemaDeGestion2026
             aproduc producto2 = new aproduc();
             producto2.capdcodbar = LBLCodigoBarras.Text;
 
-            if (producto2.ObtenerDatosCodigo(modificar, producto.capdcodbar))
+            if(LBLCodigoBarras.Text != "SIN CODIGO")
             {
-                MessageBox.Show("El código de barras ya existe", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                LBLCodigoBarras.Focus();
-                respuesta = false;
+                if (producto2.ObtenerDatosCodigo(modificar, producto.capdcodbar))
+                {
+                    MessageBox.Show("El código de barras ya existe", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    LBLCodigoBarras.Focus();
+                    respuesta = false;
+                }
             }
 
             else if (TXT_Modelo.Text.Replace(" ", "") == "")
@@ -354,11 +356,12 @@ namespace SistemaDeGestion2026
                                         "Mensaje",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
-                        LimpiarCasillas();
+                        
                         this.actualizar = true;
-                        this.FormClosing -= FRM_Producto_Registrar_FormClosing;
+                        this.FormClosing -= FRM_Producto_Registrar_FormClosing;                        
                         ApagarCamara();
                         this.Close();
+                        LimpiarCasillas();
                     }
                     else
                     {
@@ -376,11 +379,12 @@ namespace SistemaDeGestion2026
                                         "Mensaje",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
-                        LimpiarCasillas();
+                       
                         this.actualizar = true;
-                        this.FormClosing -= FRM_Producto_Registrar_FormClosing;
+                        this.FormClosing -= FRM_Producto_Registrar_FormClosing;                        
                         ApagarCamara();
                         this.Close();
+                        LimpiarCasillas();
                     }
                     else
                     {

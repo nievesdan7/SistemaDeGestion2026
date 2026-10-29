@@ -103,7 +103,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DTG_Lista.DefaultCellStyle = dataGridViewCellStyle3;
             this.DTG_Lista.EnableHeadersVisualStyles = false;
-            this.DTG_Lista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.DTG_Lista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.DTG_Lista.Location = new System.Drawing.Point(72, 106);
             this.DTG_Lista.MultiSelect = false;
             this.DTG_Lista.Name = "DTG_Lista";

@@ -145,29 +145,9 @@
     <value>True</value>
   </metadata>
   <metadata name="CMSMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>11, 6</value>
+    <value>8, 10</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BTN_Salir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAA0hJREFUeF7tnUtqlFEUhDsOEgU3oNlhfAzNDhScOHDkyD04EFcQzcDHJgTBkUYR
-        R7EOVMNPcfumu/1vc/7ifPCB4H1UHZo86E73qiiKoiiKoiiKwoLr1eoEPoYf4C94vRAja2R+CI9ZJycI
-        eAq/wFaRJfkZnrJWLhAsHskOQ177CeZ7ZCNUfLloBV6yD1gvDwh1KSEdfM96eUCoKwnp4BXr5aER0kLW
-        y4MGdJH18qABXWS9PGhAF1kvDxrQRdbLgwZ0kfXyoAFdZL08aEAXWS8PGtBF1suDBnSR9fKgAV1kvTxo
-        QBdZLw8a0EXWy4MGdJH18qABXWS9PGhAF1mvCxbdga9gPMH7HT6HJ/zvecHBzaBLl/W6YFEMWfe+hfMP
-        Wy6xkfU2ggVHcNOzS/MPWy6wkfW6YNHP6R5x3mHL4TayXhcsejHd03C+YcvBNrJeFyyK17TEMJtn0HmG
-        LYfayHo3goXH8M163wbfwdvcsh9yoI2stxVYPH7YcpiNrLc12DB22HKQjay3E9g0bthyiI2stzPYOGbY
-        coCNrLcX2Dz/sGXzaP/CJ/A+rx/G5M6Rbv+jn2wc7TmvHU7j7lE+45V9GhtHeo/XDqdx9yi/8co+jY0j
-        Hf4lY03j7lF+5ZV9GhtH6vil4ymv7NPYONL4ZngO65uhi6y3F9i8+B/vDibr7Qw21i8su8h6O4FN9Sv4
-        rrLe1mDDuCEHcpCNrLcVWDx2yIEcZiPr3QgWjh9yIAfayHpdsKieyvpfWa8LFr2c7mk4z5ADOdhG1tsI
-        FtyCv9frG8435EAOt5H1NoIFMeg/6/XivEMO5AIbWa8LFr2e7qHzDzmQS2xkvS5YdBfGsOORHS8PixfU
-        zD/kAAc3gy5d1tsKLD7iP8cxDeck6+VBA7rIennQgC6yXh40oIuslwcN6CLr5UEDush6edCALrJeHjSg
-        i6yXBw3oIuvlQQO6yHp50IAusl4eNKCLrJcHDegi6+VBA7rIenlAIsc3gf3BenlAqHjb9lbYJXvBenlA
-        qEcS0sEz1ssDQsVrG+K98VuBl+hHmPNDFRAsPkzBYdgx5IP9VcFeIGC8NCo+YuMCLukbZGSNzGcw98eD
-        FEVRFEVRFEVRHJbV6h9oM8PvwXi9iAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="BTN_Grabar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -215,7 +195,13 @@
         +Qq3FQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="PRDRecibo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>115, 7</value>
+  </metadata>
+  <metadata name="PDGDialogo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 7</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>38</value>
+    <value>47</value>
   </metadata>
 </root>

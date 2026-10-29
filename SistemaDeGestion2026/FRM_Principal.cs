@@ -17,6 +17,9 @@ namespace SistemaDeGestion2026
         #region Variables
         public aususis usuario = new aususis();
         public aperson persona = new aperson();
+
+        public static string codigoUsuario="";
+
         #endregion
 
         #region Constructor
@@ -84,6 +87,8 @@ namespace SistemaDeGestion2026
             banner.ShowDialog();
             this.Opacity = 1;
             Estado_1();
+            RTB_Inventario.Enabled = true;
+
         }
         private void BTN_Personas_Click(object sender, EventArgs e)
         {
@@ -207,5 +212,9 @@ namespace SistemaDeGestion2026
         }
         #endregion
 
+        private void metroStatusBar1_ItemClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -88,6 +88,7 @@ namespace SistemaDeGestion2026
                                                       "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         login_exitoso = true;
                         actualizar_password = true;
+                        FRM_Principal.codigoUsuario = usuario.pauscodusu;
                         this.Close();
                     }
                 }
@@ -101,6 +102,7 @@ namespace SistemaDeGestion2026
                                                       "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         login_exitoso = true;
                         actualizar_password = false;
+                        FRM_Principal.codigoUsuario = usuario.pauscodusu;
                         this.Close();
                     }
                 }

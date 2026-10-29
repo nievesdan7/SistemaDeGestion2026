@@ -191,84 +191,182 @@ namespace CapaRN
 
                     return true;
                 } 
-            } 
+            }
+            public bool Grabar(List<liteven> Lista)
+            {
+                this.Conexion.Conectar();
+                string sql = "insert into aiteven (" +
+                                               "caivpreuni," +
+                                               "caivestite," +
+                                               "caivcanite," +
+                                               "caivsubtot," +
+                                               "faivcodpro," +
+                                               "faivcodven," +
+                                               "paivcodite" +
+                                               ") " +
+                              "values ";
+
+                foreach (liteven item in Lista)
+                {
+                    sql += "(" +
+                            "@caivpreuni," +
+                            "@caivestite," +
+                            "@caivcanite," +
+                            "@caivsubtot," +
+                            "@faivcodpro," +
+                            "@faivcodven," +
+                            "@paivcodite" +
+                            "),";
+                    this.Conexion.PrepararComando(sql);
+                    this.Conexion.AsignarParametroDecimal("@caivpreuni", item.caivpreuni);
+                    this.Conexion.AsignarParametroLogico("@caivestite", item.caivestite);
+                    this.Conexion.AsignarParametroEntero("@caivcanite", item.caivcanite);
+                    this.Conexion.AsignarParametroDecimal("@caivsubtot", item.caivsubtot);
+                    this.Conexion.AsignarParametroCadena("@faivcodpro", item.faivcodpro);
+                    this.Conexion.AsignarParametroCadena("@faivcodven", item.faivcodven);
+                    this.Conexion.AsignarParametroCadena("@paivcodite", item.paivcodite);
+                    sql = this.Conexion.GetComandoSQL();
+                }
+
+                sql = sql.Substring(0, sql.Length - 1) + ";";
+                this.Conexion.PrepararComando(sql);
+
+                try
+                {
+                    this.Conexion.EjecutarTransaccion();
+                    this.Conexion.Desconectar();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    this.Conexion.Desconectar();
+                    return false;
+                }
+            }
             public bool Modificar()
-            { 
-                if (!this.VerificarExistencia())
+                    { 
+                        if (!this.VerificarExistencia())
+                        {
+                            return false;
+                        }
+                        else 
+                        { 
+                            this.Conexion.Conectar();
+			                string sql = "update aiteven set " +
+                                                             "caivpreuni = @caivpreuni, " +
+                                                             "caivestite = @caivestite, " +
+                                                             "caivcanite = @caivcanite, " +
+                                                             "caivsubtot = @caivsubtot, " +
+                                                             "faivcodpro = @faivcodpro, " +
+                                                             "faivcodven = @faivcodven" +
+                                         " where " +
+                                                "paivcodite = @paivcodite";
+ 
+                        this.Conexion.PrepararComando(sql); 
+
+                            this.Conexion.AsignarParametroDecimal("@caivpreuni",this._caivpreuni);
+                            this.Conexion.AsignarParametroLogico("@caivestite",this._caivestite);
+                            this.Conexion.AsignarParametroEntero("@caivcanite",this._caivcanite);
+                            this.Conexion.AsignarParametroDecimal("@caivsubtot",this._caivsubtot);
+                            this.Conexion.AsignarParametroCadena("@faivcodpro",this._faivcodpro);
+                            this.Conexion.AsignarParametroCadena("@faivcodven",this._faivcodven);
+                            this.Conexion.AsignarParametroCadena("@paivcodite",this._paivcodite);
+
+                            this.Conexion.EjecutarTransaccion();
+                            this.Conexion.Desconectar();
+
+                            return true;
+                        }
+                    }
+            public bool Modificar(List<liteven> Lista)
+            {
+                if (Lista == null || Lista.Count == 0)
                 {
                     return false;
                 }
-                else 
-                { 
+
+                try
+                {
                     this.Conexion.Conectar();
-			        string sql = "update aiteven set " +
-                                                     "caivpreuni = @caivpreuni, " +
-                                                     "caivestite = @caivestite, " +
-                                                     "caivcanite = @caivcanite, " +
-                                                     "caivsubtot = @caivsubtot, " +
-                                                     "faivcodpro = @faivcodpro, " +
-                                                     "faivcodven = @faivcodven" +
-                                 " where " +
-                                        "paivcodite = @paivcodite";
- 
-                this.Conexion.PrepararComando(sql); 
 
-                    this.Conexion.AsignarParametroDecimal("@caivpreuni",this._caivpreuni);
-                    this.Conexion.AsignarParametroLogico("@caivestite",this._caivestite);
-                    this.Conexion.AsignarParametroEntero("@caivcanite",this._caivcanite);
-                    this.Conexion.AsignarParametroDecimal("@caivsubtot",this._caivsubtot);
-                    this.Conexion.AsignarParametroCadena("@faivcodpro",this._faivcodpro);
-                    this.Conexion.AsignarParametroCadena("@faivcodven",this._faivcodven);
-                    this.Conexion.AsignarParametroCadena("@paivcodite",this._paivcodite);
+                    string sql = @"UPDATE aiteven SET 
+                            caivpreuni = @caivpreuni, 
+                            caivestite = @caivestite, 
+                            caivcanite = @caivcanite, 
+                            caivsubtot = @caivsubtot, 
+                            faivcodpro = @faivcodpro, 
+                            faivcodven = @faivcodven
+                         WHERE 
+                            paivcodite = @paivcodite;";
 
-                    this.Conexion.EjecutarTransaccion();
+                    foreach (liteven item in Lista)
+                    {
+                        // Preparamos el comando e ingresamos los parámetros correspondientes a CADA 'item'
+                        this.Conexion.PrepararComando(sql);
+
+                        this.Conexion.AsignarParametroDecimal("@caivpreuni", item.caivpreuni);
+                        this.Conexion.AsignarParametroLogico("@caivestite", item.caivestite);
+                        this.Conexion.AsignarParametroEntero("@caivcanite", item.caivcanite);
+                        this.Conexion.AsignarParametroDecimal("@caivsubtot", item.caivsubtot);
+                        this.Conexion.AsignarParametroCadena("@faivcodpro", item.faivcodpro);
+                        this.Conexion.AsignarParametroCadena("@faivcodven", item.faivcodven);
+                        this.Conexion.AsignarParametroCadena("@paivcodite", item.paivcodite);
+
+                        // Ejecuta el UPDATE individual dentro de la misma conexión
+                        this.Conexion.EjecutarTransaccion();
+                    }
+
                     this.Conexion.Desconectar();
-
                     return true;
+                }
+                catch (Exception ex)
+                {
+                    this.Conexion.Desconectar();
+                    return false;
                 }
             }
             public List<aiteven> Lista(string where)
-            { 
-                List<aiteven> ListaResultado = new List<aiteven>();
-                this.Conexion.Conectar(); 
-			    string sql = "select " + 
-                                     "caivpreuni," +
-                                     "caivestite," +
-                                     "caivcanite," +
-                                     "caivsubtot," +
-                                     "faivcodpro," +
-                                     "faivcodven," +
-                                     "paivcodite " + 
-                             "from aiteven " ;
+                { 
+                    List<aiteven> ListaResultado = new List<aiteven>();
+                    this.Conexion.Conectar(); 
+			        string sql = "select " + 
+                                         "caivpreuni," +
+                                         "caivestite," +
+                                         "caivcanite," +
+                                         "caivsubtot," +
+                                         "faivcodpro," +
+                                         "faivcodven," +
+                                         "paivcodite " + 
+                                 "from aiteven " ;
  
-                if (where.Replace(" ", "") != "")
-                {
-                    sql+= "where " + where;
-                }
-
- 
-                this.Conexion.PrepararComando(sql); 
-                DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
-
-                if (ResultadoConsulta!=null)
-                {
-                    while (ResultadoConsulta.Read())
+                    if (where.Replace(" ", "") != "")
                     {
-                          aiteven Auxiliar = new aiteven();
-                          Auxiliar.caivpreuni = ResultadoConsulta.GetDecimal(0);
-                          Auxiliar.caivestite = ResultadoConsulta.GetBoolean(1);
-                          Auxiliar.caivcanite = ResultadoConsulta.GetInt32(2);
-                          Auxiliar.caivsubtot = ResultadoConsulta.GetDecimal(3);
-                          Auxiliar.faivcodpro = ResultadoConsulta.GetString(4);
-                          Auxiliar.faivcodven = ResultadoConsulta.GetString(5);
-                          Auxiliar.paivcodite = ResultadoConsulta.GetString(6);
-                          ListaResultado.Add(Auxiliar);
+                        sql+= "where " + where;
                     }
 
-                }
-                this.Conexion.Desconectar();
-                return ListaResultado;
-            } 
+ 
+                    this.Conexion.PrepararComando(sql); 
+                    DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+                    if (ResultadoConsulta!=null)
+                    {
+                        while (ResultadoConsulta.Read())
+                        {
+                              aiteven Auxiliar = new aiteven();
+                              Auxiliar.caivpreuni = ResultadoConsulta.GetDecimal(0);
+                              Auxiliar.caivestite = ResultadoConsulta.GetBoolean(1);
+                              Auxiliar.caivcanite = ResultadoConsulta.GetInt32(2);
+                              Auxiliar.caivsubtot = ResultadoConsulta.GetDecimal(3);
+                              Auxiliar.faivcodpro = ResultadoConsulta.GetString(4);
+                              Auxiliar.faivcodven = ResultadoConsulta.GetString(5);
+                              Auxiliar.paivcodite = ResultadoConsulta.GetString(6);
+                              ListaResultado.Add(Auxiliar);
+                        }
+
+                    }
+                    this.Conexion.Desconectar();
+                    return ListaResultado;
+                } 
         #endregion 
 
 	}

@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMVenta_Registrar));
             this.GP_Panel_Producto = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.TXTObservaciones = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.BTN_Salir = new DevComponents.DotNetBar.ButtonX();
             this.LBLTotalNumeral = new DevComponents.DotNetBar.LabelX();
             this.LBLTotalLiteral = new DevComponents.DotNetBar.LabelX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -65,10 +67,11 @@
             this.LBLCodigoBarras = new DevComponents.DotNetBar.LabelX();
             this.BTNCodigoBarras = new DevComponents.DotNetBar.ButtonX();
             this.PCBFoto = new System.Windows.Forms.PictureBox();
-            this.BTN_Salir = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Limpiar = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Grabar = new DevComponents.DotNetBar.ButtonX();
             this.SWB_Estado = new DevComponents.DotNetBar.Controls.SwitchButton();
+            this.PRDRecibo = new System.Drawing.Printing.PrintDocument();
+            this.PDGDialogo = new System.Windows.Forms.PrintDialog();
             this.GP_Panel_Producto.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).BeginInit();
@@ -84,6 +87,8 @@
             this.GP_Panel_Producto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.GP_Panel_Producto.CanvasColor = System.Drawing.SystemColors.Control;
             this.GP_Panel_Producto.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.GP_Panel_Producto.Controls.Add(this.TXTObservaciones);
+            this.GP_Panel_Producto.Controls.Add(this.BTN_Salir);
             this.GP_Panel_Producto.Controls.Add(this.LBLTotalNumeral);
             this.GP_Panel_Producto.Controls.Add(this.LBLTotalLiteral);
             this.GP_Panel_Producto.Controls.Add(this.groupPanel1);
@@ -91,7 +96,6 @@
             this.GP_Panel_Producto.Controls.Add(this.BTNBuscar);
             this.GP_Panel_Producto.Controls.Add(this.TXTNombreCliente);
             this.GP_Panel_Producto.Controls.Add(this.GP_Fotografia);
-            this.GP_Panel_Producto.Controls.Add(this.BTN_Salir);
             this.GP_Panel_Producto.Controls.Add(this.BTN_Limpiar);
             this.GP_Panel_Producto.Controls.Add(this.BTN_Grabar);
             this.GP_Panel_Producto.Controls.Add(this.SWB_Estado);
@@ -99,7 +103,7 @@
             this.GP_Panel_Producto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GP_Panel_Producto.Location = new System.Drawing.Point(0, 0);
             this.GP_Panel_Producto.Name = "GP_Panel_Producto";
-            this.GP_Panel_Producto.Size = new System.Drawing.Size(869, 576);
+            this.GP_Panel_Producto.Size = new System.Drawing.Size(867, 631);
             // 
             // 
             // 
@@ -130,6 +134,39 @@
             this.GP_Panel_Producto.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.GP_Panel_Producto.TabIndex = 1;
             this.GP_Panel_Producto.Text = "Venta";
+            // 
+            // TXTObservaciones
+            // 
+            this.TXTObservaciones.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.TXTObservaciones.Border.Class = "TextBoxBorder";
+            this.TXTObservaciones.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TXTObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TXTObservaciones.DisabledBackColor = System.Drawing.Color.White;
+            this.TXTObservaciones.ForeColor = System.Drawing.Color.Black;
+            this.TXTObservaciones.Location = new System.Drawing.Point(9, 488);
+            this.TXTObservaciones.Multiline = true;
+            this.TXTObservaciones.Name = "TXTObservaciones";
+            this.TXTObservaciones.PreventEnterBeep = true;
+            this.TXTObservaciones.Size = new System.Drawing.Size(707, 111);
+            this.TXTObservaciones.TabIndex = 38;
+            this.TXTObservaciones.WatermarkText = "Observaciones";
+            // 
+            // BTN_Salir
+            // 
+            this.BTN_Salir.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTN_Salir.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTN_Salir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BTN_Salir.Image = global::SistemaDeGestion2026.Properties.Resources.icSalir1;
+            this.BTN_Salir.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.BTN_Salir.Location = new System.Drawing.Point(722, 566);
+            this.BTN_Salir.Name = "BTN_Salir";
+            this.BTN_Salir.Size = new System.Drawing.Size(131, 33);
+            this.BTN_Salir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTN_Salir.TabIndex = 17;
+            this.BTN_Salir.Text = "&Salir";
             // 
             // LBLTotalNumeral
             // 
@@ -384,7 +421,7 @@
             this.BTNBuscar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNBuscar.Image = global::SistemaDeGestion2026.Properties.Resources.icons8_búsqueda_961;
             this.BTNBuscar.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.BTNBuscar.Location = new System.Drawing.Point(825, 5);
+            this.BTNBuscar.Location = new System.Drawing.Point(828, 5);
             this.BTNBuscar.Margin = new System.Windows.Forms.Padding(0);
             this.BTNBuscar.Name = "BTNBuscar";
             this.BTNBuscar.Size = new System.Drawing.Size(25, 23);
@@ -431,7 +468,7 @@
             this.GP_Fotografia.DisabledBackColor = System.Drawing.Color.Empty;
             this.GP_Fotografia.Location = new System.Drawing.Point(9, 31);
             this.GP_Fotografia.Name = "GP_Fotografia";
-            this.GP_Fotografia.Size = new System.Drawing.Size(841, 177);
+            this.GP_Fotografia.Size = new System.Drawing.Size(844, 177);
             // 
             // 
             // 
@@ -629,32 +666,19 @@
             this.PCBFoto.TabIndex = 0;
             this.PCBFoto.TabStop = false;
             // 
-            // BTN_Salir
-            // 
-            this.BTN_Salir.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTN_Salir.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTN_Salir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTN_Salir.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Salir.Image")));
-            this.BTN_Salir.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTN_Salir.Location = new System.Drawing.Point(703, 504);
-            this.BTN_Salir.Name = "BTN_Salir";
-            this.BTN_Salir.Size = new System.Drawing.Size(150, 44);
-            this.BTN_Salir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTN_Salir.TabIndex = 17;
-            this.BTN_Salir.Text = "&Salir";
-            // 
             // BTN_Limpiar
             // 
             this.BTN_Limpiar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTN_Limpiar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTN_Limpiar.Image = global::SistemaDeGestion2026.Properties.Resources.icLimpiar1;
             this.BTN_Limpiar.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTN_Limpiar.Location = new System.Drawing.Point(361, 504);
+            this.BTN_Limpiar.Location = new System.Drawing.Point(722, 527);
             this.BTN_Limpiar.Name = "BTN_Limpiar";
-            this.BTN_Limpiar.Size = new System.Drawing.Size(150, 44);
+            this.BTN_Limpiar.Size = new System.Drawing.Size(131, 33);
             this.BTN_Limpiar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTN_Limpiar.TabIndex = 16;
             this.BTN_Limpiar.Text = "&Limpiar";
+            this.BTN_Limpiar.Click += new System.EventHandler(this.BTN_Limpiar_Click);
             // 
             // BTN_Grabar
             // 
@@ -662,12 +686,13 @@
             this.BTN_Grabar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTN_Grabar.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Grabar.Image")));
             this.BTN_Grabar.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTN_Grabar.Location = new System.Drawing.Point(9, 504);
+            this.BTN_Grabar.Location = new System.Drawing.Point(722, 488);
             this.BTN_Grabar.Name = "BTN_Grabar";
-            this.BTN_Grabar.Size = new System.Drawing.Size(150, 44);
+            this.BTN_Grabar.Size = new System.Drawing.Size(131, 33);
             this.BTN_Grabar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTN_Grabar.TabIndex = 15;
             this.BTN_Grabar.Text = "&Grabar";
+            this.BTN_Grabar.Click += new System.EventHandler(this.BTNGrabar_Click);
             // 
             // SWB_Estado
             // 
@@ -689,11 +714,19 @@
             this.SWB_Estado.Value = true;
             this.SWB_Estado.ValueObject = "Y";
             // 
+            // PRDRecibo
+            // 
+            this.PRDRecibo.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PRDRecibo_PrintPage);
+            // 
+            // PDGDialogo
+            // 
+            this.PDGDialogo.UseEXDialog = true;
+            // 
             // FRMVenta_Registrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 576);
+            this.ClientSize = new System.Drawing.Size(867, 631);
             this.Controls.Add(this.GP_Panel_Producto);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -701,6 +734,7 @@
             this.Name = "FRMVenta_Registrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRMVentaRegistrar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRMVenta_Registrar_FormClosing);
             this.Load += new System.EventHandler(this.FRMVenta_Registrar_Load);
             this.GP_Panel_Producto.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
@@ -752,5 +786,8 @@
         private DevComponents.DotNetBar.LabelX LBLTotalNumeral;
         private DevComponents.DotNetBar.LabelX LBLTotalLiteral;
         private DevComponents.DotNetBar.ButtonX BTNLimpiarProducto;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXTObservaciones;
+        private System.Drawing.Printing.PrintDocument PRDRecibo;
+        private System.Windows.Forms.PrintDialog PDGDialogo;
     }
 }

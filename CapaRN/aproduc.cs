@@ -488,7 +488,7 @@ namespace CapaRN
                                      " where " +
                                             "papdcodpro = @papdcodpro";
  
-                    this.Conexion.PrepararComando(sql); 
+                        this.Conexion.PrepararComando(sql); 
 
                         this.Conexion.AsignarParametroDecimal("@capdpreven",this._capdpreven);
                         this.Conexion.AsignarParametroDecimal("@capdpremin",this._capdpremin);
@@ -610,8 +610,30 @@ namespace CapaRN
                 this.Conexion.Desconectar();
                 return ListaResultado;
             }
+            public bool actualizarStock(List<aproduc> listaProductos)
+            {
+                this.Conexion.Conectar();
+                string sql = "";
+                foreach (aproduc producto in listaProductos)
+                {
+                    sql += "update aproduc set " +
+                                 "capdstopro = @capdstopro " +
+                                 "where " +
+                                 "papdcodpro = @papdcodpro;";
+                    this.Conexion.PrepararComando(sql);
+                    this.Conexion.AsignarParametroEntero("@capdstopro", producto.capdstopro);
+                    this.Conexion.AsignarParametroCadena("@papdcodpro", producto.papdcodpro);
+
+                    sql =this.Conexion.ObtenerSQL();
+                }
+                this.Conexion.EjecutarTransaccion();
+                this.Conexion.Desconectar();
+                return true;
+        }
+
+
         #endregion
-       
+
     }
 }
 

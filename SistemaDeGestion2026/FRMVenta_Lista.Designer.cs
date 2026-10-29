@@ -47,14 +47,14 @@
             this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DTGLista = new System.Windows.Forms.DataGridView();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
-            this.Column7 = new DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn();
-            this.Column8 = new DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EPN_Opciones.SuspendLayout();
             this.expandablePanel1.SuspendLayout();
             this.groupPanelBusqueda.SuspendLayout();
@@ -308,13 +308,13 @@
             this.DTGLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DTGLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column9,
-            this.Column3,
             this.Column2,
-            this.Column1,
             this.Column4,
-            this.Column5,
             this.Column6,
+            this.Column5,
             this.Column7,
+            this.Column1,
+            this.Column3,
             this.Column8});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -341,79 +341,98 @@
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "Còdigo";
+            this.Column9.HeaderText = "Código";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Visible = false;
             // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.FillWeight = 119.0927F;
-            this.Column3.HeaderText = "Modelo";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // Column2
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Cod. Bar.";
+            this.Column2.CheckBoxPosition = DevComponents.DotNetBar.eCheckBoxPosition.Top;
+            this.Column2.Checked = true;
+            this.Column2.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.Column2.CheckValue = "N";
+            this.Column2.HeaderText = "Estado";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Nombre";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // Column4
             // 
-            this.Column4.HeaderText = "Talla";
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Fec. Cre.";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 50;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "Usu. Cre.";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.HeaderText = "Descripción";
+            // 
+            // 
+            // 
+            this.Column5.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
+            this.Column5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Column5.HeaderText = "Fec. Mod.";
+            this.Column5.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.Column5.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Column5.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            // 
+            // 
+            // 
+            this.Column5.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Column5.MonthCalendar.DisplayMonth = new System.DateTime(2026, 10, 1, 0, 0, 0, 0);
+            this.Column5.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.Column5.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // Column6
-            // 
-            // 
-            // 
-            // 
-            this.Column6.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.Column6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.Column6.HeaderText = "Cantidad";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
             // Column7
             // 
-            // 
-            // 
-            // 
-            this.Column7.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.Column7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.Column7.HeaderText = "Precio";
-            this.Column7.Increment = 1D;
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.HeaderText = "Usu. Mod.";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            // 
+            // 
+            // 
+            this.Column1.BackgroundStyle.Class = "DataGridViewNumericBorder";
+            this.Column1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Column1.HeaderText = "Monto";
+            this.Column1.Increment = 1D;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Observación";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // Column8
             // 
-            // 
-            // 
-            // 
-            this.Column8.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.Column8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.Column8.HeaderText = "Subtotal";
-            this.Column8.Increment = 1D;
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column8.HeaderText = "Cliente";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
@@ -431,6 +450,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRMVenta_Lista";
             this.Text = "FRMVentaLista";
+            this.Load += new System.EventHandler(this.FRMVenta_Lista_Load);
             this.EPN_Opciones.ResumeLayout(false);
             this.expandablePanel1.ResumeLayout(false);
             this.groupPanelBusqueda.ResumeLayout(false);
@@ -457,13 +477,13 @@
         private System.Windows.Forms.ToolStripMenuItem habilitarToolStripMenuItem;
         private System.Windows.Forms.DataGridView DTGLista;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn Column6;
-        private DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn Column7;
-        private DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }

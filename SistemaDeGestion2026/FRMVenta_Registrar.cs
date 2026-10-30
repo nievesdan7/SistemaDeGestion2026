@@ -422,8 +422,7 @@ namespace SistemaDeGestion2026
                         this.actualizar = true;
                         this.FormClosing -= FRMVenta_Registrar_FormClosing;
                         this.Close();
-                        FRMVenta_Lista a= new FRMVenta_Lista();
-                        a.ActualizarGrid();
+                        
 
                 }
                     else
@@ -480,69 +479,138 @@ namespace SistemaDeGestion2026
         {
             int inicioX = 10;
             int finalX = 290;
-            int inicioY = 60;
+            int anchoUtil = finalX - inicioX; // 280px de ancho disponible
+            int inicioY = 20;
 
-            e.Graphics.DrawString("Nombre de la Empresa", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new PointF(inicioX + 20, inicioY));
-            e.Graphics.DrawString("Teléfono: 123456789", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 20, inicioY + 20));
-            e.Graphics.DrawString("Bermejo-Tarija-Bolivia", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 20, inicioY + 40));
-            e.Graphics.DrawString("RECIBO DE VENTA", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, new PointF(inicioX+20, inicioY+60));
+            // Fuentes y Pinceles (reutilizables para optimizar recursos)
+            Font fontTitulo = new Font("Arial", 10, FontStyle.Bold);
+            Font fontSubtitulo = new Font("Arial", 12, FontStyle.Bold);
+            Font fontBold = new Font("Arial", 8, FontStyle.Bold);
+            Font fontRegular = new Font("Arial", 8, FontStyle.Regular);
 
-            e.Graphics.DrawLine(Pens.Black, new Point(inicioX, inicioY+80), new Point(finalX, inicioY + 80));
+            StringFormat formatoCentro = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            StringFormat formatoIzquierda = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+            StringFormat formatoDerecha = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center };
 
-            e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy"), new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 20, inicioY + 100));
-            e.Graphics.DrawString("Hora: " + DateTime.Now.ToString("HH:mm:ss"), new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 20, inicioY + 120));
-            e.Graphics.DrawString("Cliente: " + cliente.caclrazcli, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 20, inicioY + 140));
-            e.Graphics.DrawString("NIT: " + cliente.caclnitcli, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 20, inicioY + 160));
+            // --- ENCABEZADO ---
+            e.Graphics.DrawString("SISTEMA GESTIÓN 2026", fontTitulo, Brushes.Black, new Rectangle(inicioX, inicioY, anchoUtil, 15), formatoCentro);
 
-            e.Graphics.DrawLine(Pens.Black, new Point(inicioX, inicioY + 180), new Point(finalX, inicioY + 180));
+            e.Graphics.DrawString("Teléfono: 123456789", fontRegular, Brushes.Black, new Rectangle(inicioX, inicioY + 18, anchoUtil, 13), formatoCentro);
 
-            e.Graphics.DrawString("CANT.", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new PointF(inicioX, inicioY + 200));
-            e.Graphics.DrawString("CONCEPTO", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new PointF(inicioX + 45, inicioY + 200));
-            e.Graphics.DrawString("P.U.", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new PointF(inicioX + 180, inicioY + 200));
-            e.Graphics.DrawString("IMPORTE", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new PointF(inicioX + 220, inicioY + 200));
+            e.Graphics.DrawString("Bermejo - Tarija - Bolivia", fontRegular, Brushes.Black, new Rectangle(inicioX, inicioY + 32, anchoUtil, 13), formatoCentro);
 
-            e.Graphics.DrawLine(Pens.Black, new Point(inicioX, inicioY + 220), new Point(finalX, inicioY + 220));
+            e.Graphics.DrawString("RECIBO DE VENTA", fontSubtitulo, Brushes.Black, new Rectangle(inicioX, inicioY + 50, anchoUtil, 18), formatoCentro);
 
-            int espacioY = inicioY+240;
+            // Línea separadora
+            int currentY = inicioY + 75;
+            e.Graphics.DrawLine(Pens.Black, new Point(inicioX, currentY), new Point(finalX, currentY));
+
+            // --- DATOS DEL CLIENTE Y FECHA ---
+            currentY += 10;
+            e.Graphics.DrawString("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy"), fontRegular, Brushes.Black, new PointF(inicioX, currentY));
+            e.Graphics.DrawString("Hora: " + DateTime.Now.ToString("HH:mm:ss"), fontRegular, Brushes.Black, new PointF(inicioX + 150, currentY));
+
+            currentY += 15;
+            e.Graphics.DrawString("Cliente: " + cliente.caclrazcli, fontRegular, Brushes.Black, new PointF(inicioX, currentY));
+            e.Graphics.DrawString("NIT/CI: " + cliente.caclnitcli, fontRegular, Brushes.Black, new PointF(inicioX+150, currentY));
+
+
+            // Línea separadora
+            currentY += 20;
+            e.Graphics.DrawLine(Pens.Black, new Point(inicioX, currentY), new Point(finalX, currentY));
+
+            // --- CABECERA DE TABLA ---
+            currentY += 5;
+            e.Graphics.DrawString("CANT.", fontBold, Brushes.Black, new PointF(inicioX, currentY));
+            e.Graphics.DrawString("CONCEPTO", fontBold, Brushes.Black, new PointF(inicioX + 40, currentY));
+            e.Graphics.DrawString("P.U.", fontBold, Brushes.Black, new RectangleF(inicioX + 170, currentY, 45, 13), formatoDerecha);
+            e.Graphics.DrawString("IMPORTE", fontBold, Brushes.Black, new RectangleF(inicioX + 220, currentY, 60, 13), formatoDerecha);
+
+            currentY += 15;
+            e.Graphics.DrawLine(Pens.Black, new Point(inicioX, currentY), new Point(finalX, currentY));
+
+            // --- DETALLE DE PRODUCTOS ---
+            currentY += 5;
+
+            // Definición precisa de las columnas
+            float posX_Cant = inicioX;
+            float posX_Concepto = inicioX + 35;
+            float anchoConcepto = 130; // Limita la descripción a la columna de concepto
 
             foreach (var i in listaItems)
             {
-                e.Graphics.DrawString(i.caivcanite.ToString(), new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX, espacioY));
-                e.Graphics.DrawString(i.capdnompro, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 45, espacioY));
-                e.Graphics.DrawString(i.caivpreuni.ToString("N2"), new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 180, espacioY));
-                e.Graphics.DrawString(i.caivsubtot.ToString("N2"), new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new PointF(inicioX + 240, espacioY));
-                espacioY += 20;
+                // 1. Imprimir datos de la línea principal (Cantidad, Nombre, P.U., Subtotal)
+                e.Graphics.DrawString(i.caivcanite.ToString(), fontRegular, Brushes.Black, new PointF(posX_Cant, currentY));
+
+                // Nombre recortado si supera el ancho de la columna
+                string nombreProducto = i.capdnompro.Length > 20 ? i.capdnompro.Substring(0, 18) + ".." : i.capdnompro;
+                e.Graphics.DrawString(nombreProducto, fontRegular, Brushes.Black, new PointF(posX_Concepto, currentY));
+
+                e.Graphics.DrawString(i.caivpreuni.ToString("N2"), fontRegular, Brushes.Black, new RectangleF(inicioX + 165, currentY, 50, 13), formatoDerecha);
+                e.Graphics.DrawString(i.caivsubtot.ToString("N2"), fontRegular, Brushes.Black, new RectangleF(inicioX + 220, currentY, 60, 13), formatoDerecha);
+
+                // 2. Imprimir Descripción Completa justo debajo del CONCEPTO con ajuste multilínea
+                if (!string.IsNullOrWhiteSpace(i.capddespro))
+                {
+                    currentY += 13; // Bajar a la siguiente línea
+
+                    string descripcion = "(" + i.capddespro.Trim() + ")";
+
+                    // Área delimitada solo para el concepto (Evita invadir los precios a la derecha)
+                    SizeF areaLimite = new SizeF(anchoConcepto, 1000);
+                    SizeF tamanoTexto = e.Graphics.MeasureString(descripcion, fontRegular, areaLimite);
+
+                    RectangleF rectDescripcion = new RectangleF(posX_Concepto, currentY, anchoConcepto, tamanoTexto.Height);
+
+                    // Dibujar el texto completo en bloque multilínea
+                    e.Graphics.DrawString(descripcion, fontRegular, Brushes.Gray, rectDescripcion);
+
+                    // Incrementar la posición Y según el alto que tomó el texto dibujado
+                    currentY += (int)Math.Ceiling(tamanoTexto.Height);
+                }
+                else
+                {
+                    currentY += 15;
+                }
+
+                currentY += 3; // Margen de separación entre productos
             }
 
-            e.Graphics.DrawLine(Pens.Black, new Point(inicioX, espacioY), new Point(finalX, espacioY));
+            // Línea de cierre de items
+            e.Graphics.DrawLine(Pens.Black, new Point(inicioX, currentY), new Point(finalX, currentY));
 
-            e.Graphics.DrawString("TOTAL: " + total.ToString("N2"), new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new PointF(inicioX + 180, espacioY+20));
+            // --- TOTAL ---
+            currentY += 10;
+            e.Graphics.DrawString("TOTAL: " + total.ToString("N2"), fontSubtitulo, Brushes.Black, new RectangleF(inicioX, currentY, anchoUtil, 18), formatoDerecha);
 
-
-            int tamanoPixel = 3; // Tamaño de cada "pixel" del código QR
-            // 1. Generar la matriz del código QR
+            // --- CÓDIGO QR ---
+            currentY += 25;
+            int tamanoPixel = 2; // Reducido a 2px para mantener un tamaño adecuado en papel térmico
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode("Hola Mundo XD!!!!!!", QRCodeGenerator.ECCLevel.Q);
 
-            // 2. Iterar sobre la matriz de datos para pintar los bloques
+            int qrWidth = qrCodeData.ModuleMatrix.Count * tamanoPixel;
+            int qrX = inicioX + (anchoUtil - qrWidth) / 2; // Centrar el QR horizontalmente
+
             using (Brush pincelNegro = new SolidBrush(Color.Black))
             {
                 for (int row = 0; row < qrCodeData.ModuleMatrix.Count; row++)
                 {
                     for (int col = 0; col < qrCodeData.ModuleMatrix[row].Length; col++)
                     {
-                        // Si el bit es verdadero (1), se pinta un cuadro negro
                         if (qrCodeData.ModuleMatrix[row][col])
                         {
-                            e.Graphics.FillRectangle(pincelNegro,
-                                inicioX + (col * tamanoPixel),
-                                espacioY+40 + (row * tamanoPixel),
-                                tamanoPixel,
-                                tamanoPixel);
+                            e.Graphics.FillRectangle(pincelNegro, qrX + (col * tamanoPixel), currentY + (row * tamanoPixel), tamanoPixel, tamanoPixel);
                         }
                     }
                 }
             }
+            // Liberación de recursos Font
+            fontTitulo.Dispose();
+            fontSubtitulo.Dispose();
+            fontBold.Dispose();
+            fontRegular.Dispose();
+
         }
     }
 }

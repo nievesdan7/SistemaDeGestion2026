@@ -67,9 +67,13 @@ namespace SistemaDeGestion2026
         private void BTN_Registrar_Click(object sender, EventArgs e)
         {
             FRMVenta_Registrar a = new FRMVenta_Registrar();
-            
+            a.modificar = false;
             a.ShowDialog();
-           
+            if (a.actualizar)
+            {
+                ActualizarGrid();
+            }
+
         }
         private void BTN_Modificar_Click(object sender, EventArgs e)
         {

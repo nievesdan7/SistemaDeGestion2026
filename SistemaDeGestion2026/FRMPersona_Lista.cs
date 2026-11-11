@@ -204,9 +204,22 @@ namespace SistemaDeGestion2026
                 e.Cancel = true;
             }
         }
+
         #endregion
 
-       
+        private void BTN_Reporte_Click(object sender, EventArgs e)
+        {
+            xreport reporte = new xreport();
+            reporte.titulo = "Reporte de Productos";
+            reporte.descripcion = "Listado de Productos registrados en el sistema surmarket";
+            reporte.hoja = false;
+            reporte.orientacion = true;
+            reporte.letra = 12;
+            int col = 8;
+            float[] anchoColumnas = { 15, 15, 10, 20, 20, 28, 12, 10 };
+            List<string> titulosColumnas = new List<string>() { "Código", "Estado", "Cédula", "Apellido Paterno", "Apellido Materno", "Nombres", "Nacimiento", "Sexo" };
+            reporte.generarReporte(col, anchoColumnas, titulosColumnas, lista_personas);
+        }
     }
 
 }

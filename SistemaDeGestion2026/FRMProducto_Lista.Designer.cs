@@ -260,6 +260,7 @@
             this.BTN_Reporte.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTN_Reporte.TabIndex = 6;
             this.BTN_Reporte.Text = "Reporte";
+            this.BTN_Reporte.Click += new System.EventHandler(this.BTN_Reporte_Click);
             // 
             // BTN_Modificar
             // 

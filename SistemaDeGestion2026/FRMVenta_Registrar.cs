@@ -487,13 +487,17 @@ namespace SistemaDeGestion2026
             Font fontSubtitulo = new Font("Arial", 12, FontStyle.Bold);
             Font fontBold = new Font("Arial", 8, FontStyle.Bold);
             Font fontRegular = new Font("Arial", 8, FontStyle.Regular);
+            Font fontRegularSmall = new Font("Arial", 7, FontStyle.Italic);
 
             StringFormat formatoCentro = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             StringFormat formatoIzquierda = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
             StringFormat formatoDerecha = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center };
 
+            e.Graphics.DrawImage(Resources.ic_prueba2, new Rectangle(inicioX, inicioY, 65, 50));
+
+
             // --- ENCABEZADO ---
-            e.Graphics.DrawString("SISTEMA GESTIÓN 2026", fontTitulo, Brushes.Black, new Rectangle(inicioX, inicioY, anchoUtil, 15), formatoCentro);
+            e.Graphics.DrawString("SISTEMA GESTION 2026", fontTitulo, Brushes.Black, new Rectangle(inicioX, inicioY, anchoUtil, 15), formatoCentro);
 
             e.Graphics.DrawString("Teléfono: 123456789", fontRegular, Brushes.Black, new Rectangle(inicioX, inicioY + 18, anchoUtil, 13), formatoCentro);
 
@@ -501,8 +505,10 @@ namespace SistemaDeGestion2026
 
             e.Graphics.DrawString("RECIBO DE VENTA", fontSubtitulo, Brushes.Black, new Rectangle(inicioX, inicioY + 50, anchoUtil, 18), formatoCentro);
 
+            e.Graphics.DrawString("Código: "+venta.pavpcodven, fontTitulo,Brushes.Black,new Rectangle(inicioX,inicioY+68, anchoUtil, 18),formatoCentro);
+
             // Línea separadora
-            int currentY = inicioY + 75;
+            int currentY = inicioY + 93;
             e.Graphics.DrawLine(Pens.Black, new Point(inicioX, currentY), new Point(finalX, currentY));
 
             // --- DATOS DEL CLIENTE Y FECHA ---
@@ -558,12 +564,12 @@ namespace SistemaDeGestion2026
 
                     // Área delimitada solo para el concepto (Evita invadir los precios a la derecha)
                     SizeF areaLimite = new SizeF(anchoConcepto, 1000);
-                    SizeF tamanoTexto = e.Graphics.MeasureString(descripcion, fontRegular, areaLimite);
+                    SizeF tamanoTexto = e.Graphics.MeasureString(descripcion, fontRegularSmall, areaLimite);
 
                     RectangleF rectDescripcion = new RectangleF(posX_Concepto, currentY, anchoConcepto, tamanoTexto.Height);
 
                     // Dibujar el texto completo en bloque multilínea
-                    e.Graphics.DrawString(descripcion, fontRegular, Brushes.Gray, rectDescripcion);
+                    e.Graphics.DrawString(descripcion, fontRegularSmall, Brushes.Black, rectDescripcion);
 
                     // Incrementar la posición Y según el alto que tomó el texto dibujado
                     currentY += (int)Math.Ceiling(tamanoTexto.Height);
@@ -587,7 +593,7 @@ namespace SistemaDeGestion2026
             currentY += 25;
             int tamanoPixel = 2; // Reducido a 2px para mantener un tamaño adecuado en papel térmico
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("Hola Mundo XD!!!!!!", QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode("https://www.uajms.edu.bo/oferta-academica/facultad-de-ciencias-integradas-de-bermejo/", QRCodeGenerator.ECCLevel.Q);
 
             int qrWidth = qrCodeData.ModuleMatrix.Count * tamanoPixel;
             int qrX = inicioX + (anchoUtil - qrWidth) / 2; // Centrar el QR horizontalmente

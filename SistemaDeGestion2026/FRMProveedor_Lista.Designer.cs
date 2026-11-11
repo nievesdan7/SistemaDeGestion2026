@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
             this.groupPanelBusqueda = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.BTN_Buscar = new DevComponents.DotNetBar.ButtonX();
             this.TXT_Filtrar = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.IIN_Filas = new DevComponents.Editors.IntegerInput();
             this.DTG_Lista = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -45,6 +44,7 @@
             this.dir = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EPN_Opciones = new DevComponents.DotNetBar.ExpandablePanel();
+            this.BTN_Buscar = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Reporte = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Modificar = new DevComponents.DotNetBar.ButtonX();
             this.BTN_Registrar = new DevComponents.DotNetBar.ButtonX();
@@ -123,19 +123,6 @@
             this.groupPanelBusqueda.TabIndex = 14;
             this.groupPanelBusqueda.Text = "Búsqueda";
             // 
-            // BTN_Buscar
-            // 
-            this.BTN_Buscar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTN_Buscar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTN_Buscar.Image = global::SistemaDeGestion2026.Properties.Resources.icons8_búsqueda_96;
-            this.BTN_Buscar.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.BTN_Buscar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTN_Buscar.Location = new System.Drawing.Point(272, 12);
-            this.BTN_Buscar.Name = "BTN_Buscar";
-            this.BTN_Buscar.Size = new System.Drawing.Size(25, 23);
-            this.BTN_Buscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTN_Buscar.TabIndex = 14;
-            // 
             // TXT_Filtrar
             // 
             this.TXT_Filtrar.BackColor = System.Drawing.Color.White;
@@ -213,7 +200,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DTG_Lista.DefaultCellStyle = dataGridViewCellStyle3;
             this.DTG_Lista.EnableHeadersVisualStyles = false;
-            this.DTG_Lista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.DTG_Lista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.DTG_Lista.Location = new System.Drawing.Point(65, 106);
             this.DTG_Lista.MultiSelect = false;
             this.DTG_Lista.Name = "DTG_Lista";
@@ -315,6 +302,19 @@
             this.EPN_Opciones.TitleStyleMouseDown.BackColor1.Color = System.Drawing.Color.Transparent;
             this.EPN_Opciones.TitleText = "Opciones";
             // 
+            // BTN_Buscar
+            // 
+            this.BTN_Buscar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTN_Buscar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTN_Buscar.Image = global::SistemaDeGestion2026.Properties.Resources.icons8_búsqueda_96;
+            this.BTN_Buscar.ImageFixedSize = new System.Drawing.Size(20, 20);
+            this.BTN_Buscar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.BTN_Buscar.Location = new System.Drawing.Point(272, 12);
+            this.BTN_Buscar.Name = "BTN_Buscar";
+            this.BTN_Buscar.Size = new System.Drawing.Size(25, 23);
+            this.BTN_Buscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTN_Buscar.TabIndex = 14;
+            // 
             // BTN_Reporte
             // 
             this.BTN_Reporte.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -362,7 +362,7 @@
             this.BTN_Registrar.Text = "Registrar ";
             this.BTN_Registrar.Click += new System.EventHandler(this.BTN_Registrar_Click);
             // 
-            // FRM_Proveedor_Lista
+            // FRMProveedor_Lista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -375,7 +375,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FRM_Proveedor_Lista";
+            this.Name = "FRMProveedor_Lista";
             this.Text = "FRM_Proveedor_Lista";
             this.Load += new System.EventHandler(this.FRM_Proveedor_Lista_Load);
             this.expandablePanel1.ResumeLayout(false);

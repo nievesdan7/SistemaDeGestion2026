@@ -223,8 +223,21 @@ namespace SistemaDeGestion2026
 
             }
         }
+
         #endregion
 
-
+        private void BTN_Reporte_Click(object sender, EventArgs e)
+        {
+            xreport reporte = new xreport();
+            reporte.titulo = "Reporte de Usuarios";
+            reporte.descripcion = "Listado de Usuarios registrados en el sistema surmarket";
+            reporte.hoja = false;
+            reporte.orientacion = true;
+            reporte.letra = 12;
+            int col = 5;
+            float[] anchoColumnas = { 30,20,20,60,20 };
+            List<string> titulosColumnas = new List<string>() { "Código", "Estado" ,"Documento","Nombre Completo", "Login"};
+            reporte.generarReporte(col, anchoColumnas, titulosColumnas, lista_usuarios);
+        }
     }
 }

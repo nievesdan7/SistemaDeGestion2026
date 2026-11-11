@@ -79,6 +79,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\DigitalPersona\One Touch SDK\.NET\Bin\DPFPVerNET.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.11, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.10.0.11\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -574,6 +578,8 @@
     <None Include="Resources\icLimpiar.png" />
     <None Include="Resources\icLimpiar1.png" />
     <None Include="Resources\icSalir1.png" />
+    <Content Include="Resources\ic_prueba2.png" />
+    <Content Include="Resources\logoPrueba.jpg" />
     <Content Include="Resources\NoImagen.png" />
     <Content Include="Resources\NoImagen1.png" />
   </ItemGroup>
